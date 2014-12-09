@@ -6,9 +6,309 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 Dec 2014 02:02:00 +0700</pubDate>
-    <lastBuildDate>Sun, 07 Dec 2014 02:02:00 +0700</lastBuildDate>
+    <pubDate>Tue, 09 Dec 2014 14:36:58 +0700</pubDate>
+    <lastBuildDate>Tue, 09 Dec 2014 14:36:58 +0700</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
+    
+      <item>
+        <title>Experimental citation analyst</title>
+        <description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Programing Language: Python, Rscript, Javascript&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://neo4j.com/&quot;&gt;Neo4j&lt;/a&gt; as backend database.&lt;/li&gt;
+  &lt;li&gt;[parse_patent][parse_patent] to extract xml info.&lt;/li&gt;
+  &lt;li&gt;[generate_csv][generate_csv] to produce csv&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://gephi.github.io/&quot;&gt;Gephi&lt;/a&gt; to visualize citation network&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.rstudio.com/&quot;&gt;RStudio&lt;/a&gt; for statistics.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://py2neo.org/2.0/&quot;&gt;Py2neo&lt;/a&gt; as handy wrap-around library to initiate connection with Neo4j&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;analytical-objective&quot;&gt;Analytical Objective&lt;/h1&gt;
+&lt;ol&gt;
+  &lt;li&gt;How is the citation network of patents ?&lt;/li&gt;
+  &lt;li&gt;Which country has the most inventors participating in patern industry of US ?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;extracting-data&quot;&gt;1. Extracting Data&lt;/h1&gt;
+
+&lt;p&gt;This experiment based on &lt;a href=&quot;http://storage.googleapis.com/patents/grant_full_text/2014/ipg141007.zip&quot;&gt;USPTO&lt;/a&gt; patent data. Firstly, we might need to parse the xml file to obtain desired results. Since …, xml files retrieved from the site are  no longer a list of xml files but a combination of multiple xml instances, I wrote &lt;code&gt;parse_patent&lt;/code&gt; to extract information, an option &lt;code&gt;-s&lt;/code&gt; to specify the number of xml instances should be retrieved. &lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(env)MACs-MacBook-Pro:citation_network mac$ ./parse_patent.py 
+[Usage:] parse_patent.py -i &amp;lt;inputfile.xml&amp;gt;
+(env)MACs-MacBook-Pro:citation_network mac$ ./parse_patent.py -i ipg141007.xml 
+Starting [.........] Done! Total  100  patents
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;populating-data&quot;&gt;2. Populating Data&lt;/h1&gt;
+&lt;p&gt;Upon completion, &lt;code&gt;parse_patent&lt;/code&gt; would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It’s time to call &lt;code&gt;generate_csv&lt;/code&gt; to produce some texts, I chose &lt;code&gt;csv&lt;/code&gt; as it’s common and easy to manipulate and visualize.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(env)MACs-MacBook-Pro:citation_network mac$ ./generate_csv.py 
+Writing inventors to csv succeeded !
+Writing patents to csv succeeded !
+Writing inventor_to_patent links to csv succeed !
+Writing patent_to_patent links to csv succeed !
+Successfully populated inventors and patents to nodes_network.csv
+Successfully populated links between nodes_network.csv to links_network.csv
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;visualization&quot;&gt;3. Visualization&lt;/h1&gt;
+&lt;p&gt;Finally, we have &lt;code&gt;nodes_network.csv&lt;/code&gt; and &lt;code&gt;links_network.csv&lt;/code&gt;, place it inside Gephi to produce citation networks.
+&lt;img src=&quot;/../figs/2014-12-09-experimental-citation-analyst/citation-500.png&quot; alt=&quot;title&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Group data by country using &lt;code&gt;RStudio&lt;/code&gt;, we can visualize countries with inventors:&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package --&gt;
+&lt;!-- Tue Dec  9 12:21:16 2014 --&gt;&lt;/p&gt;
+
+&lt;!-- jsHeader --&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+ 
+// jsData 
+function gvisDataGeoChartID1b004a31bf5e () {
+var data = new google.visualization.DataTable();
+var datajson =
+[
+ [
+ &quot;AR&quot;,
+1 
+],
+[
+ &quot;AT&quot;,
+2 
+],
+[
+ &quot;AU&quot;,
+9 
+],
+[
+ &quot;BR&quot;,
+1 
+],
+[
+ &quot;CA&quot;,
+18 
+],
+[
+ &quot;CH&quot;,
+4 
+],
+[
+ &quot;CN&quot;,
+28 
+],
+[
+ &quot;CZ&quot;,
+2 
+],
+[
+ &quot;DE&quot;,
+27 
+],
+[
+ &quot;DK&quot;,
+1 
+],
+[
+ &quot;FI&quot;,
+5 
+],
+[
+ &quot;FR&quot;,
+11 
+],
+[
+ &quot;GB&quot;,
+3 
+],
+[
+ &quot;HK&quot;,
+3 
+],
+[
+ &quot;IL&quot;,
+3 
+],
+[
+ &quot;IS&quot;,
+2 
+],
+[
+ &quot;IT&quot;,
+6 
+],
+[
+ &quot;JP&quot;,
+57 
+],
+[
+ &quot;KP&quot;,
+1 
+],
+[
+ &quot;KR&quot;,
+105 
+],
+[
+ &quot;NL&quot;,
+7 
+],
+[
+ &quot;NO&quot;,
+10 
+],
+[
+ &quot;NZ&quot;,
+2 
+],
+[
+ &quot;SE&quot;,
+10 
+],
+[
+ &quot;SG&quot;,
+2 
+],
+[
+ &quot;TW&quot;,
+33 
+],
+[
+ &quot;US&quot;,
+460 
+],
+[
+ &quot;VE&quot;,
+1 
+],
+[
+ &quot;VN&quot;,
+1 
+],
+[
+ &quot;ZA&quot;,
+2 
+] 
+];
+data.addColumn(&#39;string&#39;,&#39;Country&#39;);
+data.addColumn(&#39;number&#39;,&#39;No.Inventors&#39;);
+data.addRows(datajson);
+return(data);
+}
+ 
+// jsDrawChart
+function drawChartGeoChartID1b004a31bf5e() {
+var data = gvisDataGeoChartID1b004a31bf5e();
+var options = {};
+options[&quot;width&quot;] =    700;
+options[&quot;height&quot;] =    400;
+options[&quot;projection&quot;] = &quot;kavrayskiy-vii&quot;;
+options[&quot;colorAxis&quot;] = {colors:[&#39;#91BFDB&#39;, &#39;#FC8D59&#39;]};
+
+
+    var chart = new google.visualization.GeoChart(
+    document.getElementById(&#39;GeoChartID1b004a31bf5e&#39;)
+    );
+    chart.draw(data,options);
+    
+
+}
+  
+ 
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = &quot;geochart&quot;;
+  
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage &amp;&amp; i &lt; pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
+  pkgs.push(chartid);
+  
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChartGeoChartID1b004a31bf5e);
+})();
+function displayChartGeoChartID1b004a31bf5e() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
+  window.__gvisLoad = setTimeout(function() {
+  var pkgCount = pkgs.length;
+  google.load(&quot;visualization&quot;, &quot;1&quot;, { packages:pkgs, callback: function() {
+  if (pkgCount != pkgs.length) {
+  // Race condition where another setTimeout call snuck in after us; if
+  // that call added a package, we must not shift its callback
+  return;
+}
+while (callbacks.length &gt; 0)
+callbacks.shift()();
+} });
+}, 100);
+}
+ 
+// jsFooter
+&lt;/script&gt;
+
+&lt;!-- jsChart --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.google.com/jsapi?callback=displayChartGeoChartID1b004a31bf5e&quot;&gt;&lt;/script&gt;
+
+&lt;!-- divChart --&gt;
+
+&lt;div id=&quot;GeoChartID1b004a31bf5e&quot; style=&quot;width: 556; height: 347;&quot;&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;future-works&quot;&gt;4. Future Works&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;generate_csv.py&lt;/code&gt; is currently communicated with &lt;code&gt;Neo4j&lt;/code&gt; through restful API and creates &lt;code&gt;csv&lt;/code&gt;. It would be more convenient to implement an independent program that works with multiple databases and produce wide ranges of output types such as &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;geojson&lt;/code&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;As data increases, handling enormous datasets with Graph Database(E.g &lt;code&gt;Neo4j&lt;/code&gt;) proved insufficient and significant downgrade in performance . Apparently, &lt;code&gt;parse_patent.py&lt;/code&gt; can parse up to 500 xml instances, however alternative choices will be taken into consideration such as &lt;code&gt;MongoDB&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;~ Have fun digging data ! ~&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## R version 3.1.1 (2014-07-10)
+## Platform: x86_64-apple-darwin13.1.0 (64-bit)
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] googleVis_0.5.6 knitr_1.8      
+## 
+## loaded via a namespace (and not attached):
+## [1] evaluate_0.5.5 formatR_1.0    methods_3.1.1  RJSONIO_1.3-0 
+## [5] stringr_0.6.2  tools_3.1.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Tue, 09 Dec 2014 00:00:00 +0700</pubDate>
+        <link>http://yourdomain.com/jekyll/update/2014/12/09/experimental-citation-analyst.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2014/12/09/experimental-citation-analyst.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
