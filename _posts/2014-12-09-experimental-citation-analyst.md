@@ -1,11 +1,13 @@
 ---
 layout: post
-title:  "Experimental citation analyst"
+title:  "Digging Patent US Data"
 date:   2014-12-09
 categories: jekyll update
+permalink: digging-patent-us-data
 ---
 # Tools
   + Programing Language: Python, Rscript, Javascript
+  + Data Object: Patent
   + [Neo4j][neo4j] as backend database.
   + [parse_patent][parse_patent] to extract xml info.
   + [generate_csv][generate_csv] to produce csv

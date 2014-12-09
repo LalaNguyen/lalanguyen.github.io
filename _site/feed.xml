@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</description>
+    <title>Data Experimental Ground</title>
+    <description>Data Experimental Ground</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 09 Dec 2014 14:36:58 +0700</pubDate>
-    <lastBuildDate>Tue, 09 Dec 2014 14:36:58 +0700</lastBuildDate>
+    <pubDate>Tue, 09 Dec 2014 15:18:52 +0700</pubDate>
+    <lastBuildDate>Tue, 09 Dec 2014 15:18:52 +0700</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
-        <title>Experimental citation analyst</title>
+        <title>Digging Patent US Data</title>
         <description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;Programing Language: Python, Rscript, Javascript&lt;/li&gt;
+  &lt;li&gt;Data Object: Patent&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://neo4j.com/&quot;&gt;Neo4j&lt;/a&gt; as backend database.&lt;/li&gt;
   &lt;li&gt;[parse_patent][parse_patent] to extract xml info.&lt;/li&gt;
   &lt;li&gt;[generate_csv][generate_csv] to produce csv&lt;/li&gt;
@@ -300,8 +300,8 @@ callbacks.shift()();
 
 </description>
         <pubDate>Tue, 09 Dec 2014 00:00:00 +0700</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2014/12/09/experimental-citation-analyst.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2014/12/09/experimental-citation-analyst.html</guid>
+        <link>http://yourdomain.com/digging-patent-us-data</link>
+        <guid isPermaLink="true">http://yourdomain.com/digging-patent-us-data</guid>
         
         
         <category>jekyll</category>
