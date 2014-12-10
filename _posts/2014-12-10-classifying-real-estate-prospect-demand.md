@@ -551,6 +551,12 @@ n1$show("iframesrc",cdn=TRUE)
       width: 100%;
       height: 400px;
     }
+	#special{
+	top:-150px;
+	width:25px;
+	z-index:1;
+	position:absolute;
+	}
     .bs-docs-example:after {
       content: &quot;&quot;;
       background: transparent;
@@ -563,7 +569,7 @@ n1$show("iframesrc",cdn=TRUE)
       
     &lt;div class=&#039;container&#039; ng-controller=&quot;DemoCtrl&quot; ng-init=&quot;drawChart()&quot;&gt;
   &lt;div class=&#039;row&#039;&gt;
-    &lt;div class=&#039;col-md-3&#039;&gt;
+    &lt;div id=&#039;special&#039;&gt;
       &lt;form class=&#039;well&#039;&gt;
         &lt;label&gt;&lt;b&gt;Select  x :&lt;/b&gt;&lt;/label&gt;
     		&lt;select class=&#039;form-control&#039; ng-model=&quot;opts.x.var&quot; 
