@@ -22,7 +22,7 @@ Our dataset today is not comprehensive, that leaves me quite a lot of conversion
 
 Let's prepare data for our first experiment:
 ```{r barchart1}
-mydata=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv")
+mydata=read.csv("/Users/mac/Development/env/lalanguyen.github.io/datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv")
 cdata<-data.frame(Comp.name=mydata$X.1,Country=mydata$X.2,Area=mydata$X.5)
 #Filtering meaningful data rows 
 cdata<-cdata[11:40,]
