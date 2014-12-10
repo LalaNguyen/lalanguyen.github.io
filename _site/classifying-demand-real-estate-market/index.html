@@ -83,40 +83,16 @@
 
 <p>Let’s prepare data for our first experiment:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">mydata<span class="o">=</span>read.csv<span class="p">(</span><span class="s">&quot;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Warning in file(file, &quot;rt&quot;): cannot open file
-## &#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial
-## - Active-Table 1.csv&#39;: No such file or directory</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">cdata<span class="o">&lt;-</span><span class="kt">data.frame</span><span class="p">(</span>Comp.name<span class="o">=</span>mydata<span class="o">$</span>X.1<span class="p">,</span>Country<span class="o">=</span>mydata<span class="o">$</span>X.2<span class="p">,</span>Area<span class="o">=</span>mydata<span class="o">$</span>X.5<span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in data.frame(Comp.name = mydata$X.1, Country = mydata$X.2, Area = mydata$X.5): object &#39;mydata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#Filtering meaningful data rows </span>
-cdata<span class="o">&lt;-</span>cdata<span class="p">[</span><span class="m">11</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">cdata<span class="o">=</span>cdata<span class="p">[</span><span class="m">-13</span><span class="p">,]</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#Remove unecessary column from data.frame</span>
-<span class="kp">rownames</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kc">NULL</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in rownames(cdata) &lt;- NULL: object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">names</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Company&quot;</span><span class="p">,</span><span class="s">&quot;Country&quot;</span><span class="p">,</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in names(cdata) &lt;- c(&quot;Company&quot;, &quot;Country&quot;, &quot;Area&quot;): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#As csv file&#39;s elements are all factor type and numerical value are usually presented with &#39;,&#39;,it&#39;s better to strip off the commar and convert to int for further processing.</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r">mydata<span class="o">=</span>read.csv<span class="p">(</span><span class="s">&quot;/Users/mac/Development/env/lalanguyen.github.io/datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv&quot;</span><span class="p">)</span>
+cdata<span class="o">&lt;-</span><span class="kt">data.frame</span><span class="p">(</span>Comp.name<span class="o">=</span>mydata<span class="o">$</span>X.1<span class="p">,</span>Country<span class="o">=</span>mydata<span class="o">$</span>X.2<span class="p">,</span>Area<span class="o">=</span>mydata<span class="o">$</span>X.5<span class="p">)</span>
+<span class="c1">#Filtering meaningful data rows </span>
+cdata<span class="o">&lt;-</span>cdata<span class="p">[</span><span class="m">11</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span>
+cdata<span class="o">=</span>cdata<span class="p">[</span><span class="m">-13</span><span class="p">,]</span>
+<span class="c1">#Remove unecessary column from data.frame</span>
+<span class="kp">rownames</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kc">NULL</span>
+<span class="kp">names</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Company&quot;</span><span class="p">,</span><span class="s">&quot;Country&quot;</span><span class="p">,</span><span class="s">&quot;Area&quot;</span><span class="p">)</span>
+<span class="c1">#As csv file&#39;s elements are all factor type and numerical value are usually presented with &#39;,&#39;,it&#39;s better to strip off the commar and convert to int for further processing.</span>
 cdata<span class="o">$</span>Area<span class="o">=</span><span class="kp">as.numeric</span><span class="p">(</span><span class="kp">gsub</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="kp">as.character</span><span class="p">(</span>cdata<span class="o">$</span>Area<span class="p">)))</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in gsub(&quot;,&quot;, &quot;&quot;, as.character(cdata$Area)): object &#39;cdata&#39; not found</code></pre></div>
 
 <h1 id="visualizing">2. Visualizing</h1>
 
@@ -129,128 +105,1220 @@ cdata<span class="o">$</span>Area<span class="o">=</span><span class="kp">as.num
 
 <div class="highlight"><pre><code class="language-text" data-lang="text">## Warning: package &#39;reshape2&#39; was built under R version 3.1.2</code></pre></div>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">&lt;-</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">&lt;-</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span>
+d1<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span>
+d1<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span>
+d1<span class="o">$</span>set<span class="p">(</span>width <span class="o">=</span> <span class="m">700</span><span class="p">)</span>
+d1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = &#039;utf-8&#039;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    
+    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 700px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = &#039;chart3e2a2b34103d&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+  var opts = {
+ &quot;dom&quot;: &quot;chart3e2a2b34103d&quot;,
+&quot;width&quot;:    700,
+&quot;height&quot;:    400,
+&quot;xAxis&quot;: {
+ &quot;type&quot;: &quot;addMeasureAxis&quot;,
+&quot;showPercent&quot;: false 
+},
+&quot;yAxis&quot;: {
+ &quot;type&quot;: &quot;addCategoryAxis&quot;,
+&quot;showPercent&quot;: false,
+&quot;orderRule&quot;: &quot;Area&quot; 
+},
+&quot;zAxis&quot;: [],
+&quot;colorAxis&quot;: [],
+&quot;defaultColors&quot;: [],
+&quot;layers&quot;: [],
+&quot;legend&quot;: [],
+&quot;x&quot;: &quot;Area&quot;,
+&quot;y&quot;: &quot;Company&quot;,
+&quot;groups&quot;: &quot;Country&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;id&quot;: &quot;chart3e2a2b34103d&quot; 
+},
+    data = [{&quot;Company&quot;:&quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Noegel&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Na Jin&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Company&quot;:&quot;Tamasu Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Digital Age Dental Laboratories &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Pretty Woman &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Tohin Industry Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Cystone&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Japan Plus Vietnam Co. Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Checkpoint Systems&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Sanshin Chemical Industry Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;IWK VIET NAM&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Pilosio&quot;,&quot;Country&quot;:&quot;EU&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;Dian International Trading Ltd  (Ban San Se Garment&#039;s partner)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Asia Industry Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Intermarine Supply&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2003},{&quot;Company&quot;:&quot;Kawamura Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Sunleaf&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;J-TEC Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Bericap&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:5206},{&quot;Company&quot;:&quot;Tellbe&quot;,&quot;Country&quot;:&quot;SE&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Marusan Kigata Seisakusho&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Tada Plastics Moldco&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Kaneko Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Suzuki Denso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Daito Special Wire&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Relats&quot;,&quot;Country&quot;:&quot;ES&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Gondola Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;DFG&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:1040}];
+  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+&quot;Axis&quot;]){
+      axisopts = opts[position+&quot;Axis&quot;];
+    } else axisopts = layer[position+&quot;Axis&quot;];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length &gt; 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n&lt;20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis(&quot;x&quot;, layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis(&quot;y&quot;, layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
+      z = buildAxis(&quot;z&quot;, layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
+      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
+        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
+          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
+        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
+          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty(&quot;groups&quot;)) {
+      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i&lt;2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length &gt; 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length &gt; 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>set<span class="p">(</span>width <span class="o">=</span> <span class="m">700</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
+&lt;/script&gt;
+    
+    &lt;script&gt;&lt;/script&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameborder="0" seamless="" class="rChart  dimple  " id="iframe-chart3e2a2b34103d"> </iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 <hr />
 
 <p>Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than <code>Korea</code> and <code>Germany</code> individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = &#039;utf-8&#039;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    
+    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = &#039;chart3e2a605dec64&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+  var opts = {
+ &quot;dom&quot;: &quot;chart3e2a605dec64&quot;,
+&quot;width&quot;:    800,
+&quot;height&quot;:    400,
+&quot;xAxis&quot;: {
+ &quot;type&quot;: &quot;addMeasureAxis&quot;,
+&quot;showPercent&quot;: false 
+},
+&quot;yAxis&quot;: {
+ &quot;type&quot;: &quot;addCategoryAxis&quot;,
+&quot;showPercent&quot;: false,
+&quot;orderRule&quot;: &quot;Area&quot; 
+},
+&quot;zAxis&quot;: [],
+&quot;colorAxis&quot;: [],
+&quot;defaultColors&quot;: [],
+&quot;layers&quot;: [],
+&quot;legend&quot;: [],
+&quot;x&quot;: &quot;Area&quot;,
+&quot;y&quot;: &quot;Country&quot;,
+&quot;groups&quot;: &quot;Company&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;id&quot;: &quot;chart3e2a605dec64&quot; 
+},
+    data = [{&quot;Company&quot;:&quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Noegel&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Na Jin&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Company&quot;:&quot;Tamasu Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Digital Age Dental Laboratories &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Pretty Woman &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Tohin Industry Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Cystone&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Japan Plus Vietnam Co. Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Checkpoint Systems&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Sanshin Chemical Industry Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;IWK VIET NAM&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Pilosio&quot;,&quot;Country&quot;:&quot;EU&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;Dian International Trading Ltd  (Ban San Se Garment&#039;s partner)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Asia Industry Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Intermarine Supply&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2003},{&quot;Company&quot;:&quot;Kawamura Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Sunleaf&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;J-TEC Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Bericap&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:5206},{&quot;Company&quot;:&quot;Tellbe&quot;,&quot;Country&quot;:&quot;SE&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Marusan Kigata Seisakusho&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Tada Plastics Moldco&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Kaneko Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Suzuki Denso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Daito Special Wire&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Relats&quot;,&quot;Country&quot;:&quot;ES&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Gondola Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;DFG&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:1040}];
+  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+&quot;Axis&quot;]){
+      axisopts = opts[position+&quot;Axis&quot;];
+    } else axisopts = layer[position+&quot;Axis&quot;];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length &gt; 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n&lt;20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis(&quot;x&quot;, layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis(&quot;y&quot;, layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
+      z = buildAxis(&quot;z&quot;, layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
+      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
+        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
+          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
+        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
+          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty(&quot;groups&quot;)) {
+      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i&lt;2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length &gt; 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length &gt; 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+&lt;/script&gt;
+    
+    &lt;script&gt;&lt;/script&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameborder="0" seamless="" class="rChart  dimple  " id="iframe-chart3e2a605dec64"> </iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 <hr />
 
 <p>Same results can be obtained from the bubble chart. Bubles with larger area will float higher than the rest. </p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1 <span class="o">&lt;-</span> rPlot<span class="p">(</span>Area <span class="o">~</span> Country<span class="p">,</span> data <span class="o">=</span> cdata<span class="p">,</span> color<span class="o">=</span><span class="s">&quot;Company&quot;</span> <span class="p">,</span>type <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1 <span class="o">&lt;-</span> rPlot<span class="p">(</span>Area <span class="o">~</span> Country<span class="p">,</span> data <span class="o">=</span> cdata<span class="p">,</span> color<span class="o">=</span><span class="s">&quot;Company&quot;</span> <span class="p">,</span>type <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">)</span>
+n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span>
+n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;color&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span>
+n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(i, data, env): object &#39;cdata&#39; not found</code></pre></div>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = &#039;utf-8&#039;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&#039;stylesheet&#039; href=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css&quot;&gt;
+    
+    &lt;script src=&#039;//ramnathv.github.io/rCharts/libraries/widgets/polycharts/js/polychart2.standalone.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    
+     &lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js&quot;&gt;&lt;/script&gt;
+     &lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js&quot;&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block
+      margin: auto auto;
+      width: 100%;
+      height: 400px;
+    }
+    .bs-docs-example:after {
+      content: &quot;&quot;;
+      background: transparent;
+      border: none;
+    }
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body ng-app&gt;
+      
+    &lt;div class=&#039;container&#039; ng-controller=&quot;DemoCtrl&quot; ng-init=&quot;drawChart()&quot;&gt;
+  &lt;div class=&#039;row&#039;&gt;
+    &lt;div class=&#039;col-md-3&#039;&gt;
+      &lt;form class=&#039;well&#039;&gt;
+        &lt;label&gt;&lt;b&gt;Select  x :&lt;/b&gt;&lt;/label&gt;
+    		&lt;select class=&#039;form-control&#039; ng-model=&quot;opts.x.var&quot; 
+          ng-options=&quot;ctl for ctl in controls.x.values&quot;&gt;   
+    		&lt;/select&gt;&lt;br&gt;
+        &lt;label&gt;&lt;b&gt;Select  color :&lt;/b&gt;&lt;/label&gt;
+    		&lt;select class=&#039;form-control&#039; ng-model=&quot;opts.color.var&quot; 
+          ng-options=&quot;ctl for ctl in controls.color.values&quot;&gt;   
+    		&lt;/select&gt;&lt;br&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class=&#039;col-md-9&#039;&gt;
+      &lt;div class=&quot;bs-docs-example&quot;&gt;
+        &lt;div id=&#039;chart3e2a683f3917&#039; class=&#039;rChart &#039;&gt;
+          &lt;svg&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&#039;text/javascript&#039;&gt;
+function DemoCtrl($scope){
+  $scope.chartParams = {
+ &quot;dom&quot;: &quot;chart3e2a683f3917&quot;,
+&quot;width&quot;:    700,
+&quot;height&quot;:    400,
+&quot;layers&quot;: [
+ {
+ &quot;x&quot;: &quot;Country&quot;,
+&quot;y&quot;: &quot;Area&quot;,
+&quot;data&quot;: {
+ &quot;Company&quot;: [ &quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&quot;, &quot;Noegel&quot;, &quot;Na Jin&quot;, &quot;Tamasu Co.,Ltd&quot;, &quot;Digital Age Dental Laboratories &quot;, &quot;Pretty Woman &quot;, &quot;Tohin Industry Co.,Ltd.&quot;, &quot;Cystone&quot;, &quot;Japan Plus Vietnam Co. Ltd.&quot;, &quot;Checkpoint Systems&quot;, &quot;Sanshin Chemical Industry Vietnam&quot;, &quot;IWK VIET NAM&quot;, &quot;Pilosio&quot;, &quot;Dian International Trading Ltd  (Ban San Se Garment&#039;s partner)&quot;, &quot;Asia Industry Co., Ltd&quot;, &quot;Intermarine Supply&quot;, &quot;Kawamura Sangyo Co.,Ltd.&quot;, &quot;Sunleaf&quot;, &quot;J-TEC Co.,Ltd.&quot;, &quot;Bericap&quot;, &quot;Tellbe&quot;, &quot;Marusan Kigata Seisakusho&quot;, &quot;Tada Plastics Moldco&quot;, &quot;Kaneko Sangyo Co.,Ltd.&quot;, &quot;Suzuki Denso Co., Ltd&quot;, &quot;Daito Special Wire&quot;, &quot;Relats&quot;, &quot;Gondola Kogyo&quot;, &quot;DFG&quot; ],
+&quot;Country&quot;: [ &quot;JP&quot;, &quot;DE&quot;, &quot;KR&quot;, &quot;JP&quot;, &quot;US&quot;, &quot;US&quot;, &quot;JP&quot;, &quot;DE&quot;, &quot;JP&quot;, &quot;US&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;EU&quot;, &quot;CN&quot;, &quot;JP&quot;, &quot;SG&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;DE&quot;, &quot;SE&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;JP&quot;, &quot;ES&quot;, &quot;JP&quot;, &quot;IT&quot; ],
+&quot;Area&quot;: [   2000,   1500,   4000,   2000,   2000,   2000,   1000,   2000,   1040,   1043,   3123,   1040,   3123,   1043,   1500,   2003,   1040,   1040,   1000,   5206,   1000,   1000,   2000,   2000,   1000,   2000,   1000,   1000,   1040 ] 
+},
+&quot;facet&quot;: null,
+&quot;color&quot;: &quot;Company&quot;,
+&quot;type&quot;: &quot;point&quot; 
+} 
+],
+&quot;facet&quot;: [],
+&quot;guides&quot;: [],
+&quot;coord&quot;: [],
+&quot;id&quot;: &quot;chart3e2a683f3917&quot; 
+}
+  _.each($scope.chartParams.layers, function(el){
+    el.data = polyjs.data(el.data)
+  })
+      
+  $scope.controls = {
+ &quot;x&quot;: {
+ &quot;name&quot;: &quot;x&quot;,
+&quot;value&quot;: &quot;Country&quot;,
+&quot;values&quot;: [ &quot;Company&quot;, &quot;Country&quot;, &quot;Area&quot; ],
+&quot;label&quot;: &quot;Select  x :&quot; 
+},
+&quot;color&quot;: {
+ &quot;name&quot;: &quot;color&quot;,
+&quot;value&quot;: &quot;Country&quot;,
+&quot;values&quot;: [ &quot;Company&quot;, &quot;Country&quot;, &quot;Area&quot; ],
+&quot;label&quot;: &quot;Select  color :&quot; 
+} 
+}
+  $scope.opts = $scope.chartParams.layers[0];
+    
+  $scope.drawChart = function(){
+    $scope.chart = polyjs.chart($scope.chartParams)
+	}
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;color&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+  $scope.updateChart = function(){
+    $scope.chart.make($scope.chartParams)
+	}
+		
+	$scope.$watch(&#039;opts&#039;, function(){
+	  $scope.chartParams.layers[0] = $scope.opts;
+	  $scope.updateChart();
+	}, true)
+}
+&lt;/script&gt;
+    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameborder="0" seamless="" class="rChart  polycharts  " id="iframe-chart3e2a683f3917"> </iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 <hr />
 <p>Let’s move to Inactive sheet.</p>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span>
+d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in data.frame(Enquiry_Date = mydata$X, Company = mydata$X.1, Country = mydata$X.2, : object &#39;mydata&#39; not found</code></pre></div>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = &#039;utf-8&#039;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    
+    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = &#039;chart3e2a2d64557e&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
+    &lt;script type=&quot;text/javascript&quot;&gt;
+  var opts = {
+ &quot;dom&quot;: &quot;chart3e2a2d64557e&quot;,
+&quot;width&quot;:    800,
+&quot;height&quot;:    400,
+&quot;xAxis&quot;: {
+ &quot;type&quot;: &quot;addMeasureAxis&quot;,
+&quot;showPercent&quot;: false 
+},
+&quot;yAxis&quot;: {
+ &quot;type&quot;: &quot;addCategoryAxis&quot;,
+&quot;showPercent&quot;: false,
+&quot;orderRule&quot;: &quot;Area&quot; 
+},
+&quot;zAxis&quot;: [],
+&quot;colorAxis&quot;: [],
+&quot;defaultColors&quot;: [],
+&quot;layers&quot;: [],
+&quot;legend&quot;: [],
+&quot;x&quot;: &quot;Area&quot;,
+&quot;y&quot;: &quot;Country&quot;,
+&quot;groups&quot;: &quot;Company&quot;,
+&quot;type&quot;: &quot;bar&quot;,
+&quot;id&quot;: &quot;chart3e2a2d64557e&quot; 
+},
+    data = [{&quot;Enquiry_Date&quot;:&quot;17-Nov-14&quot;,&quot;Company&quot;:&quot;Kim Hoa Ltd&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;5-May-14&quot;,&quot;Company&quot;:&quot;Sangyo Supply&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;22-Oct-14&quot;,&quot;Company&quot;:&quot;Mr. Mochizuki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;10-May-12&quot;,&quot;Company&quot;:&quot;Inoac Polymer Vietnam Co. , Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2003},{&quot;Enquiry_Date&quot;:&quot;3-Sep-14&quot;,&quot;Company&quot;:&quot;Erai Vietnam&quot;,&quot;Country&quot;:&quot;FR&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;20-Aug-14&quot;,&quot;Company&quot;:&quot;Bridge Corporation&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-14&quot;,&quot;Company&quot;:&quot;Toda Group&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Jul-14&quot;,&quot;Company&quot;:&quot;NE WHE CO., LTD&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;17-Jul-14&quot;,&quot;Company&quot;:&quot;Fico Trading &quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;15-Jul-14&quot;,&quot;Company&quot;:&quot;CSP Enterprise Ltd&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;7-Jul-14&quot;,&quot;Company&quot;:&quot;World Tech Vina&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;30-Jun-14&quot;,&quot;Company&quot;:&quot;Dynaplast&quot;,&quot;Country&quot;:&quot;ID&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;26-Jun-14&quot;,&quot;Company&quot;:&quot;DRS&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Jun-14&quot;,&quot;Company&quot;:&quot;SNL&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Yergat Foods&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Swisstec Sourcing&quot;,&quot;Country&quot;:&quot;CH&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Zephyr&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;3-Jun-14&quot;,&quot;Company&quot;:&quot;OKENSEIKO VIETNAM CO., LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-May-14&quot;,&quot;Company&quot;:&quot;Sin Hwa Dee Foodstuff Industries Pte Ltd&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Royal Spirit&quot;,&quot;Country&quot;:&quot;TW&quot;,&quot;Area&quot;:1040},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Asean&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Saydo&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Thinh Phat &quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;May-14&quot;,&quot;Company&quot;:&quot;Premco&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;2-May-14&quot;,&quot;Company&quot;:&quot;Base Group&quot;,&quot;Country&quot;:&quot;UK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Apr-14&quot;,&quot;Company&quot;:&quot;Likelion&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;18-Apr-14&quot;,&quot;Company&quot;:&quot;Sketch-Interior Design &quot;,&quot;Country&quot;:&quot;DK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Apr-14&quot;,&quot;Company&quot;:&quot;Texchem-Pack&quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Apr-14&quot;,&quot;Company&quot;:&quot;Raw Technologies&quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;2-Apr-14&quot;,&quot;Company&quot;:&quot;Moda Design&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Mar-14&quot;,&quot;Company&quot;:&quot;Wanek Furniture&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;21-Mar-14&quot;,&quot;Company&quot;:&quot;Yumark &quot;,&quot;Country&quot;:&quot;TW&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;7-Mar-14&quot;,&quot;Company&quot;:&quot;Dong A&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Mar-14&quot;,&quot;Company&quot;:&quot;Dat Vinh M&amp;E Company Limited&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Mar-14&quot;,&quot;Company&quot;:&quot;Morstar Electric&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Seikow Chemical Engineering &amp; Machinery, Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Fukuoka Tape&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Phuc Hung Co.&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Infratrol&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;1-Mar-14&quot;,&quot;Company&quot;:&quot;Toyotsu Vehitecs Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;24-Feb-14&quot;,&quot;Company&quot;:&quot;DAEHACABLE&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;21-Feb-14&quot;,&quot;Company&quot;:&quot;Shimabun Engineering Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;21-Feb-14&quot;,&quot;Company&quot;:&quot;Koryo &quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;17-Feb-14&quot;,&quot;Company&quot;:&quot;Yoshino&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;13-Feb-14&quot;,&quot;Company&quot;:&quot;Itokoki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;12-Feb-14&quot;,&quot;Company&quot;:&quot;Sanix&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Dec-13&quot;,&quot;Company&quot;:&quot;Meditec Japan&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;27-Dec-13&quot;,&quot;Company&quot;:&quot;Tokyo Paint&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;19-Dec-13&quot;,&quot;Company&quot;:&quot;Unicity&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Dec-13&quot;,&quot;Company&quot;:&quot;Fischer Asia&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;06-Dec-13&quot;,&quot;Company&quot;:&quot;Hiteso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;3-Dec-13&quot;,&quot;Company&quot;:&quot;New World Fashion&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;30-Nov-13&quot;,&quot;Company&quot;:&quot;Sin\u00a0Huat Le\u00a0Sdn. Bhd&quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;29-Nov-13&quot;,&quot;Company&quot;:&quot;One prospect from India&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;29-Nov-13&quot;,&quot;Company&quot;:&quot;H.B.C International&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Nov-13&quot;,&quot;Company&quot;:&quot;Hung Minh Co&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;20-Nov-13&quot;,&quot;Company&quot;:&quot;Tokyo Light Co&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;19-Nov-13&quot;,&quot;Company&quot;:&quot;Yamazaki Corporation&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;11-Nov-13&quot;,&quot;Company&quot;:&quot;Thinh Phat Co., Ltd. &quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;1-Nov-13&quot;,&quot;Company&quot;:&quot;Furniweb (their Italian customer)&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;31-Oct-13&quot;,&quot;Company&quot;:&quot;WB Coatings&quot;,&quot;Country&quot;:&quot;GE&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;24-Oct-13&quot;,&quot;Company&quot;:&quot;SMK Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Solimac Group&quot;,&quot;Country&quot;:&quot;TH&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Nihonhanda&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Emuge Franken&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Thermotech Engineering (PUNE) - India&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;8-Oct-13&quot;,&quot;Company&quot;:&quot;I-tak&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Sep-13&quot;,&quot;Company&quot;:&quot;CNA (Korea)&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Sep-13&quot;,&quot;Company&quot;:&quot;REDRANGER&quot;,&quot;Country&quot;:&quot;AU&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;26-Aug-13&quot;,&quot;Company&quot;:&quot;Changse&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Aug-13&quot;,&quot;Company&quot;:&quot;Daiwa Kouki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;19-Aug-13&quot;,&quot;Company&quot;:&quot;NSG&quot;,&quot;Country&quot;:&quot;UK&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;13-Aug-13&quot;,&quot;Company&quot;:&quot;Aironware Fasteners (China)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;9-Aug-13&quot;,&quot;Company&quot;:&quot;One prospect from Chao &quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;7-Aug-13&quot;,&quot;Company&quot;:&quot;One JP prospect &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Aug-13&quot;,&quot;Company&quot;:&quot;KIM ANN ENGINEERING PTE LTD&quot;,&quot;Country&quot;:&quot;TH&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-13&quot;,&quot;Company&quot;:&quot;Kitani Denki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;22-Jul-13&quot;,&quot;Company&quot;:&quot;CJ Corp&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;22-Jul-13&quot;,&quot;Company&quot;:&quot;Hanil U.S.G Vina&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;10-Jul-13&quot;,&quot;Company&quot;:&quot;Shining Labels \u2013 Hong Kong&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;05-Jul-13&quot;,&quot;Company&quot;:&quot;Microtest AG&quot;,&quot;Country&quot;:&quot;CH&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;02-Jul-13&quot;,&quot;Company&quot;:&quot;Xiamen Unique Bridal&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:20000},{&quot;Enquiry_Date&quot;:&quot;01-Jul-13&quot;,&quot;Company&quot;:&quot;OTS&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Jun-13&quot;,&quot;Company&quot;:&quot;KUWAHARA VN&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1800},{&quot;Enquiry_Date&quot;:&quot;Jun-13&quot;,&quot;Company&quot;:&quot;Gelan Textile&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-13&quot;,&quot;Company&quot;:&quot;Salcomp&quot;,&quot;Country&quot;:&quot;FI&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;Jun-13&quot;,&quot;Company&quot;:&quot;Astee Horie&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;May-13&quot;,&quot;Company&quot;:&quot;STC Hongkong&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:800},{&quot;Enquiry_Date&quot;:&quot;23-Apr-13&quot;,&quot;Company&quot;:&quot;NIKKO&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;Federal Mogul&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;Naneu Bags&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;D&amp;A Industries&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;1-Apr-13&quot;,&quot;Company&quot;:&quot;Kleen-pak&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;Mar-13&quot;,&quot;Company&quot;:&quot;Chugai-technos&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;Mar-13&quot;,&quot;Company&quot;:&quot;Regus&quot;,&quot;Country&quot;:&quot;LU&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Feb-13&quot;,&quot;Company&quot;:&quot;PPG Coatings&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Feb-13&quot;,&quot;Company&quot;:&quot;Bierens&quot;,&quot;Country&quot;:&quot;NL&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;18-Jan-13&quot;,&quot;Company&quot;:&quot;United Packaging&quot;,&quot;Country&quot;:&quot;PA&quot;,&quot;Area&quot;:6000},{&quot;Enquiry_Date&quot;:&quot;14-Dec-12&quot;,&quot;Company&quot;:&quot;SST Castings&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;Nov-12&quot;,&quot;Company&quot;:&quot;One premium wine company&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;27-Oct-12&quot;,&quot;Company&quot;:&quot;SHIRAKAWA SEISAKUSHO&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Sep-12&quot;,&quot;Company&quot;:&quot;Phu Thai CAT&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;Sep-12&quot;,&quot;Company&quot;:&quot;Okatsune&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;28-Aug-12&quot;,&quot;Company&quot;:&quot;SSLG Industrial&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;20-Aug-12&quot;,&quot;Company&quot;:&quot;Uchihashi Vietnam Co., Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;9-Aug-12&quot;,&quot;Company&quot;:&quot;Isuzu Dengyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;06-Aug-12&quot;,&quot;Company&quot;:&quot;Anh Thi Co., Ltd&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-12&quot;,&quot;Company&quot;:&quot;KODEN&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:6000},{&quot;Enquiry_Date&quot;:&quot;10-Jul-12&quot;,&quot;Company&quot;:&quot;Jyohoku Spring &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Jul-12&quot;,&quot;Company&quot;:&quot;Plasticolor&quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-12&quot;,&quot;Company&quot;:&quot;Nagae Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;12-Jun-12&quot;,&quot;Company&quot;:&quot;Fuji Chemical &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;12-Jun-12&quot;,&quot;Company&quot;:&quot;Fuji Bakelite&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;07-Jun-12&quot;,&quot;Company&quot;:&quot;Zalora / Lazada&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;06-Jun-12&quot;,&quot;Company&quot;:&quot;(Tecasin Mr. Andy Lee)&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1200},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Toho Koki Co., LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Amore Pacific&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Aggreko (Singapore) Pte Ltd&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;30-May-12&quot;,&quot;Company&quot;:&quot;DP Consulting&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;10-May-12&quot;,&quot;Company&quot;:&quot;Inoac&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;May-12&quot;,&quot;Company&quot;:&quot;Naniwa Gosei CO.,LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;May-12&quot;,&quot;Company&quot;:&quot;Perennial Design &amp; Build Pte Ltd (Singapore)&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Mar-12&quot;,&quot;Company&quot;:&quot;Shanghai Lirong Nickel Screen&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;31-Jan-12&quot;,&quot;Company&quot;:&quot;Aica Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;20-Jan-12&quot;,&quot;Company&quot;:&quot;Pharmascience &quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;18-Jan-12&quot;,&quot;Company&quot;:&quot;Vietnam Mobile Telecom Services Co. (VMS)&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;30-Nov-11&quot;,&quot;Company&quot;:&quot;Kahoku Lighting Solutions&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Oct-11&quot;,&quot;Company&quot;:&quot;Avery Dennison&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;25-Oct-11&quot;,&quot;Company&quot;:&quot;Avery Dennison&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;24-Oct-11&quot;,&quot;Company&quot;:&quot;Harada&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;14-Oct-11&quot;,&quot;Company&quot;:&quot;Kyouwa Corporation &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-11&quot;,&quot;Company&quot;:&quot;Tontec International &quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;30-Sep-11&quot;,&quot;Company&quot;:&quot;Primus International&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;22-Sep-11&quot;,&quot;Company&quot;:&quot;Chemtech&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;7-Jul-11&quot;,&quot;Company&quot;:&quot;Advance Tech Automation &quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;28-Jun-11&quot;,&quot;Company&quot;:&quot;Rheem Australia&quot;,&quot;Country&quot;:&quot;AU&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-11&quot;,&quot;Company&quot;:&quot;RF Micro Devices&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:32402},{&quot;Enquiry_Date&quot;:&quot;8-Jun-11&quot;,&quot;Company&quot;:&quot;Saveri&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;7-Apr-11&quot;,&quot;Company&quot;:&quot;Siegwerk&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;14-Mar-11&quot;,&quot;Company&quot;:&quot;BTS Wonderful Saigon Electric &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:20000}];
+  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+&quot;Axis&quot;]){
+      axisopts = opts[position+&quot;Axis&quot;];
+    } else axisopts = layer[position+&quot;Axis&quot;];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length &gt; 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n&lt;20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis(&quot;x&quot;, layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis(&quot;y&quot;, layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
+      z = buildAxis(&quot;z&quot;, layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
+      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
+        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
+          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
+        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
+          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty(&quot;groups&quot;)) {
+      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i&lt;2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length &gt; 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length &gt; 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in rownames(cdata) &lt;- NULL: object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in gsub(&quot;,&quot;, &quot;&quot;, as.character(cdata$Area)): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in cdata[116, 4] = 1000: object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Warning in file(file, &quot;rt&quot;): cannot open file
-## &#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv&#39;:
-## No such file or directory</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in melt(x, value.name = &quot;Area&quot;, variable.name = &quot;Activity&quot;, id.vars = c(&quot;Country&quot;)): object &#39;x&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;x.melt&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+&lt;/script&gt;
+    
+    &lt;script&gt;&lt;/script&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameborder="0" seamless="" class="rChart  dimple  " id="iframe-chart3e2a2d64557e"> </iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 <p>To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from <a href="http://walkerke.github.io/2014/06/rcharts-pyramids/">Walkerke’s Blog</a>. Then, we plot the chart. It’s clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>chart<span class="p">(</span>color <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;silver&#39;</span><span class="p">,</span><span class="s">&#39;red&#39;</span><span class="p">))</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>chart<span class="p">(</span>color <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;silver&#39;</span><span class="p">,</span><span class="s">&#39;red&#39;</span><span class="p">))</span>
+n1<span class="o">$</span>chart<span class="p">(</span>stacked <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+<iframe srcdoc=" &lt;!doctype HTML&gt;
+&lt;meta charset = &#039;utf-8&#039;&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&#039;stylesheet&#039; href=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css&#039;&gt;
+    
+    &lt;script src=&#039;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    &lt;script src=&#039;//nvd3.org/assets/lib/fisheye.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
+    
+    &lt;style&gt;
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 800px;
+      height: 400px;
+    }  
+    &lt;/style&gt;
+    
+  &lt;/head&gt;
+  &lt;body &gt;
+    
+    &lt;div id = &#039;chart3e2a541f8af3&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
+    &lt;script type=&#039;text/javascript&#039;&gt;
+ $(document).ready(function(){
+      drawchart3e2a541f8af3()
+    });
+    function drawchart3e2a541f8af3(){  
+      var opts = {
+ &quot;dom&quot;: &quot;chart3e2a541f8af3&quot;,
+&quot;width&quot;:    800,
+&quot;height&quot;:    400,
+&quot;x&quot;: &quot;Country&quot;,
+&quot;y&quot;: &quot;Area&quot;,
+&quot;group&quot;: &quot;Activity&quot;,
+&quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
+&quot;id&quot;: &quot;chart3e2a541f8af3&quot; 
+},
+        data = [
+ {
+ &quot;Country&quot;: &quot;AU&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -11000 
+},
+{
+ &quot;Country&quot;: &quot;CA&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -5000 
+},
+{
+ &quot;Country&quot;: &quot;CH&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -3000 
+},
+{
+ &quot;Country&quot;: &quot;CN&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -38000 
+},
+{
+ &quot;Country&quot;: &quot;DE&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -8000 
+},
+{
+ &quot;Country&quot;: &quot;DK&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -2000 
+},
+{
+ &quot;Country&quot;: &quot;FI&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -5000 
+},
+{
+ &quot;Country&quot;: &quot;FR&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -1500 
+},
+{
+ &quot;Country&quot;: &quot;GE&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -2000 
+},
+{
+ &quot;Country&quot;: &quot;HK&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -14300 
+},
+{
+ &quot;Country&quot;: &quot;ID&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -4000 
+},
+{
+ &quot;Country&quot;: &quot;IN&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -14000 
+},
+{
+ &quot;Country&quot;: &quot;IT&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -3000 
+},
+{
+ &quot;Country&quot;: &quot;JP&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -99303 
+},
+{
+ &quot;Country&quot;: &quot;KR&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -30000 
+},
+{
+ &quot;Country&quot;: &quot;LU&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -1000 
+},
+{
+ &quot;Country&quot;: &quot;MY&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -4000 
+},
+{
+ &quot;Country&quot;: &quot;NL&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -1000 
+},
+{
+ &quot;Country&quot;: &quot;PA&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -6000 
+},
+{
+ &quot;Country&quot;: &quot;SG&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -21000 
+},
+{
+ &quot;Country&quot;: &quot;TH&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -3000 
+},
+{
+ &quot;Country&quot;: &quot;TW&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -4040 
+},
+{
+ &quot;Country&quot;: &quot;UK&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:          -7000 
+},
+{
+ &quot;Country&quot;: &quot;US&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -72902 
+},
+{
+ &quot;Country&quot;: &quot;VN&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:         -33700 
+},
+{
+ &quot;Country&quot;: &quot;SE&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:             -0 
+},
+{
+ &quot;Country&quot;: &quot;EU&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:             -0 
+},
+{
+ &quot;Country&quot;: &quot;ES&quot;,
+&quot;Activity&quot;: &quot;Inactive&quot;,
+&quot;Area&quot;:             -0 
+},
+{
+ &quot;Country&quot;: &quot;AU&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;CA&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;CH&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;CN&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           1043 
+},
+{
+ &quot;Country&quot;: &quot;DE&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           8706 
+},
+{
+ &quot;Country&quot;: &quot;DK&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;FI&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;FR&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;GE&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;HK&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;ID&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;IN&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;IT&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           1040 
+},
+{
+ &quot;Country&quot;: &quot;JP&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:          23783 
+},
+{
+ &quot;Country&quot;: &quot;KR&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           4000 
+},
+{
+ &quot;Country&quot;: &quot;LU&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;MY&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;NL&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;PA&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;SG&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           2003 
+},
+{
+ &quot;Country&quot;: &quot;TH&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;TW&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;UK&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;US&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           5043 
+},
+{
+ &quot;Country&quot;: &quot;VN&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:              0 
+},
+{
+ &quot;Country&quot;: &quot;SE&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           1000 
+},
+{
+ &quot;Country&quot;: &quot;EU&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           3123 
+},
+{
+ &quot;Country&quot;: &quot;ES&quot;,
+&quot;Activity&quot;: &quot;Active&quot;,
+&quot;Area&quot;:           1000 
+} 
+]
+  
+      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? &#039;main&#039; : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != &quot;bulletChart&quot;){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .tooltipContent( function(key, x, y, e){
+         var format = d3.format(&#039;0,000&#039;);
+         return &#039;&lt;h3&gt;&#039; + key + &#039;, country &#039; + x + &#039;&lt;/h3&gt;&#039; + 
+         &#039;&lt;p&gt;&#039; + &#039;Area: &#039; + y + &#039;&lt;/p&gt;&#039;
+         } )
+  .color([ &quot;silver&quot;, &quot;red&quot; ])
+  .stacked(true)
+          
+        
 
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>chart<span class="p">(</span>stacked <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+        
+        
+        chart.yAxis
+  .axisLabel(&quot;Area&quot;)
+  .tickFormat( function(d) {
+                           return d3.format(&#039;,.0f&#039;)(Math.abs(d) / 1000) + &#039;K&#039;
+                           } )
+      
+       d3.select(&quot;#&quot; + opts.id)
+        .append(&#039;svg&#039;)
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
 
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+&lt;/script&gt;
+    
+    &lt;script&gt;&lt;/script&gt;    
+  &lt;/body&gt;
+&lt;/html&gt; " scrolling="no" frameborder="0" seamless="" class="rChart  nvd3  " id="iframe-chart3e2a541f8af3"> </iframe>
+<style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 
   </article>

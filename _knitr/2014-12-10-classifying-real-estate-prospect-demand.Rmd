@@ -71,7 +71,7 @@ n1$show("iframesrc",cdn=TRUE)
 ---
 Let's move to Inactive sheet.
 ```{r barchart4, results='hide',echo=FALSE,warning=FALSE}
-mydata=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Inactive-Table 1.csv")
+mydata=read.csv("/Users/mac/Development/env/lalanguyen.github.io/datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Inactive-Table 1.csv")
 cdata<-data.frame(Enquiry_Date=mydata$X,Company=mydata$X.1,Country=mydata$X.2,Area=mydata$X.5)
 #Filtering meaningful data rows 
 cdata<-cdata[5:145,]
@@ -92,7 +92,7 @@ d2$show("iframesrc",cdn=TRUE)
 
 
 ```{r results='hide',echo=FALSE}
-x=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv",sep=",")
+x=read.csv("/Users/mac/Development/env/lalanguyen.github.io/datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv",sep=",")
 x$Inactive=x$Inactive*-1
 # ID by country, Contrast values are Inactive vs Active, measure value is Area
 x.melt<-melt(x,value.name="Area",variable.name='Activity',id.vars=c('Country'))
