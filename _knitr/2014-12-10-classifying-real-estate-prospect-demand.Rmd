@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Classifying Demand Real-Estate Market"
+date:   2014-12-10
+categories: jekyll update
+permalink: classifying-demand-real-estate-market
+---
+# Tools
+  + Programing Language: Rscript, Javascript
+  + Data Object: Prospect
+  + [RStudio][rstudio] for statistics.
+
+# Analytical Objectives
+Through out the blog, It's important to define our goals by answering these following questions:
+
+1. How are the demands of rental in Industry in term of country ?
+2. Visualizing difference in rental areas desired among different companies.
+  
+# 1. Extracting Data 
+
+Our dataset today is not comprehensive, that leaves me quite a lot of conversions needed to be done. To begin with, we will break down individual files and observe what kinds of data can be valuable to us. In specific, we might be interested in `Industrial-Active`, promising fields are `Company Name`, `Country` and `Area Required` (since they have less empty cells than the other, that also explains why a usable database should not contain `null values` and `multiple formats` within each column, unless you want data analysts to spend time on conversions and filtering null values.)
+
+Let's prepare data for our first experiment:
+```{r barchart1}
+mydata=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv")
+cdata<-data.frame(Comp.name=mydata$X.1,Country=mydata$X.2,Area=mydata$X.5)
+#Filtering meaningful data rows 
+cdata<-cdata[11:40,]
+cdata=cdata[-13,]
+#Remove unecessary column from data.frame
+rownames(cdata)<-NULL
+names(cdata)<-c("Company","Country","Area")
+#As csv file's elements are all factor type and numerical value are usually presented with ',',it's better to strip off the commar and convert to int for further processing.
+cdata$Area=as.numeric(gsub(',','',as.character(cdata$Area)))
+```
+# 2. Visualizing 
+
+Largest demand is notably comming from Bericap(`Germany`), with highest 5200sqm required area is recorded. This area is nearly two time bigger than required areas by many companies which come from `Japan`. 
+```{r barchart2, results='asis',fig.align='center',message=FALSE}
+require(methods)
+require(rCharts)
+require(knitr)
+require(reshape2)
+d1<-dPlot(y="Company", x="Area",data=cdata, groups="Country",type="bar")
+d1$yAxis(type="addCategoryAxis", orderRule="Area")
+d1$xAxis(type="addMeasureAxis")
+d1$set(width = 700)
+d1$show("iframesrc",cdn=TRUE)
+```
+---
+
+Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than `Korea` and `Germany` individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.
+
+```{r barchart3, results='asis',fig.align='center',message=FALSE}
+d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
+d2$yAxis(type="addCategoryAxis", orderRule="Area")
+d2$xAxis(type="addMeasureAxis")
+d2$show("iframesrc",cdn=TRUE)
+```
+
+---
+
+Same results can be obtained from the bubble chart. Bubles with larger area will float higher than the rest. 
+```{r results='asis',fig.align='center',message=FALSE}
+n1 <- rPlot(Area ~ Country, data = cdata, color="Company" ,type = "point")
+n1$addControls("x", value = "Country", values = names(cdata))
+n1$addControls("color", value = "Country", values = names(cdata))
+n1$show("iframesrc",cdn=TRUE)
+```
+
+---
+Let's move to Inactive sheet.
+```{r barchart4, results='hide',echo=FALSE,warning=FALSE}
+mydata=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Inactive-Table 1.csv")
+cdata<-data.frame(Enquiry_Date=mydata$X,Company=mydata$X.1,Country=mydata$X.2,Area=mydata$X.5)
+#Filtering meaningful data rows 
+cdata<-cdata[5:145,]
+cdata<-cdata[-125,]
+#Remove unecessary column from data.frame
+rownames(cdata)<-NULL
+#As csv file's elements are all factor type and numerical value are usually presented with ',',it's better to strip off the commar and convert to int for further processing.
+cdata$Area=as.numeric(gsub(',','',as.character(cdata$Area)))
+cdata[116,4]=1000
+```
+
+```{r barchart5,results='asis',fig.height=700,fig.align='center',warning=FALSE}
+d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
+d2$yAxis(type="addCategoryAxis", orderRule="Area")
+d2$xAxis(type="addMeasureAxis")
+d2$show("iframesrc",cdn=TRUE)
+```
+
+
+```{r results='hide',echo=FALSE}
+x=read.csv("/../datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv",sep=",")
+x$Inactive=x$Inactive*-1
+# ID by country, Contrast values are Inactive vs Active, measure value is Area
+x.melt<-melt(x,value.name="Area",variable.name='Activity',id.vars=c('Country'))
+n1 <- nPlot(
+     y = 'Area', 
+     x = 'Country', 
+     group = 'Activity', 
+     type = 'multiBarHorizontalChart', 
+     data = x.melt)
+#Formatting d3js
+n1$chart(tooltipContent = "#! function(key, x, y, e){
+         var format = d3.format('0,000');
+         return '<h3>' + key + ', country ' + x + '</h3>' + 
+         '<p>' + 'Area: ' + y + '</p>'
+         } !#")
+n1$yAxis(axisLabel = "Area",  
+          tickFormat = "#! function(d) {
+                           return d3.format(',.0f')(Math.abs(d) / 1000) + 'K'
+                           } !#") 
+```
+To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from [Walkerke's Blog][walker]. Then, we plot the chart. It's clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.
+
+```{r multibar, results='asis',fig.align='center'}
+
+n1$chart(color = c('silver','red'))
+n1$chart(stacked = TRUE)
+n1$show("iframesrc",cdn=TRUE)
+```
+
+[walker]: http://walkerke.github.io/2014/06/rcharts-pyramids/

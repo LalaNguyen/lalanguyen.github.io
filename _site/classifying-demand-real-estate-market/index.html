@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>Classifying Demand Real-Estate Market</title>
+  <meta name="description" content="Tools  Programing Language: Rscript, Javascript  Data Object: Prospect  [RStudio][rstudio] for statistics.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://yourdomain.com/classifying-demand-real-estate-market">
+  <link rel="alternate" type="application/atom+xml" title="Data Experimental Ground" href="http://yourdomain.com/feed.xml" />
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Data Experimental Ground</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Classifying Demand Real-Estate Market</h1>
+    <p class="post-meta">Dec 10, 2014</p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="tools">Tools</h1>
+<ul>
+  <li>Programing Language: Rscript, Javascript</li>
+  <li>Data Object: Prospect</li>
+  <li>[RStudio][rstudio] for statistics.</li>
+</ul>
+
+<h1 id="analytical-objectives">Analytical Objectives</h1>
+<p>Through out the blog, It’s important to define our goals by answering these following questions:</p>
+
+<ol>
+  <li>How are the demands of rental in Industry in term of country ?</li>
+  <li>Visualizing difference in rental areas desired among different companies.</li>
+</ol>
+
+<h1 id="extracting-data">1. Extracting Data</h1>
+
+<p>Our dataset today is not comprehensive, that leaves me quite a lot of conversions needed to be done. To begin with, we will break down individual files and observe what kinds of data can be valuable to us. In specific, we might be interested in <code>Industrial-Active</code>, promising fields are <code>Company Name</code>, <code>Country</code> and <code>Area Required</code> (since they have less empty cells than the other, that also explains why a usable database should not contain <code>null values</code> and <code>multiple formats</code> within each column, unless you want data analysts to spend time on conversions and filtering null values.)</p>
+
+<p>Let’s prepare data for our first experiment:</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">mydata<span class="o">=</span>read.csv<span class="p">(</span><span class="s">&quot;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Warning in file(file, &quot;rt&quot;): cannot open file
+## &#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial
+## - Active-Table 1.csv&#39;: No such file or directory</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">cdata<span class="o">&lt;-</span><span class="kt">data.frame</span><span class="p">(</span>Comp.name<span class="o">=</span>mydata<span class="o">$</span>X.1<span class="p">,</span>Country<span class="o">=</span>mydata<span class="o">$</span>X.2<span class="p">,</span>Area<span class="o">=</span>mydata<span class="o">$</span>X.5<span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in data.frame(Comp.name = mydata$X.1, Country = mydata$X.2, Area = mydata$X.5): object &#39;mydata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#Filtering meaningful data rows </span>
+cdata<span class="o">&lt;-</span>cdata<span class="p">[</span><span class="m">11</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">cdata<span class="o">=</span>cdata<span class="p">[</span><span class="m">-13</span><span class="p">,]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#Remove unecessary column from data.frame</span>
+<span class="kp">rownames</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kc">NULL</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in rownames(cdata) &lt;- NULL: object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">names</span><span class="p">(</span>cdata<span class="p">)</span><span class="o">&lt;-</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;Company&quot;</span><span class="p">,</span><span class="s">&quot;Country&quot;</span><span class="p">,</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in names(cdata) &lt;- c(&quot;Company&quot;, &quot;Country&quot;, &quot;Area&quot;): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">#As csv file&#39;s elements are all factor type and numerical value are usually presented with &#39;,&#39;,it&#39;s better to strip off the commar and convert to int for further processing.</span>
+cdata<span class="o">$</span>Area<span class="o">=</span><span class="kp">as.numeric</span><span class="p">(</span><span class="kp">gsub</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="p">,</span><span class="s">&#39;&#39;</span><span class="p">,</span><span class="kp">as.character</span><span class="p">(</span>cdata<span class="o">$</span>Area<span class="p">)))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in gsub(&quot;,&quot;, &quot;&quot;, as.character(cdata$Area)): object &#39;cdata&#39; not found</code></pre></div>
+
+<h1 id="visualizing">2. Visualizing</h1>
+
+<p>Largest demand is notably comming from Bericap(<code>Germany</code>), with highest 5200sqm required area is recorded. This area is nearly two time bigger than required areas by many companies which come from <code>Japan</code>. </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">require</span><span class="p">(</span>methods<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>rCharts<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>knitr<span class="p">)</span>
+<span class="kn">require</span><span class="p">(</span>reshape2<span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Warning: package &#39;reshape2&#39; was built under R version 3.1.2</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">&lt;-</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>set<span class="p">(</span>width <span class="o">=</span> <span class="m">700</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d1&#39; not found</code></pre></div>
+
+<hr />
+
+<p>Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than <code>Korea</code> and <code>Germany</code> individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<hr />
+
+<p>Same results can be obtained from the bubble chart. Bubles with larger area will float higher than the rest. </p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1 <span class="o">&lt;-</span> rPlot<span class="p">(</span>Area <span class="o">~</span> Country<span class="p">,</span> data <span class="o">=</span> cdata<span class="p">,</span> color<span class="o">=</span><span class="s">&quot;Company&quot;</span> <span class="p">,</span>type <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(i, data, env): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>addControls<span class="p">(</span><span class="s">&quot;color&quot;</span><span class="p">,</span> value <span class="o">=</span> <span class="s">&quot;Country&quot;</span><span class="p">,</span> values <span class="o">=</span> <span class="kp">names</span><span class="p">(</span>cdata<span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<hr />
+<p>Let’s move to Inactive sheet.</p>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in data.frame(Enquiry_Date = mydata$X, Company = mydata$X.1, Country = mydata$X.2, : object &#39;mydata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in rownames(cdata) &lt;- NULL: object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in gsub(&quot;,&quot;, &quot;&quot;, as.character(cdata$Area)): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in cdata[116, 4] = 1000: object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">=</span>dPlot<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> x<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">,</span>data<span class="o">=</span>cdata<span class="p">,</span> groups<span class="o">=</span><span class="s">&quot;Company&quot;</span><span class="p">,</span>type<span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;cdata&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>yAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addCategoryAxis&quot;</span><span class="p">,</span> orderRule<span class="o">=</span><span class="s">&quot;Area&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>xAxis<span class="p">(</span>type<span class="o">=</span><span class="s">&quot;addMeasureAxis&quot;</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">d2<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;d2&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Warning in file(file, &quot;rt&quot;): cannot open file
+## &#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv&#39;:
+## No such file or directory</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;x&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in melt(x, value.name = &quot;Area&quot;, variable.name = &quot;Activity&quot;, id.vars = c(&quot;Country&quot;)): object &#39;x&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in getLayer.default(...): object &#39;x.melt&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<p>To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from <a href="http://walkerke.github.io/2014/06/rcharts-pyramids/">Walkerke’s Blog</a>. Then, we plot the chart. It’s clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>chart<span class="p">(</span>color <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;silver&#39;</span><span class="p">,</span><span class="s">&#39;red&#39;</span><span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>chart<span class="p">(</span>stacked <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r">n1<span class="o">$</span>show<span class="p">(</span><span class="s">&quot;iframesrc&quot;</span><span class="p">,</span>cdn<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-text" data-lang="text">## Error in eval(expr, envir, enclos): object &#39;n1&#39; not found</code></pre></div>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Data Experimental Ground</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col  footer-col-1">
+        <ul class="contact-list">
+          <li>Data Experimental Ground</li>
+          <li><a href="mailto:minh.ng0611@gmail.com">minh.ng0611@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/lalanguyen">
+              <span class="icon  icon--github">
+                <svg viewBox="0 0 16 16">
+                  <path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/>
+                </svg>
+              </span>
+
+              <span class="username">lalanguyen</span>
+            </a>
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col  footer-col-3">
+        <p class="text">Data Experimental Ground</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
