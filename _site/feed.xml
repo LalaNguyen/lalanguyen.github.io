@@ -5,8 +5,8 @@
     <description>Data Experimental Ground</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Dec 2014 17:10:36 +0700</pubDate>
-    <lastBuildDate>Wed, 10 Dec 2014 17:10:36 +0700</lastBuildDate>
+    <pubDate>Wed, 10 Dec 2014 17:14:07 +0700</pubDate>
+    <lastBuildDate>Wed, 10 Dec 2014 17:14:07 +0700</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
@@ -547,10 +547,11 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
       height: 400px;
     }
 	#special{
-	top:-150px;
-	width:25px;
+	left:450px;
+	top:150px;
+	width:25%;
 	z-index:1;
-	position:absolute;
+	position:absolute
 	}
     .bs-docs-example:after {
       content: &amp;quot;&amp;quot;;

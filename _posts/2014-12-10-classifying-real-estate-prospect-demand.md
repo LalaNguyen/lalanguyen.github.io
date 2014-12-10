@@ -552,10 +552,11 @@ n1$show("iframesrc",cdn=TRUE)
       height: 400px;
     }
 	#special{
-	top:-150px;
-	width:25px;
+	left:450px;
+	top:150px;
+	width:25%;
 	z-index:1;
-	position:absolute;
+	position:absolute
 	}
     .bs-docs-example:after {
       content: &quot;&quot;;
