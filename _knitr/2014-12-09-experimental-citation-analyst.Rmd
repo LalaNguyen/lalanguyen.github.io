@@ -4,6 +4,7 @@ title:  "Digging Patent US Data"
 date:   2014-12-09
 categories: jekyll update
 permalink: digging-patent-us-data
+comments: true
 ---
 # Tools
   + Programing Language: Python, Rscript, Javascript
