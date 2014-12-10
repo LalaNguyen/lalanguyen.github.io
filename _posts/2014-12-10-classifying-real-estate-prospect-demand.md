@@ -76,7 +76,7 @@ d1$show("iframesrc",cdn=TRUE)
       margin-right: auto;
       width: 700px;
       height: 400px;
-    }  
+    } 
     &lt;/style&gt;
     
   &lt;/head&gt;
@@ -551,6 +551,14 @@ n1$show("iframesrc",cdn=TRUE)
       width: 100%;
       height: 400px;
     }
+	#ab{
+		position:absolute;
+		top:150px;
+		left:550px;
+		z-index:1;
+		height:10px;
+		width:25%;
+	}
     .bs-docs-example:after {
       content: &quot;&quot;;
       background: transparent;
@@ -563,7 +571,7 @@ n1$show("iframesrc",cdn=TRUE)
       
     &lt;div class=&#039;container&#039; ng-controller=&quot;DemoCtrl&quot; ng-init=&quot;drawChart()&quot;&gt;
   &lt;div class=&#039;row&#039;&gt;
-    &lt;div class=&#039;col-md-3&#039;&gt;
+    &lt;div id=&#039;ab&#039;&gt;
       &lt;form class=&#039;well&#039;&gt;
         &lt;label&gt;&lt;b&gt;Select  x :&lt;/b&gt;&lt;/label&gt;
     		&lt;select class=&#039;form-control&#039; ng-model=&quot;opts.x.var&quot; 
