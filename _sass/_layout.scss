@@ -9,9 +9,12 @@
     // Positioning context for the mobile navigation icon
     position: relative;
 }
-
+.icon{
+	float:left;
+	padding-right:10px;
+}
 .site-title {
-    font-size: 26px;
+    font-size: 23px;
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
@@ -95,7 +98,29 @@
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
+/*Avatar*/
 
+.avatarBox {
+  border: 1px solid #DDD;
+  width: 110px;
+  height: 110px;
+  float:left;
+  margin-left:110px;
+  
+  -webkit-border-radius: 50%; /* Can also be 55px */
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+ }
+
+.avatarBox img {
+	height:100px; 
+	width:100px;
+  margin: 4px;
+  -webkit-border-radius: 50%; /* Can also be 50px */
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+ }
+	
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
@@ -131,8 +156,8 @@
 }
 
 .footer-col-3 {
-    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-    width:         calc(45% - (#{$spacing-unit} / 2));
+    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
+    width:         calc(20% - (#{$spacing-unit} / 2));
 }
 
 @include media-query($on-laptop) {
@@ -184,8 +209,9 @@
 }
 
 .post-link {
-    display: block;
-    font-size: 24px;
+   //display: block;
+   //font-size: 24px;
+   font-size:18px;
 }
 
 

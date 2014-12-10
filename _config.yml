@@ -1,9 +1,9 @@
 # Site settings
 title: Data Experimental Ground
 email: minh.ng0611@gmail.com
-description: Data Experimental Ground
+description: "Data Mining Data Visualization Cooking books <3"
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://lalanguyen.github.io" # the base hostname & protocol for your site
 github_username:  lalanguyen
 
 # Build settings
