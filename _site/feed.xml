@@ -5,8 +5,8 @@
     <description>Data Experimental Ground</description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Dec 2014 16:56:33 +0700</pubDate>
-    <lastBuildDate>Wed, 10 Dec 2014 16:56:33 +0700</lastBuildDate>
+    <pubDate>Wed, 10 Dec 2014 17:03:11 +0700</pubDate>
+    <lastBuildDate>Wed, 10 Dec 2014 17:03:11 +0700</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
@@ -32,16 +32,40 @@
 
 &lt;p&gt;Let’s prepare data for our first experiment:&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mydata&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;read.csv&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/Users/mac/Development/env/lalanguyen.github.io/datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-cdata&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Comp.name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Country&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Area&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.5&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Filtering meaningful data rows &lt;/span&gt;
-cdata&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;
-cdata&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#Remove unecessary column from data.frame&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;rownames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NULL&lt;/span&gt;
-&lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#As csv file&amp;#39;s elements are all factor type and numerical value are usually presented with &amp;#39;,&amp;#39;,it&amp;#39;s better to strip off the commar and convert to int for further processing.&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;mydata&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;read.csv&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial - Active-Table 1.csv&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning in file(file, &amp;quot;rt&amp;quot;): cannot open file
+## &amp;#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/Industrial
+## - Active-Table 1.csv&amp;#39;: No such file or directory&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in file(file, &amp;quot;rt&amp;quot;): cannot open the connection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;cdata&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;data.frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Comp.name&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.1&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Country&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;Area&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mydata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;X.5&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in data.frame(Comp.name = mydata$X.1, Country = mydata$X.2, Area = mydata$X.5): object &amp;#39;mydata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#Filtering meaningful data rows &lt;/span&gt;
+cdata&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;cdata&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;-13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#Remove unecessary column from data.frame&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;rownames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;NULL&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in rownames(cdata) &amp;lt;- NULL: object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in names(cdata) &amp;lt;- c(&amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot;): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#As csv file&amp;#39;s elements are all factor type and numerical value are usually presented with &amp;#39;,&amp;#39;,it&amp;#39;s better to strip off the commar and convert to int for further processing.&lt;/span&gt;
 cdata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Area&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;as.numeric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;as.character&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Area&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in gsub(&amp;quot;,&amp;quot;, &amp;quot;&amp;quot;, as.character(cdata$Area)): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h1 id=&quot;visualizing&quot;&gt;2. Visualizing&lt;/h1&gt;
 
@@ -54,829 +78,98 @@ cdata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Area&lt;span class=&quot;o&qu
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning: package &amp;#39;reshape2&amp;#39; was built under R version 3.1.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;set&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//d3js.org/d3.v3.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 700px;
-      height: 400px;
-    }  
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body &amp;gt;
-    
-    &amp;lt;div id = &amp;#039;chart3ba56ef091ea&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-  var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart3ba56ef091ea&amp;quot;,
-&amp;quot;width&amp;quot;:    700,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;xAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addMeasureAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false 
-},
-&amp;quot;yAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addCategoryAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false,
-&amp;quot;orderRule&amp;quot;: &amp;quot;Area&amp;quot; 
-},
-&amp;quot;zAxis&amp;quot;: [],
-&amp;quot;colorAxis&amp;quot;: [],
-&amp;quot;defaultColors&amp;quot;: [],
-&amp;quot;layers&amp;quot;: [],
-&amp;quot;legend&amp;quot;: [],
-&amp;quot;x&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;groups&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart3ba56ef091ea&amp;quot; 
-},
-    data = [{&amp;quot;Company&amp;quot;:&amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Noegel&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Na Jin&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Company&amp;quot;:&amp;quot;Tamasu Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Digital Age Dental Laboratories &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Pretty Woman &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Tohin Industry Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Cystone&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Checkpoint Systems&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;IWK VIET NAM&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Pilosio&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;EU&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Asia Industry Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Intermarine Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Company&amp;quot;:&amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Sunleaf&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;J-TEC Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Bericap&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:5206},{&amp;quot;Company&amp;quot;:&amp;quot;Tellbe&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Marusan Kigata Seisakusho&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Tada Plastics Moldco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Suzuki Denso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Daito Special Wire&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Relats&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ES&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Gondola Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;DFG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:1040}];
-  var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in getLayer.default(...): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-  var myChart = new dimple.chart(svg, data);
-  if (opts.bounds) {
-    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
-  }
-  //dimple allows use of custom CSS with noFormats
-  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
-  //for markimekko and addAxis also have third parameter measure
-  //so need to evaluate if measure provided
-  
-  //function to build axes
-  function buildAxis(position,layer){
-    var axis;
-    var axisopts;
-    if (!layer[position+&amp;quot;Axis&amp;quot;]){
-      axisopts = opts[position+&amp;quot;Axis&amp;quot;];
-    } else axisopts = layer[position+&amp;quot;Axis&amp;quot;];
-    
-    if(axisopts.measure) {
-      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
-    } else {
-      axis = myChart[axisopts.type](position, layer[position]);
-    };
-    if(!(axisopts.type === &amp;quot;addPctAxis&amp;quot;)) axis.showPercent = axisopts.showPercent;
-    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
-    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
-    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
-    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
-    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
-    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
-    return axis;
-  };
-  
-  var c = null;
-  if(d3.keys(opts.colorAxis).length &amp;gt; 0) {
-    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
-  }
-  
-  //allow manipulation of default colors to use with dimple
-  if(opts.defaultColors.length) {
-    opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &amp;quot;function&amp;quot;) {
-      //assume this is a d3 scale
-      //for now loop through first 20 but need a better way to handle
-      defaultColorsArray = [];
-      for (var n=0;n&amp;lt;20;n++) {
-        defaultColorsArray.push(opts.defaultColors(n));
-      };
-      opts.defaultColors = defaultColorsArray;
-    }
-    opts.defaultColors.forEach(function(d,i) {
-      opts.defaultColors[i] = new dimple.color(d);
-    })
-    myChart.defaultColors = opts.defaultColors;
-  }  
-  
-  //do series
-  //set up a function since same for each
-  //as of now we have x,y,groups,data,type in opts for primary layer
-  //and other layers reside in opts.layers
-  function buildSeries(layer, hidden){
-    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
-    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
-    if (!layer.yAxis) layer.yAxis = opts.yAxis;
-    if (!layer.zAxis) layer.zAxis = opts.zAxis;
-    
-    var x = buildAxis(&amp;quot;x&amp;quot;, layer);
-    x.hidden = hidden;
-    
-    var y = buildAxis(&amp;quot;y&amp;quot;, layer);
-    y.hidden = hidden;
-    
-    //z for bubbles
-    var z = null;
-    if (!(typeof(layer.zAxis) === &amp;#039;undefined&amp;#039;) &amp;amp;&amp;amp; layer.zAxis.type){
-      z = buildAxis(&amp;quot;z&amp;quot;, layer);
-    };
-    
-    //here think I need to evaluate group and if missing do null
-    //as the group argument
-    //if provided need to use groups from layer
-    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
-    
-    //as of v1.1.4 dimple can use different dataset for each series
-    if(layer.data){
-      //convert to an array of objects
-      //avoid lodash for now
-      datakeys = d3.keys(layer.data)
-      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
-        var tempobj = {}
-        datakeys.forEach(function(key){
-          tempobj[key] = layer.data[key][i]
-        })
-        return tempobj
-      })
-      s.data = layer.dataarray;
-    }
-    
-    //for measure axis dimple sorts at the series level not at axis level
-    [&amp;#039;x&amp;#039;,&amp;#039;y&amp;#039;].map(function(ax){
-      if( layer[ax + &amp;#039;Axis&amp;#039;].type==&amp;quot;addMeasureAxis&amp;quot; &amp;amp;&amp;amp; layer[ax + &amp;#039;Axis&amp;#039;].orderRule ){
-        if( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;string&amp;quot; ){
-          s.addOrderRule( layer[ax + &amp;#039;Axis&amp;#039;].orderRule );
-        } else if ( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;object&amp;quot; ) {
-          s._orderRules = layer[ax + &amp;#039;Axis&amp;#039;].orderRule;
-        }
-      }
-    })
-    
-    if(layer.hasOwnProperty(&amp;quot;groups&amp;quot;)) {
-      s.categoryFields = (typeof layer.groups === &amp;quot;object&amp;quot;) ? layer.groups : [layer.groups];
-      //series offers an aggregate method that we will also need to check if available
-      //options available are avg, count, max, min, sum
-    }
-    if (!(typeof(layer.aggregate) === &amp;#039;undefined&amp;#039;)) {
-      s.aggregate = eval(layer.aggregate);
-    }
-    if (!(typeof(layer.lineWeight) === &amp;#039;undefined&amp;#039;)) {
-      s.lineWeight = layer.lineWeight;
-    }
-    if (!(typeof(layer.lineMarkers) === &amp;#039;undefined&amp;#039;)) {
-      s.lineMarkers = layer.lineMarkers;
-    }
-    if (!(typeof(layer.barGap) === &amp;#039;undefined&amp;#039;)) {
-      s.barGap = layer.barGap;
-    }    
-    if (!(typeof(layer.interpolation) === &amp;#039;undefined&amp;#039;)) {
-      s.interpolation = layer.interpolation;
-    } 
-    
-    myChart.series.push(s);
-    
-    /*placeholder fix domain of primary scale for new series data
-    //not working right now but something like this
-    //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&amp;lt;2; i++) {
-      if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min &amp;lt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min;
-      }
-      if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;)._max = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max &amp;gt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max;
-      }
-      myChart.axes[i]._update();
-    }
-    */
-      
-    
-    return s;
-  };
-  
-  buildSeries(opts, false);
-  if (opts.layers.length &amp;gt; 0) {
-    opts.layers.forEach(function(layer){
-      buildSeries(layer, true);
-    })
-  }
-  //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &amp;gt; 0) {
-    var l =myChart.addLegend();
-    d3.keys(opts.legend).forEach(function(d){
-      l[d] = opts.legend[d];
-    });
-  }
-  //quick way to get this going but need to make this cleaner
-  if(opts.storyboard) {
-    myChart.setStoryboard(opts.storyboard);
-  };
-  myChart.draw();
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&amp;lt;/script&amp;gt;
-    
-    &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart3ba56ef091ea&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;set&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than &lt;code&gt;Korea&lt;/code&gt; and &lt;code&gt;Germany&lt;/code&gt; individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//d3js.org/d3.v3.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body &amp;gt;
-    
-    &amp;lt;div id = &amp;#039;chart3ba519bc20d1&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-  var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart3ba519bc20d1&amp;quot;,
-&amp;quot;width&amp;quot;:    800,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;xAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addMeasureAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false 
-},
-&amp;quot;yAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addCategoryAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false,
-&amp;quot;orderRule&amp;quot;: &amp;quot;Area&amp;quot; 
-},
-&amp;quot;zAxis&amp;quot;: [],
-&amp;quot;colorAxis&amp;quot;: [],
-&amp;quot;defaultColors&amp;quot;: [],
-&amp;quot;layers&amp;quot;: [],
-&amp;quot;legend&amp;quot;: [],
-&amp;quot;x&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;groups&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart3ba519bc20d1&amp;quot; 
-},
-    data = [{&amp;quot;Company&amp;quot;:&amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Noegel&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Na Jin&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Company&amp;quot;:&amp;quot;Tamasu Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Digital Age Dental Laboratories &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Pretty Woman &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Tohin Industry Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Cystone&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Checkpoint Systems&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;IWK VIET NAM&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Pilosio&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;EU&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Asia Industry Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Intermarine Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Company&amp;quot;:&amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Sunleaf&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;J-TEC Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Bericap&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:5206},{&amp;quot;Company&amp;quot;:&amp;quot;Tellbe&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Marusan Kigata Seisakusho&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Tada Plastics Moldco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Suzuki Denso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Daito Special Wire&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Relats&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ES&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Gondola Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;DFG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:1040}];
-  var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in getLayer.default(...): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-  var myChart = new dimple.chart(svg, data);
-  if (opts.bounds) {
-    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
-  }
-  //dimple allows use of custom CSS with noFormats
-  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
-  //for markimekko and addAxis also have third parameter measure
-  //so need to evaluate if measure provided
-  
-  //function to build axes
-  function buildAxis(position,layer){
-    var axis;
-    var axisopts;
-    if (!layer[position+&amp;quot;Axis&amp;quot;]){
-      axisopts = opts[position+&amp;quot;Axis&amp;quot;];
-    } else axisopts = layer[position+&amp;quot;Axis&amp;quot;];
-    
-    if(axisopts.measure) {
-      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
-    } else {
-      axis = myChart[axisopts.type](position, layer[position]);
-    };
-    if(!(axisopts.type === &amp;quot;addPctAxis&amp;quot;)) axis.showPercent = axisopts.showPercent;
-    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
-    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
-    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
-    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
-    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
-    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
-    return axis;
-  };
-  
-  var c = null;
-  if(d3.keys(opts.colorAxis).length &amp;gt; 0) {
-    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
-  }
-  
-  //allow manipulation of default colors to use with dimple
-  if(opts.defaultColors.length) {
-    opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &amp;quot;function&amp;quot;) {
-      //assume this is a d3 scale
-      //for now loop through first 20 but need a better way to handle
-      defaultColorsArray = [];
-      for (var n=0;n&amp;lt;20;n++) {
-        defaultColorsArray.push(opts.defaultColors(n));
-      };
-      opts.defaultColors = defaultColorsArray;
-    }
-    opts.defaultColors.forEach(function(d,i) {
-      opts.defaultColors[i] = new dimple.color(d);
-    })
-    myChart.defaultColors = opts.defaultColors;
-  }  
-  
-  //do series
-  //set up a function since same for each
-  //as of now we have x,y,groups,data,type in opts for primary layer
-  //and other layers reside in opts.layers
-  function buildSeries(layer, hidden){
-    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
-    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
-    if (!layer.yAxis) layer.yAxis = opts.yAxis;
-    if (!layer.zAxis) layer.zAxis = opts.zAxis;
-    
-    var x = buildAxis(&amp;quot;x&amp;quot;, layer);
-    x.hidden = hidden;
-    
-    var y = buildAxis(&amp;quot;y&amp;quot;, layer);
-    y.hidden = hidden;
-    
-    //z for bubbles
-    var z = null;
-    if (!(typeof(layer.zAxis) === &amp;#039;undefined&amp;#039;) &amp;amp;&amp;amp; layer.zAxis.type){
-      z = buildAxis(&amp;quot;z&amp;quot;, layer);
-    };
-    
-    //here think I need to evaluate group and if missing do null
-    //as the group argument
-    //if provided need to use groups from layer
-    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
-    
-    //as of v1.1.4 dimple can use different dataset for each series
-    if(layer.data){
-      //convert to an array of objects
-      //avoid lodash for now
-      datakeys = d3.keys(layer.data)
-      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
-        var tempobj = {}
-        datakeys.forEach(function(key){
-          tempobj[key] = layer.data[key][i]
-        })
-        return tempobj
-      })
-      s.data = layer.dataarray;
-    }
-    
-    //for measure axis dimple sorts at the series level not at axis level
-    [&amp;#039;x&amp;#039;,&amp;#039;y&amp;#039;].map(function(ax){
-      if( layer[ax + &amp;#039;Axis&amp;#039;].type==&amp;quot;addMeasureAxis&amp;quot; &amp;amp;&amp;amp; layer[ax + &amp;#039;Axis&amp;#039;].orderRule ){
-        if( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;string&amp;quot; ){
-          s.addOrderRule( layer[ax + &amp;#039;Axis&amp;#039;].orderRule );
-        } else if ( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;object&amp;quot; ) {
-          s._orderRules = layer[ax + &amp;#039;Axis&amp;#039;].orderRule;
-        }
-      }
-    })
-    
-    if(layer.hasOwnProperty(&amp;quot;groups&amp;quot;)) {
-      s.categoryFields = (typeof layer.groups === &amp;quot;object&amp;quot;) ? layer.groups : [layer.groups];
-      //series offers an aggregate method that we will also need to check if available
-      //options available are avg, count, max, min, sum
-    }
-    if (!(typeof(layer.aggregate) === &amp;#039;undefined&amp;#039;)) {
-      s.aggregate = eval(layer.aggregate);
-    }
-    if (!(typeof(layer.lineWeight) === &amp;#039;undefined&amp;#039;)) {
-      s.lineWeight = layer.lineWeight;
-    }
-    if (!(typeof(layer.lineMarkers) === &amp;#039;undefined&amp;#039;)) {
-      s.lineMarkers = layer.lineMarkers;
-    }
-    if (!(typeof(layer.barGap) === &amp;#039;undefined&amp;#039;)) {
-      s.barGap = layer.barGap;
-    }    
-    if (!(typeof(layer.interpolation) === &amp;#039;undefined&amp;#039;)) {
-      s.interpolation = layer.interpolation;
-    } 
-    
-    myChart.series.push(s);
-    
-    /*placeholder fix domain of primary scale for new series data
-    //not working right now but something like this
-    //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&amp;lt;2; i++) {
-      if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min &amp;lt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min;
-      }
-      if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;)._max = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max &amp;gt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max;
-      }
-      myChart.axes[i]._update();
-    }
-    */
-      
-    
-    return s;
-  };
-  
-  buildSeries(opts, false);
-  if (opts.layers.length &amp;gt; 0) {
-    opts.layers.forEach(function(layer){
-      buildSeries(layer, true);
-    })
-  }
-  //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &amp;gt; 0) {
-    var l =myChart.addLegend();
-    d3.keys(opts.legend).forEach(function(d){
-      l[d] = opts.legend[d];
-    });
-  }
-  //quick way to get this going but need to make this cleaner
-  if(opts.storyboard) {
-    myChart.setStoryboard(opts.storyboard);
-  };
-  myChart.draw();
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&amp;lt;/script&amp;gt;
-    
-    &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart3ba519bc20d1&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;Same results can be obtained from the bubble chart. Bubles with larger area will float higher than the rest. &lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Area &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; Country&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;point&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Area &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; Country&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;point&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;link rel=&amp;#039;stylesheet&amp;#039; href=&amp;quot;http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css&amp;quot;&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//ramnathv.github.io/rCharts/libraries/widgets/polycharts/js/polychart2.standalone.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-     &amp;lt;script src=&amp;quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-     &amp;lt;script src=&amp;quot;http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block
-      margin: auto auto;
-      width: 100%;
-      height: 400px;
-    }
-    .bs-docs-example:after {
-      content: &amp;quot;&amp;quot;;
-      background: transparent;
-      border: none;
-    }
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body ng-app&amp;gt;
-      
-    &amp;lt;div class=&amp;#039;container&amp;#039; ng-controller=&amp;quot;DemoCtrl&amp;quot; ng-init=&amp;quot;drawChart()&amp;quot;&amp;gt;
-  &amp;lt;div class=&amp;#039;row&amp;#039;&amp;gt;
-    &amp;lt;div class=&amp;#039;col-md-3&amp;#039;&amp;gt;
-      &amp;lt;form class=&amp;#039;well&amp;#039;&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  x :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.x.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.x.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  color :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.color.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.color.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-      &amp;lt;/form&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;#039;col-md-9&amp;#039;&amp;gt;
-      &amp;lt;div class=&amp;quot;bs-docs-example&amp;quot;&amp;gt;
-        &amp;lt;div id=&amp;#039;chart3ba55ba2d53b&amp;#039; class=&amp;#039;rChart &amp;#039;&amp;gt;
-          &amp;lt;svg&amp;gt;&amp;lt;/svg&amp;gt;
-        &amp;lt;/div&amp;gt;
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;#039;text/javascript&amp;#039;&amp;gt;
-function DemoCtrl($scope){
-  $scope.chartParams = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart3ba55ba2d53b&amp;quot;,
-&amp;quot;width&amp;quot;:    700,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;layers&amp;quot;: [
- {
- &amp;quot;x&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;data&amp;quot;: {
- &amp;quot;Company&amp;quot;: [ &amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;, &amp;quot;Noegel&amp;quot;, &amp;quot;Na Jin&amp;quot;, &amp;quot;Tamasu Co.,Ltd&amp;quot;, &amp;quot;Digital Age Dental Laboratories &amp;quot;, &amp;quot;Pretty Woman &amp;quot;, &amp;quot;Tohin Industry Co.,Ltd.&amp;quot;, &amp;quot;Cystone&amp;quot;, &amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;, &amp;quot;Checkpoint Systems&amp;quot;, &amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;, &amp;quot;IWK VIET NAM&amp;quot;, &amp;quot;Pilosio&amp;quot;, &amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;, &amp;quot;Asia Industry Co., Ltd&amp;quot;, &amp;quot;Intermarine Supply&amp;quot;, &amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Sunleaf&amp;quot;, &amp;quot;J-TEC Co.,Ltd.&amp;quot;, &amp;quot;Bericap&amp;quot;, &amp;quot;Tellbe&amp;quot;, &amp;quot;Marusan Kigata Seisakusho&amp;quot;, &amp;quot;Tada Plastics Moldco&amp;quot;, &amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Suzuki Denso Co., Ltd&amp;quot;, &amp;quot;Daito Special Wire&amp;quot;, &amp;quot;Relats&amp;quot;, &amp;quot;Gondola Kogyo&amp;quot;, &amp;quot;DFG&amp;quot; ],
-&amp;quot;Country&amp;quot;: [ &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;KR&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;EU&amp;quot;, &amp;quot;CN&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;SG&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;SE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;ES&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;IT&amp;quot; ],
-&amp;quot;Area&amp;quot;: [   2000,   1500,   4000,   2000,   2000,   2000,   1000,   2000,   1040,   1043,   3123,   1040,   3123,   1043,   1500,   2003,   1040,   1040,   1000,   5206,   1000,   1000,   2000,   2000,   1000,   2000,   1000,   1000,   1040 ] 
-},
-&amp;quot;facet&amp;quot;: null,
-&amp;quot;color&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;point&amp;quot; 
-} 
-],
-&amp;quot;facet&amp;quot;: [],
-&amp;quot;guides&amp;quot;: [],
-&amp;quot;coord&amp;quot;: [],
-&amp;quot;id&amp;quot;: &amp;quot;chart3ba55ba2d53b&amp;quot; 
-}
-  _.each($scope.chartParams.layers, function(el){
-    el.data = polyjs.data(el.data)
-  })
-      
-  $scope.controls = {
- &amp;quot;x&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;x&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  x :&amp;quot; 
-},
-&amp;quot;color&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;color&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  color :&amp;quot; 
-} 
-}
-  $scope.opts = $scope.chartParams.layers[0];
-    
-  $scope.drawChart = function(){
-    $scope.chart = polyjs.chart($scope.chartParams)
-	}
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(i, data, env): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-  $scope.updateChart = function(){
-    $scope.chart.make($scope.chartParams)
-	}
-		
-	$scope.$watch(&amp;#039;opts&amp;#039;, function(){
-	  $scope.chartParams.layers[0] = $scope.opts;
-	  $scope.updateChart();
-	}, true)
-}
-&amp;lt;/script&amp;gt;
-    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  polycharts  &quot; id=&quot;iframe-chart3ba55ba2d53b&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;Let’s move to Inactive sheet.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in file(file, &amp;quot;rt&amp;quot;): cannot open the connection&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in data.frame(Enquiry_Date = mydata$X, Company = mydata$X.1, Country = mydata$X.2, : object &amp;#39;mydata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//d3js.org/d3.v3.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body &amp;gt;
-    
-    &amp;lt;div id = &amp;#039;chart3ba523f9d3a1&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
-    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
-  var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart3ba523f9d3a1&amp;quot;,
-&amp;quot;width&amp;quot;:    800,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;xAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addMeasureAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false 
-},
-&amp;quot;yAxis&amp;quot;: {
- &amp;quot;type&amp;quot;: &amp;quot;addCategoryAxis&amp;quot;,
-&amp;quot;showPercent&amp;quot;: false,
-&amp;quot;orderRule&amp;quot;: &amp;quot;Area&amp;quot; 
-},
-&amp;quot;zAxis&amp;quot;: [],
-&amp;quot;colorAxis&amp;quot;: [],
-&amp;quot;defaultColors&amp;quot;: [],
-&amp;quot;layers&amp;quot;: [],
-&amp;quot;legend&amp;quot;: [],
-&amp;quot;x&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;groups&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart3ba523f9d3a1&amp;quot; 
-},
-    data = [{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NEW INQUIRIES THIS WEEK&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;UNDER ACTIVE OFFER &amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;ACTIVE FOR FOLLOW-UP &amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;24-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Oct-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Noegel&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;15-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Na Jin&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;12-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tamasu Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Digital Age Dental Laboratories &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Pretty Woman &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;5-Nov-15&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tohin Industry Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;9-Oct-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Cystone&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;10-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Checkpoint Systems&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;25-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;12-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;IWK VIET NAM&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;EXPLANATORY VISITS /  LONG TERM PROSPECTS&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Oct-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Pilosio&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;EU&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Jan-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;17-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Asia Industry Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;16-Sep-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Intermarine Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Sep-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;21-Jan-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sunleaf&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;9-Sep-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;J-TEC Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;8-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Bericap&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:5206},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tellbe&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Marusan Kigata Seisakusho&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;8-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tada Plastics Moldco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;16-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;17-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Suzuki Denso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Daito Special Wire&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Oct-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Relats&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ES&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;13-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Gondola Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;6-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;DFG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;No of Prospects:  &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;30&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Total Space Required:  &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot; \t49,701 &amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Total Space Proposed:  &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot; \t21,701.00 &amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Ave. Success Probability:  &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;0.2&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(a) No Interest/ Reject Offer = 0%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(b) Enquiry = 10%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(c) Viewing conducted = 20%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(d) Under Negotiation = 30% to 70%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(e) Approval Submission = 80%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;(f) IPA Issued = 90%&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NA&amp;quot;,&amp;quot;Area&amp;quot;:&amp;quot;NA&amp;quot;}];
-  var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-  var myChart = new dimple.chart(svg, data);
-  if (opts.bounds) {
-    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
-  }
-  //dimple allows use of custom CSS with noFormats
-  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
-  //for markimekko and addAxis also have third parameter measure
-  //so need to evaluate if measure provided
-  
-  //function to build axes
-  function buildAxis(position,layer){
-    var axis;
-    var axisopts;
-    if (!layer[position+&amp;quot;Axis&amp;quot;]){
-      axisopts = opts[position+&amp;quot;Axis&amp;quot;];
-    } else axisopts = layer[position+&amp;quot;Axis&amp;quot;];
-    
-    if(axisopts.measure) {
-      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
-    } else {
-      axis = myChart[axisopts.type](position, layer[position]);
-    };
-    if(!(axisopts.type === &amp;quot;addPctAxis&amp;quot;)) axis.showPercent = axisopts.showPercent;
-    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
-    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
-    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
-    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
-    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
-    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
-    return axis;
-  };
-  
-  var c = null;
-  if(d3.keys(opts.colorAxis).length &amp;gt; 0) {
-    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
-  }
-  
-  //allow manipulation of default colors to use with dimple
-  if(opts.defaultColors.length) {
-    opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &amp;quot;function&amp;quot;) {
-      //assume this is a d3 scale
-      //for now loop through first 20 but need a better way to handle
-      defaultColorsArray = [];
-      for (var n=0;n&amp;lt;20;n++) {
-        defaultColorsArray.push(opts.defaultColors(n));
-      };
-      opts.defaultColors = defaultColorsArray;
-    }
-    opts.defaultColors.forEach(function(d,i) {
-      opts.defaultColors[i] = new dimple.color(d);
-    })
-    myChart.defaultColors = opts.defaultColors;
-  }  
-  
-  //do series
-  //set up a function since same for each
-  //as of now we have x,y,groups,data,type in opts for primary layer
-  //and other layers reside in opts.layers
-  function buildSeries(layer, hidden){
-    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
-    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
-    if (!layer.yAxis) layer.yAxis = opts.yAxis;
-    if (!layer.zAxis) layer.zAxis = opts.zAxis;
-    
-    var x = buildAxis(&amp;quot;x&amp;quot;, layer);
-    x.hidden = hidden;
-    
-    var y = buildAxis(&amp;quot;y&amp;quot;, layer);
-    y.hidden = hidden;
-    
-    //z for bubbles
-    var z = null;
-    if (!(typeof(layer.zAxis) === &amp;#039;undefined&amp;#039;) &amp;amp;&amp;amp; layer.zAxis.type){
-      z = buildAxis(&amp;quot;z&amp;quot;, layer);
-    };
-    
-    //here think I need to evaluate group and if missing do null
-    //as the group argument
-    //if provided need to use groups from layer
-    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
-    
-    //as of v1.1.4 dimple can use different dataset for each series
-    if(layer.data){
-      //convert to an array of objects
-      //avoid lodash for now
-      datakeys = d3.keys(layer.data)
-      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
-        var tempobj = {}
-        datakeys.forEach(function(key){
-          tempobj[key] = layer.data[key][i]
-        })
-        return tempobj
-      })
-      s.data = layer.dataarray;
-    }
-    
-    //for measure axis dimple sorts at the series level not at axis level
-    [&amp;#039;x&amp;#039;,&amp;#039;y&amp;#039;].map(function(ax){
-      if( layer[ax + &amp;#039;Axis&amp;#039;].type==&amp;quot;addMeasureAxis&amp;quot; &amp;amp;&amp;amp; layer[ax + &amp;#039;Axis&amp;#039;].orderRule ){
-        if( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;string&amp;quot; ){
-          s.addOrderRule( layer[ax + &amp;#039;Axis&amp;#039;].orderRule );
-        } else if ( typeof layer[ax + &amp;#039;Axis&amp;#039;].orderRule == &amp;quot;object&amp;quot; ) {
-          s._orderRules = layer[ax + &amp;#039;Axis&amp;#039;].orderRule;
-        }
-      }
-    })
-    
-    if(layer.hasOwnProperty(&amp;quot;groups&amp;quot;)) {
-      s.categoryFields = (typeof layer.groups === &amp;quot;object&amp;quot;) ? layer.groups : [layer.groups];
-      //series offers an aggregate method that we will also need to check if available
-      //options available are avg, count, max, min, sum
-    }
-    if (!(typeof(layer.aggregate) === &amp;#039;undefined&amp;#039;)) {
-      s.aggregate = eval(layer.aggregate);
-    }
-    if (!(typeof(layer.lineWeight) === &amp;#039;undefined&amp;#039;)) {
-      s.lineWeight = layer.lineWeight;
-    }
-    if (!(typeof(layer.lineMarkers) === &amp;#039;undefined&amp;#039;)) {
-      s.lineMarkers = layer.lineMarkers;
-    }
-    if (!(typeof(layer.barGap) === &amp;#039;undefined&amp;#039;)) {
-      s.barGap = layer.barGap;
-    }    
-    if (!(typeof(layer.interpolation) === &amp;#039;undefined&amp;#039;)) {
-      s.interpolation = layer.interpolation;
-    } 
-    
-    myChart.series.push(s);
-    
-    /*placeholder fix domain of primary scale for new series data
-    //not working right now but something like this
-    //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&amp;lt;2; i++) {
-      if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min &amp;lt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).min;
-      }
-      if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;)._max = myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max &amp;gt; s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max ? myChart.series[0]._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max : s._axisBounds(i==0?&amp;quot;x&amp;quot;:&amp;quot;y&amp;quot;).max;
-      }
-      myChart.axes[i]._update();
-    }
-    */
-      
-    
-    return s;
-  };
-  
-  buildSeries(opts, false);
-  if (opts.layers.length &amp;gt; 0) {
-    opts.layers.forEach(function(layer){
-      buildSeries(layer, true);
-    })
-  }
-  //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &amp;gt; 0) {
-    var l =myChart.addLegend();
-    d3.keys(opts.legend).forEach(function(d){
-      l[d] = opts.legend[d];
-    });
-  }
-  //quick way to get this going but need to make this cleaner
-  if(opts.storyboard) {
-    myChart.setStoryboard(opts.storyboard);
-  };
-  myChart.draw();
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&amp;lt;/script&amp;gt;
-    
-    &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart3ba523f9d3a1&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in rownames(cdata) &amp;lt;- NULL: object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in gsub(&amp;quot;,&amp;quot;, &amp;quot;&amp;quot;, as.character(cdata$Area)): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in cdata[116, 4] = 1000: object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in getLayer.default(...): object &amp;#39;cdata&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;d2&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning in file(file, &amp;quot;rt&amp;quot;): cannot open file
 ## &amp;#39;/../datasets/2014-12-10-classifying-real-estate-prospect-demand/industrial_data.csv&amp;#39;:
@@ -890,136 +183,23 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in getLayer.default(...): object &amp;#39;x.melt&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in envRefInferField(x, what, getClass(class(x)), selfEnv): &amp;#39;chart&amp;#39; is not a valid field or method name for reference class &amp;quot;Polycharts&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in envRefInferField(x, what, getClass(class(x)), selfEnv): &amp;#39;yAxis&amp;#39; is not a valid field or method name for reference class &amp;quot;Polycharts&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from &lt;a href=&quot;http://walkerke.github.io/2014/06/rcharts-pyramids/&quot;&gt;Walkerke’s Blog&lt;/a&gt;. Then, we plot the chart. It’s clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;chart&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;color &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;silver&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in envRefInferField(x, what, getClass(class(x)), selfEnv): &amp;#39;chart&amp;#39; is not a valid field or method name for reference class &amp;quot;Polycharts&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;chart&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;stacked &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in envRefInferField(x, what, getClass(class(x)), selfEnv): &amp;#39;chart&amp;#39; is not a valid field or method name for reference class &amp;quot;Polycharts&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;link rel=&amp;#039;stylesheet&amp;#039; href=&amp;quot;http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css&amp;quot;&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//ramnathv.github.io/rCharts/libraries/widgets/polycharts/js/polychart2.standalone.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-     &amp;lt;script src=&amp;quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-     &amp;lt;script src=&amp;quot;http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block
-      margin: auto auto;
-      width: 100%;
-      height: 400px;
-    }
-    .bs-docs-example:after {
-      content: &amp;quot;&amp;quot;;
-      background: transparent;
-      border: none;
-    }
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body ng-app&amp;gt;
-      
-    &amp;lt;div class=&amp;#039;container&amp;#039; ng-controller=&amp;quot;DemoCtrl&amp;quot; ng-init=&amp;quot;drawChart()&amp;quot;&amp;gt;
-  &amp;lt;div class=&amp;#039;row&amp;#039;&amp;gt;
-    &amp;lt;div class=&amp;#039;col-md-3&amp;#039;&amp;gt;
-      &amp;lt;form class=&amp;#039;well&amp;#039;&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  x :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.x.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.x.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  color :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.color.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.color.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-      &amp;lt;/form&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;#039;col-md-9&amp;#039;&amp;gt;
-      &amp;lt;div class=&amp;quot;bs-docs-example&amp;quot;&amp;gt;
-        &amp;lt;div id=&amp;#039;chart3ba55ba2d53b&amp;#039; class=&amp;#039;rChart &amp;#039;&amp;gt;
-          &amp;lt;svg&amp;gt;&amp;lt;/svg&amp;gt;
-        &amp;lt;/div&amp;gt;
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;#039;text/javascript&amp;#039;&amp;gt;
-function DemoCtrl($scope){
-  $scope.chartParams = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart3ba55ba2d53b&amp;quot;,
-&amp;quot;width&amp;quot;:    700,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;layers&amp;quot;: [
- {
- &amp;quot;x&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;data&amp;quot;: {
- &amp;quot;Company&amp;quot;: [ &amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;, &amp;quot;Noegel&amp;quot;, &amp;quot;Na Jin&amp;quot;, &amp;quot;Tamasu Co.,Ltd&amp;quot;, &amp;quot;Digital Age Dental Laboratories &amp;quot;, &amp;quot;Pretty Woman &amp;quot;, &amp;quot;Tohin Industry Co.,Ltd.&amp;quot;, &amp;quot;Cystone&amp;quot;, &amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;, &amp;quot;Checkpoint Systems&amp;quot;, &amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;, &amp;quot;IWK VIET NAM&amp;quot;, &amp;quot;Pilosio&amp;quot;, &amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;, &amp;quot;Asia Industry Co., Ltd&amp;quot;, &amp;quot;Intermarine Supply&amp;quot;, &amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Sunleaf&amp;quot;, &amp;quot;J-TEC Co.,Ltd.&amp;quot;, &amp;quot;Bericap&amp;quot;, &amp;quot;Tellbe&amp;quot;, &amp;quot;Marusan Kigata Seisakusho&amp;quot;, &amp;quot;Tada Plastics Moldco&amp;quot;, &amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Suzuki Denso Co., Ltd&amp;quot;, &amp;quot;Daito Special Wire&amp;quot;, &amp;quot;Relats&amp;quot;, &amp;quot;Gondola Kogyo&amp;quot;, &amp;quot;DFG&amp;quot; ],
-&amp;quot;Country&amp;quot;: [ &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;KR&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;EU&amp;quot;, &amp;quot;CN&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;SG&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;SE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;ES&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;IT&amp;quot; ],
-&amp;quot;Area&amp;quot;: [   2000,   1500,   4000,   2000,   2000,   2000,   1000,   2000,   1040,   1043,   3123,   1040,   3123,   1043,   1500,   2003,   1040,   1040,   1000,   5206,   1000,   1000,   2000,   2000,   1000,   2000,   1000,   1000,   1040 ] 
-},
-&amp;quot;facet&amp;quot;: null,
-&amp;quot;color&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;point&amp;quot; 
-} 
-],
-&amp;quot;facet&amp;quot;: [],
-&amp;quot;guides&amp;quot;: [],
-&amp;quot;coord&amp;quot;: [],
-&amp;quot;id&amp;quot;: &amp;quot;chart3ba55ba2d53b&amp;quot; 
-}
-  _.each($scope.chartParams.layers, function(el){
-    el.data = polyjs.data(el.data)
-  })
-      
-  $scope.controls = {
- &amp;quot;x&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;x&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  x :&amp;quot; 
-},
-&amp;quot;color&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;color&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  color :&amp;quot; 
-} 
-}
-  $scope.opts = $scope.chartParams.layers[0];
-    
-  $scope.drawChart = function(){
-    $scope.chart = polyjs.chart($scope.chartParams)
-	}
-
-  $scope.updateChart = function(){
-    $scope.chart.make($scope.chartParams)
-	}
-		
-	$scope.$watch(&amp;#039;opts&amp;#039;, function(){
-	  $scope.chartParams.layers[0] = $scope.opts;
-	  $scope.updateChart();
-	}, true)
-}
-&amp;lt;/script&amp;gt;
-    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  polycharts  &quot; id=&quot;iframe-chart3ba55ba2d53b&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Error in eval(expr, envir, enclos): object &amp;#39;n1&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 </description>
         <pubDate>Wed, 10 Dec 2014 00:00:00 +0700</pubDate>
