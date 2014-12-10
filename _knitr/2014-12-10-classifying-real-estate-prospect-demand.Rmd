@@ -122,4 +122,9 @@ n1$chart(stacked = TRUE)
 n1$show("iframesrc",cdn=TRUE)
 ```
 
+Cheers, Have fun digging up the data
+
+```{r session}
+sessionInfo()
+```
 [walker]: http://walkerke.github.io/2014/06/rcharts-pyramids/
