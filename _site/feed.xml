@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data.talk</title>
-    <description>Data Mining Data Visualization Cooking books &lt;3</description>
-    <link>http://lalanguyen.github.io/</link>
-    <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Dec 2014 13:17:33 +0700</pubDate>
-    <lastBuildDate>Thu, 11 Dec 2014 13:17:33 +0700</lastBuildDate>
-    <generator>Jekyll v2.5.2</generator>
+    <title></title>
+    <description></description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 11 Dec 2014 15:10:39 +0700</pubDate>
+    <lastBuildDate>Thu, 11 Dec 2014 15:10:39 +0700</lastBuildDate>
+    <generator>Jekyll v2.5.0</generator>
     
       <item>
         <title>Classifying Demand Real-Estate Market</title>
@@ -1164,8 +1164,8 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 
 </description>
         <pubDate>Wed, 10 Dec 2014 00:00:00 +0700</pubDate>
-        <link>http://lalanguyen.github.io/classifying-demand-real-estate-market</link>
-        <guid isPermaLink="true">http://lalanguyen.github.io/classifying-demand-real-estate-market</guid>
+        <link>/classifying-demand-real-estate-market</link>
+        <guid isPermaLink="true">/classifying-demand-real-estate-market</guid>
         
         
         <category>jekyll</category>
@@ -1207,6 +1207,7 @@ Starting [.........] Done! Total  100  patents
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&quot;populating-data&quot;&gt;Populating Data&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;Upon completion, &lt;code&gt;parse_patent&lt;/code&gt; would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It’s time to call &lt;code&gt;generate_csv&lt;/code&gt; to produce some texts, I chose &lt;code&gt;csv&lt;/code&gt; as it’s common and easy to manipulate and visualize.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(env)MACs-MacBook-Pro:citation_network mac$ ./generate_csv.py 
@@ -1464,8 +1465,8 @@ callbacks.shift()();
 
 </description>
         <pubDate>Tue, 09 Dec 2014 00:00:00 +0700</pubDate>
-        <link>http://lalanguyen.github.io/digging-patent-us-data</link>
-        <guid isPermaLink="true">http://lalanguyen.github.io/digging-patent-us-data</guid>
+        <link>/digging-patent-us-data</link>
+        <guid isPermaLink="true">/digging-patent-us-data</guid>
         
         
         <category>jekyll</category>
@@ -1492,8 +1493,8 @@ callbacks.shift()();
 
 </description>
         <pubDate>Sun, 07 Dec 2014 09:01:53 +0700</pubDate>
-        <link>http://lalanguyen.github.io/jekyll/update/2014/12/07/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://lalanguyen.github.io/jekyll/update/2014/12/07/welcome-to-jekyll.html</guid>
+        <link>/jekyll/update/2014/12/07/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">/jekyll/update/2014/12/07/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
