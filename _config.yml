@@ -1,4 +1,3 @@
-exclude:['vendor']
 	
 # Site settings
 title: Data.talk 
@@ -9,3 +8,5 @@ url: "http://lalanguyen.github.io" # the base hostname & protocol for your site
 github_username:  lalanguyen
 # Build settings
 markdown: kramdown
+exclude: ['config.ru', 'Gemfile', 'Gemfile.lock', 'vendor']
+
