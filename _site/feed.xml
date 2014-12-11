@@ -5,8 +5,8 @@
     <description>Data Mining Data Visualization Cooking books &lt;3</description>
     <link>http://lalanguyen.github.io/</link>
     <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Dec 2014 20:47:19 +0700</pubDate>
-    <lastBuildDate>Thu, 11 Dec 2014 20:47:19 +0700</lastBuildDate>
+    <pubDate>Thu, 11 Dec 2014 21:15:29 +0700</pubDate>
+    <lastBuildDate>Thu, 11 Dec 2014 21:15:29 +0700</lastBuildDate>
     <generator>Jekyll v2.5.0</generator>
     
       <item>
@@ -688,6 +688,7 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;chart&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;color &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;silver&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;chart&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;stacked &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;final&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;mychart1&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;pyramic&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;script src=&quot;/../js/jquery-2.1.1.min.js&quot;&gt;&lt;/script&gt;

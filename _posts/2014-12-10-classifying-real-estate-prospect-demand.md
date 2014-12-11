@@ -690,6 +690,7 @@ To compare Inactive vs Active by Country, I find it useful to convey idea using 
 n1$chart(color = c('silver','red'))
 n1$chart(stacked = TRUE)
 n1$print("final",cdn=TRUE)
+n1$save("mychart1",cdn=F)
 n1$show("pyramic",cdn=TRUE)
 {% endhighlight %}
 <script src="/../js/jquery-2.1.1.min.js"></script>
