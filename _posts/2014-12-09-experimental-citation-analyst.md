@@ -34,6 +34,7 @@ Starting [.........] Done! Total  100  patents
 ~~~~~~~
 
 # Populating Data
+---
 Upon completion, `parse_patent` would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It's time to call `generate_csv` to produce some texts, I chose `csv` as it's common and easy to manipulate and visualize.
 
 ~~~~~~~
