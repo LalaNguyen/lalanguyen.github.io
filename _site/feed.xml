@@ -5,13 +5,14 @@
     <description>Data Mining Data Visualization Cooking books &lt;3</description>
     <link>http://lalanguyen.github.io/</link>
     <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Dec 2014 11:30:31 +0700</pubDate>
-    <lastBuildDate>Thu, 11 Dec 2014 11:30:31 +0700</lastBuildDate>
+    <pubDate>Thu, 11 Dec 2014 13:11:43 +0700</pubDate>
+    <lastBuildDate>Thu, 11 Dec 2014 13:11:43 +0700</lastBuildDate>
     <generator>Jekyll v2.5.2</generator>
     
       <item>
         <title>Classifying Demand Real-Estate Market</title>
         <description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;ul&gt;
   &lt;li&gt;Programing Language: Rscript, Javascript&lt;/li&gt;
   &lt;li&gt;Data Object: Prospect&lt;/li&gt;
@@ -19,6 +20,7 @@
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;analytical-objectives&quot;&gt;Analytical Objectives&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;Through out the blog, It’s important to define our goals by answering these following questions:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -26,8 +28,8 @@
   &lt;li&gt;Visualizing difference in rental areas desired among different companies.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;extracting-data&quot;&gt;1. Extracting Data&lt;/h1&gt;
-
+&lt;h1 id=&quot;extracting-data&quot;&gt;Extracting Data&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;Our dataset today is not comprehensive, that leaves me quite a lot of conversions needed to be done. To begin with, we will break down individual files and observe what kinds of data can be valuable to us. In specific, we might be interested in &lt;code&gt;Industrial-Active&lt;/code&gt;, promising fields are &lt;code&gt;Company Name&lt;/code&gt;, &lt;code&gt;Country&lt;/code&gt; and &lt;code&gt;Area Required&lt;/code&gt; (since they have less empty cells than the other, that also explains why a usable database should not contain &lt;code&gt;null values&lt;/code&gt; and &lt;code&gt;multiple formats&lt;/code&gt; within each column, unless you want data analysts to spend time on conversions and filtering null values.)&lt;/p&gt;
 
 &lt;p&gt;Let’s prepare data for our first experiment:&lt;/p&gt;
@@ -43,18 +45,15 @@ cdata&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&q
 &lt;span class=&quot;c1&quot;&gt;#As csv file&amp;#39;s elements are all factor type and numerical value are usually presented with &amp;#39;,&amp;#39;,it&amp;#39;s better to strip off the commar and convert to int for further processing.&lt;/span&gt;
 cdata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Area&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;as.numeric&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;gsub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;,&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;as.character&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Area&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;visualizing&quot;&gt;2. Visualizing&lt;/h1&gt;
-
+&lt;h1 id=&quot;visualizing&quot;&gt;Visualizing&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;Largest demand is notably comming from Bericap(&lt;code&gt;Germany&lt;/code&gt;), with highest 5200sqm required area is recorded. This area is nearly two time bigger than required areas by many companies which come from &lt;code&gt;Japan&lt;/code&gt;. &lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;methods&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;rCharts&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;knitr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning: package &amp;#39;reshape2&amp;#39; was built under R version 3.1.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d1&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+d1&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;yAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addCategoryAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; orderRule&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;xAxis&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;addMeasureAxis&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;set&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;width &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;700&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -75,16 +74,16 @@ d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
       margin-right: auto;
       width: 700px;
       height: 400px;
-    } 
+    }  
     &amp;lt;/style&amp;gt;
     
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &amp;#039;chart405052772531&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &amp;#039;chartdd26efccd24&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
   var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart405052772531&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartdd26efccd24&amp;quot;,
 &amp;quot;width&amp;quot;:    700,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;xAxis&amp;quot;: {
@@ -105,7 +104,7 @@ d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 &amp;quot;y&amp;quot;: &amp;quot;Company&amp;quot;,
 &amp;quot;groups&amp;quot;: &amp;quot;Country&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart405052772531&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartdd26efccd24&amp;quot; 
 },
     data = [{&amp;quot;Company&amp;quot;:&amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Noegel&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Na Jin&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Company&amp;quot;:&amp;quot;Tamasu Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Digital Age Dental Laboratories &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Pretty Woman &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Tohin Industry Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Cystone&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Checkpoint Systems&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;IWK VIET NAM&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Pilosio&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;EU&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Asia Industry Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Intermarine Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Company&amp;quot;:&amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Sunleaf&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;J-TEC Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Bericap&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:5206},{&amp;quot;Company&amp;quot;:&amp;quot;Tellbe&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Marusan Kigata Seisakusho&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Tada Plastics Moldco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Suzuki Denso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Daito Special Wire&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Relats&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ES&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Gondola Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;DFG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:1040}];
   var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
@@ -282,10 +281,8 @@ d1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
     
     &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart405052772531&quot;&gt; &lt;/iframe&gt;
+&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chartdd26efccd24&quot;&gt; &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
-
-&lt;hr /&gt;
 
 &lt;p&gt;Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than &lt;code&gt;Korea&lt;/code&gt; and &lt;code&gt;Germany&lt;/code&gt; individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.&lt;/p&gt;
 
@@ -315,10 +312,10 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &amp;#039;chart4050526606f2&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &amp;#039;chartdd2d28a24b&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
   var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart4050526606f2&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartdd2d28a24b&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;xAxis&amp;quot;: {
@@ -339,7 +336,7 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 &amp;quot;y&amp;quot;: &amp;quot;Country&amp;quot;,
 &amp;quot;groups&amp;quot;: &amp;quot;Company&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart4050526606f2&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartdd2d28a24b&amp;quot; 
 },
     data = [{&amp;quot;Company&amp;quot;:&amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Noegel&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Na Jin&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Company&amp;quot;:&amp;quot;Tamasu Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Digital Age Dental Laboratories &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Pretty Woman &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Tohin Industry Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Cystone&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Checkpoint Systems&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;IWK VIET NAM&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Pilosio&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;EU&amp;quot;,&amp;quot;Area&amp;quot;:3123},{&amp;quot;Company&amp;quot;:&amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1043},{&amp;quot;Company&amp;quot;:&amp;quot;Asia Industry Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Company&amp;quot;:&amp;quot;Intermarine Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Company&amp;quot;:&amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;Sunleaf&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Company&amp;quot;:&amp;quot;J-TEC Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Bericap&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:5206},{&amp;quot;Company&amp;quot;:&amp;quot;Tellbe&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Marusan Kigata Seisakusho&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Tada Plastics Moldco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Suzuki Denso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Daito Special Wire&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Company&amp;quot;:&amp;quot;Relats&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ES&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;Gondola Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Company&amp;quot;:&amp;quot;DFG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:1040}];
   var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
@@ -516,142 +513,9 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
     
     &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart4050526606f2&quot;&gt; &lt;/iframe&gt;
+&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chartdd2d28a24b&quot;&gt; &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 
-&lt;hr /&gt;
-
-&lt;p&gt;Same results can be obtained from the bubble chart. Bubles with larger area will float higher than the rest. &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;n1 &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; rPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Area &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; Country&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; color&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;point&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;x&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;addControls&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; value &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; values &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;iframesrc&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;cdn&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;iframe srcdoc=&quot; &amp;lt;!doctype HTML&amp;gt;
-&amp;lt;meta charset = &amp;#039;utf-8&amp;#039;&amp;gt;
-&amp;lt;html&amp;gt;
-  &amp;lt;head&amp;gt;
-    &amp;lt;link rel=&amp;#039;stylesheet&amp;#039; href=&amp;quot;http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css&amp;quot;&amp;gt;
-    
-    &amp;lt;script src=&amp;#039;//ramnathv.github.io/rCharts/libraries/widgets/polycharts/js/polychart2.standalone.js&amp;#039; type=&amp;#039;text/javascript&amp;#039;&amp;gt;&amp;lt;/script&amp;gt;
-    
-     &amp;lt;script src=&amp;quot;http://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-     &amp;lt;script src=&amp;quot;http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    
-    &amp;lt;style&amp;gt;
-    .rChart {
-      display: block
-      margin: auto auto;
-      width: 100%;
-      height: 400px;
-    }
-	#ab{
-		position:absolute;
-		top:150px;
-		left:550px;
-		z-index:1;
-		height:10px;
-		width:25%;
-	}
-    .bs-docs-example:after {
-      content: &amp;quot;&amp;quot;;
-      background: transparent;
-      border: none;
-    }
-    &amp;lt;/style&amp;gt;
-    
-  &amp;lt;/head&amp;gt;
-  &amp;lt;body ng-app&amp;gt;
-      
-    &amp;lt;div class=&amp;#039;container&amp;#039; ng-controller=&amp;quot;DemoCtrl&amp;quot; ng-init=&amp;quot;drawChart()&amp;quot;&amp;gt;
-  &amp;lt;div class=&amp;#039;row&amp;#039;&amp;gt;
-    &amp;lt;div id=&amp;#039;ab&amp;#039;&amp;gt;
-      &amp;lt;form class=&amp;#039;well&amp;#039;&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  x :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.x.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.x.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-        &amp;lt;label&amp;gt;&amp;lt;b&amp;gt;Select  color :&amp;lt;/b&amp;gt;&amp;lt;/label&amp;gt;
-    		&amp;lt;select class=&amp;#039;form-control&amp;#039; ng-model=&amp;quot;opts.color.var&amp;quot; 
-          ng-options=&amp;quot;ctl for ctl in controls.color.values&amp;quot;&amp;gt;   
-    		&amp;lt;/select&amp;gt;&amp;lt;br&amp;gt;
-      &amp;lt;/form&amp;gt;
-    &amp;lt;/div&amp;gt;
-    &amp;lt;div class=&amp;#039;col-md-9&amp;#039;&amp;gt;
-      &amp;lt;div class=&amp;quot;bs-docs-example&amp;quot;&amp;gt;
-        &amp;lt;div id=&amp;#039;chart405028c20735&amp;#039; class=&amp;#039;rChart &amp;#039;&amp;gt;
-          &amp;lt;svg&amp;gt;&amp;lt;/svg&amp;gt;
-        &amp;lt;/div&amp;gt;
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/div&amp;gt;
-  &amp;lt;/div&amp;gt;
-&amp;lt;/div&amp;gt;
-&amp;lt;script type=&amp;#039;text/javascript&amp;#039;&amp;gt;
-function DemoCtrl($scope){
-  $scope.chartParams = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart405028c20735&amp;quot;,
-&amp;quot;width&amp;quot;:    700,
-&amp;quot;height&amp;quot;:    400,
-&amp;quot;layers&amp;quot;: [
- {
- &amp;quot;x&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;y&amp;quot;: &amp;quot;Area&amp;quot;,
-&amp;quot;data&amp;quot;: {
- &amp;quot;Company&amp;quot;: [ &amp;quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&amp;quot;, &amp;quot;Noegel&amp;quot;, &amp;quot;Na Jin&amp;quot;, &amp;quot;Tamasu Co.,Ltd&amp;quot;, &amp;quot;Digital Age Dental Laboratories &amp;quot;, &amp;quot;Pretty Woman &amp;quot;, &amp;quot;Tohin Industry Co.,Ltd.&amp;quot;, &amp;quot;Cystone&amp;quot;, &amp;quot;Japan Plus Vietnam Co. Ltd.&amp;quot;, &amp;quot;Checkpoint Systems&amp;quot;, &amp;quot;Sanshin Chemical Industry Vietnam&amp;quot;, &amp;quot;IWK VIET NAM&amp;quot;, &amp;quot;Pilosio&amp;quot;, &amp;quot;Dian International Trading Ltd  (Ban San Se Garment&amp;#039;s partner)&amp;quot;, &amp;quot;Asia Industry Co., Ltd&amp;quot;, &amp;quot;Intermarine Supply&amp;quot;, &amp;quot;Kawamura Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Sunleaf&amp;quot;, &amp;quot;J-TEC Co.,Ltd.&amp;quot;, &amp;quot;Bericap&amp;quot;, &amp;quot;Tellbe&amp;quot;, &amp;quot;Marusan Kigata Seisakusho&amp;quot;, &amp;quot;Tada Plastics Moldco&amp;quot;, &amp;quot;Kaneko Sangyo Co.,Ltd.&amp;quot;, &amp;quot;Suzuki Denso Co., Ltd&amp;quot;, &amp;quot;Daito Special Wire&amp;quot;, &amp;quot;Relats&amp;quot;, &amp;quot;Gondola Kogyo&amp;quot;, &amp;quot;DFG&amp;quot; ],
-&amp;quot;Country&amp;quot;: [ &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;KR&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;US&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;EU&amp;quot;, &amp;quot;CN&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;SG&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;DE&amp;quot;, &amp;quot;SE&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;ES&amp;quot;, &amp;quot;JP&amp;quot;, &amp;quot;IT&amp;quot; ],
-&amp;quot;Area&amp;quot;: [   2000,   1500,   4000,   2000,   2000,   2000,   1000,   2000,   1040,   1043,   3123,   1040,   3123,   1043,   1500,   2003,   1040,   1040,   1000,   5206,   1000,   1000,   2000,   2000,   1000,   2000,   1000,   1000,   1040 ] 
-},
-&amp;quot;facet&amp;quot;: null,
-&amp;quot;color&amp;quot;: &amp;quot;Company&amp;quot;,
-&amp;quot;type&amp;quot;: &amp;quot;point&amp;quot; 
-} 
-],
-&amp;quot;facet&amp;quot;: [],
-&amp;quot;guides&amp;quot;: [],
-&amp;quot;coord&amp;quot;: [],
-&amp;quot;id&amp;quot;: &amp;quot;chart405028c20735&amp;quot; 
-}
-  _.each($scope.chartParams.layers, function(el){
-    el.data = polyjs.data(el.data)
-  })
-      
-  $scope.controls = {
- &amp;quot;x&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;x&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  x :&amp;quot; 
-},
-&amp;quot;color&amp;quot;: {
- &amp;quot;name&amp;quot;: &amp;quot;color&amp;quot;,
-&amp;quot;value&amp;quot;: &amp;quot;Country&amp;quot;,
-&amp;quot;values&amp;quot;: [ &amp;quot;Company&amp;quot;, &amp;quot;Country&amp;quot;, &amp;quot;Area&amp;quot; ],
-&amp;quot;label&amp;quot;: &amp;quot;Select  color :&amp;quot; 
-} 
-}
-  $scope.opts = $scope.chartParams.layers[0];
-    
-  $scope.drawChart = function(){
-    $scope.chart = polyjs.chart($scope.chartParams)
-	}
-
-  $scope.updateChart = function(){
-    $scope.chart.make($scope.chartParams)
-	}
-		
-	$scope.$watch(&amp;#039;opts&amp;#039;, function(){
-	  $scope.chartParams.layers[0] = $scope.opts;
-	  $scope.updateChart();
-	}, true)
-}
-&amp;lt;/script&amp;gt;
-    
-  &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  polycharts  &quot; id=&quot;iframe-chart405028c20735&quot;&gt; &lt;/iframe&gt;
-&lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
-
-&lt;hr /&gt;
 &lt;p&gt;Let’s move to Inactive sheet.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;d2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dPlot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;y&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Country&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Area&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;data&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;cdata&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; groups&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Company&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;type&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -680,10 +544,10 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &amp;#039;chart40502ff542f4&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &amp;#039;chartdd27472e0e2&amp;#039; class = &amp;#039;rChart dimple&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
   var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart40502ff542f4&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartdd27472e0e2&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;xAxis&amp;quot;: {
@@ -704,7 +568,7 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 &amp;quot;y&amp;quot;: &amp;quot;Country&amp;quot;,
 &amp;quot;groups&amp;quot;: &amp;quot;Company&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;bar&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart40502ff542f4&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartdd27472e0e2&amp;quot; 
 },
     data = [{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;17-Nov-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kim Hoa Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;5-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sangyo Supply&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;22-Oct-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Mr. Mochizuki&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;10-May-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Inoac Polymer Vietnam Co. , Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2003},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;3-Sep-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Erai Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;FR&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;20-Aug-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Bridge Corporation&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Toda Group&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;28-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NE WHE CO., LTD&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:2500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;17-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Fico Trading &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;15-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;CSP Enterprise Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Jul-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;World Tech Vina&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;30-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Dynaplast&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;ID&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;DRS&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;23-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;SNL&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Yergat Foods&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Swisstec Sourcing&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CH&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Zephyr&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;3-Jun-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;OKENSEIKO VIETNAM CO., LTD&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;23-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sin Hwa Dee Foodstuff Industries Pte Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Royal Spirit&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;TW&amp;quot;,&amp;quot;Area&amp;quot;:1040},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Asean&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Saydo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:10000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Thinh Phat &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;MY&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Premco&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IN&amp;quot;,&amp;quot;Area&amp;quot;:7000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;2-May-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Base Group&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;UK&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;28-Apr-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Likelion&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;18-Apr-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sketch-Interior Design &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DK&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Apr-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Texchem-Pack&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;MY&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Apr-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Raw Technologies&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CA&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;2-Apr-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Moda Design&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;25-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Wanek Furniture&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;21-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Yumark &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;TW&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Dong A&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;6-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Dat Vinh M&amp;amp;E Company Limited&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;6-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Morstar Electric&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Seikow Chemical Engineering &amp;amp; Machinery, Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Fukuoka Tape&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Phuc Hung Co.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Infratrol&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Mar-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Toyotsu Vehitecs Vietnam&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;24-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;DAEHACABLE&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;21-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Shimabun Engineering Co.,Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;21-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Koryo &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;17-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Yoshino&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;13-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Itokoki&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;12-Feb-14&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sanix&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;28-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Meditec Japan&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;27-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tokyo Paint&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;19-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Unicity&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;6-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Fischer Asia&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;06-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Hiteso Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;3-Dec-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;New World Fashion&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;30-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Sin\u00a0Huat Le\u00a0Sdn. Bhd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;MY&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;29-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;One prospect from India&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;29-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;H.B.C International&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Hung Minh Co&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;20-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tokyo Light Co&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:10000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;19-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Yamazaki Corporation&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Thinh Phat Co., Ltd. &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Nov-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Furniweb (their Italian customer)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IT&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;WB Coatings&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;GE&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;24-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;SMK Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Solimac Group&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;TH&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Nihonhanda&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Emuge Franken&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Thermotech Engineering (PUNE) - India&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;8-Oct-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;I-tak&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;23-Sep-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;CNA (Korea)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Sep-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;REDRANGER&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;AU&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Changse&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;23-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Daiwa Kouki&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;19-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NSG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;UK&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;13-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Aironware Fasteners (China)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;9-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;One prospect from Chao &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;One JP prospect &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;4-Aug-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;KIM ANN ENGINEERING PTE LTD&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;TH&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kitani Denki&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;22-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;CJ Corp&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;22-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Hanil U.S.G Vina&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;10-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Shining Labels \u2013 Hong Kong&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:2500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;05-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Microtest AG&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CH&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;02-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Xiamen Unique Bridal&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:20000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;01-Jul-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;OTS&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Jun-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;KUWAHARA VN&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1800},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Jun-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Gelan Textile&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Jun-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Salcomp&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;FI&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Jun-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Astee Horie&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;May-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;STC Hongkong&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:800},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;23-Apr-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;NIKKO&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Apr-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Federal Mogul&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Apr-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Naneu Bags&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:2500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Apr-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;D&amp;amp;A Industries&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;1-Apr-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kleen-pak&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Mar-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Chugai-technos&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Mar-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Regus&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;LU&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Feb-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;PPG Coatings&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Feb-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Bierens&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;NL&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;18-Jan-13&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;United Packaging&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;PA&amp;quot;,&amp;quot;Area&amp;quot;:6000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Dec-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;SST Castings&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Nov-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;One premium wine company&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;27-Oct-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;SHIRAKAWA SEISAKUSHO&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;25-Sep-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Phu Thai CAT&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Sep-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Okatsune&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;28-Aug-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;SSLG Industrial&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:7000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;20-Aug-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Uchihashi Vietnam Co., Ltd.&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;9-Aug-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Isuzu Dengyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;06-Aug-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Anh Thi Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:3000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Jul-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;KODEN&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:6000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;10-Jul-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Jyohoku Spring &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;6-Jul-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Plasticolor&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CA&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Nagae Co., Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;12-Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Fuji Chemical &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;12-Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Fuji Bakelite&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;07-Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Zalora / Lazada&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;06-Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;(Tecasin Mr. Andy Lee)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1200},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Toho Koki Co., LTD&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Amore Pacific&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;KR&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;Jun-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Aggreko (Singapore) Pte Ltd&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:10000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;30-May-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;DP Consulting&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;10-May-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Inoac&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;May-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Naniwa Gosei CO.,LTD&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;May-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Perennial Design &amp;amp; Build Pte Ltd (Singapore)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;26-Mar-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Shanghai Lirong Nickel Screen&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CN&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;31-Jan-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Aica Kogyo&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;20-Jan-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Pharmascience &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;CA&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;18-Jan-12&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Vietnam Mobile Telecom Services Co. (VMS)&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;VN&amp;quot;,&amp;quot;Area&amp;quot;:1500},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;30-Nov-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kahoku Lighting Solutions&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;25-Oct-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Avery Dennison&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;25-Oct-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Avery Dennison&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;24-Oct-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Harada&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Oct-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Kyouwa Corporation &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:2000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;11-Oct-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Tontec International &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;HK&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;30-Sep-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Primus International&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:10000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;22-Sep-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Chemtech&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;IN&amp;quot;,&amp;quot;Area&amp;quot;:5000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Jul-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Advance Tech Automation &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;SG&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;28-Jun-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Rheem Australia&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;AU&amp;quot;,&amp;quot;Area&amp;quot;:7000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Jun-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;RF Micro Devices&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;US&amp;quot;,&amp;quot;Area&amp;quot;:32402},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;8-Jun-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Saveri&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:4000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;7-Apr-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;Siegwerk&amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;DE&amp;quot;,&amp;quot;Area&amp;quot;:1000},{&amp;quot;Enquiry_Date&amp;quot;:&amp;quot;14-Mar-11&amp;quot;,&amp;quot;Company&amp;quot;:&amp;quot;BTS Wonderful Saigon Electric &amp;quot;,&amp;quot;Country&amp;quot;:&amp;quot;JP&amp;quot;,&amp;quot;Area&amp;quot;:20000}];
   var svg = dimple.newSvg(&amp;quot;#&amp;quot; + opts.id, opts.width, opts.height);
@@ -881,7 +745,7 @@ d2&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
     
     &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chart40502ff542f4&quot;&gt; &lt;/iframe&gt;
+&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  dimple  &quot; id=&quot;iframe-chartdd27472e0e2&quot;&gt; &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 
 &lt;p&gt;To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from &lt;a href=&quot;http://walkerke.github.io/2014/06/rcharts-pyramids/&quot;&gt;Walkerke’s Blog&lt;/a&gt;. Then, we plot the chart. It’s clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.&lt;/p&gt;
@@ -914,21 +778,21 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
   &amp;lt;/head&amp;gt;
   &amp;lt;body &amp;gt;
     
-    &amp;lt;div id = &amp;#039;chart405075563c33&amp;#039; class = &amp;#039;rChart nvd3&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
+    &amp;lt;div id = &amp;#039;chartdd253562a8d&amp;#039; class = &amp;#039;rChart nvd3&amp;#039;&amp;gt;&amp;lt;/div&amp;gt;    
     &amp;lt;script type=&amp;#039;text/javascript&amp;#039;&amp;gt;
  $(document).ready(function(){
-      drawchart405075563c33()
+      drawchartdd253562a8d()
     });
-    function drawchart405075563c33(){  
+    function drawchartdd253562a8d(){  
       var opts = {
- &amp;quot;dom&amp;quot;: &amp;quot;chart405075563c33&amp;quot;,
+ &amp;quot;dom&amp;quot;: &amp;quot;chartdd253562a8d&amp;quot;,
 &amp;quot;width&amp;quot;:    800,
 &amp;quot;height&amp;quot;:    400,
 &amp;quot;x&amp;quot;: &amp;quot;Country&amp;quot;,
 &amp;quot;y&amp;quot;: &amp;quot;Area&amp;quot;,
 &amp;quot;group&amp;quot;: &amp;quot;Activity&amp;quot;,
 &amp;quot;type&amp;quot;: &amp;quot;multiBarHorizontalChart&amp;quot;,
-&amp;quot;id&amp;quot;: &amp;quot;chart405075563c33&amp;quot; 
+&amp;quot;id&amp;quot;: &amp;quot;chartdd253562a8d&amp;quot; 
 },
         data = [
  {
@@ -1274,7 +1138,7 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
     
     &amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;    
   &amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  nvd3  &quot; id=&quot;iframe-chart405075563c33&quot;&gt; &lt;/iframe&gt;
+&amp;lt;/html&amp;gt; &quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; seamless=&quot;&quot; class=&quot;rChart  nvd3  &quot; id=&quot;iframe-chartdd253562a8d&quot;&gt; &lt;/iframe&gt;
 &lt;style&gt;iframe.rChart{ width: 100%; height: 400px;}&lt;/style&gt;
 
 &lt;p&gt;Cheers, Have fun digging up the data&lt;/p&gt;
@@ -1313,6 +1177,7 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
       <item>
         <title>Digging Patent US Data</title>
         <description>&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;ul&gt;
   &lt;li&gt;Programing Language: Python, Rscript, Javascript&lt;/li&gt;
   &lt;li&gt;Data Object: Patent&lt;/li&gt;
@@ -1324,14 +1189,15 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
   &lt;li&gt;&lt;a href=&quot;http://py2neo.org/2.0/&quot;&gt;Py2neo&lt;/a&gt; as handy wrap-around library to initiate connection with Neo4j&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;analytical-objective&quot;&gt;Analytical Objective&lt;/h1&gt;
+&lt;h1 id=&quot;analytical-objectives&quot;&gt;Analytical Objectives&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;ol&gt;
   &lt;li&gt;How is the citation network of patents ?&lt;/li&gt;
   &lt;li&gt;Which country has the most inventors participating in patern industry of US ?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;extracting-data&quot;&gt;1. Extracting Data&lt;/h1&gt;
-
+&lt;h1 id=&quot;extracting-data&quot;&gt;Extracting Data&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;This experiment based on &lt;a href=&quot;http://storage.googleapis.com/patents/grant_full_text/2014/ipg141007.zip&quot;&gt;USPTO&lt;/a&gt; patent data. Firstly, we might need to parse the xml file to obtain desired results. Since …, xml files retrieved from the site are  no longer a list of xml files but a combination of multiple xml instances, I wrote &lt;code&gt;parse_patent&lt;/code&gt; to extract information, an option &lt;code&gt;-s&lt;/code&gt; to specify the number of xml instances should be retrieved. &lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(env)MACs-MacBook-Pro:citation_network mac$ ./parse_patent.py 
@@ -1340,7 +1206,7 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
 Starting [.........] Done! Total  100  patents
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&quot;populating-data&quot;&gt;2. Populating Data&lt;/h1&gt;
+&lt;h1 id=&quot;populating-data&quot;&gt;Populating Data&lt;/h1&gt;
 &lt;p&gt;Upon completion, &lt;code&gt;parse_patent&lt;/code&gt; would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It’s time to call &lt;code&gt;generate_csv&lt;/code&gt; to produce some texts, I chose &lt;code&gt;csv&lt;/code&gt; as it’s common and easy to manipulate and visualize.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;(env)MACs-MacBook-Pro:citation_network mac$ ./generate_csv.py 
@@ -1352,13 +1218,13 @@ Successfully populated inventors and patents to nodes_network.csv
 Successfully populated links between nodes_network.csv to links_network.csv
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h1 id=&quot;visualization&quot;&gt;3. Visualization&lt;/h1&gt;
+&lt;h1 id=&quot;visualizing&quot;&gt;Visualizing&lt;/h1&gt;
+&lt;hr /&gt;
 &lt;p&gt;Finally, we have &lt;code&gt;nodes_network.csv&lt;/code&gt; and &lt;code&gt;links_network.csv&lt;/code&gt;, place it inside Gephi to produce citation networks.
 &lt;img src=&quot;/../figs/2014-12-09-experimental-citation-analyst/citation-500.png&quot; alt=&quot;title&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Group data by country using &lt;code&gt;RStudio&lt;/code&gt;, we can visualize countries with inventors:&lt;/p&gt;
 
-&lt;hr /&gt;
 &lt;p&gt;&lt;!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package --&gt;
 &lt;!-- Tue Dec  9 12:21:16 2014 --&gt;&lt;/p&gt;
 
@@ -1565,9 +1431,8 @@ callbacks.shift()();
 &lt;div id=&quot;GeoChartID1b004a31bf5e&quot; style=&quot;width: 556; height: 347;&quot;&gt;
 &lt;/div&gt;
 
+&lt;h1 id=&quot;future-works&quot;&gt;Future Works&lt;/h1&gt;
 &lt;hr /&gt;
-
-&lt;h1 id=&quot;future-works&quot;&gt;4. Future Works&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;code&gt;generate_csv.py&lt;/code&gt; is currently communicated with &lt;code&gt;Neo4j&lt;/code&gt; through restful API and creates &lt;code&gt;csv&lt;/code&gt;. It would be more convenient to implement an independent program that works with multiple databases and produce wide ranges of output types such as &lt;code&gt;json&lt;/code&gt;, &lt;code&gt;geojson&lt;/code&gt;.&lt;/p&gt;
@@ -1578,8 +1443,6 @@ callbacks.shift()();
 &lt;/ul&gt;
 
 &lt;p&gt;~ Have fun digging data ! ~&lt;/p&gt;
-
-&lt;hr /&gt;
 
 &lt;hr /&gt;
 

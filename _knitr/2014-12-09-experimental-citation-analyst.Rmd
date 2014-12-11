@@ -7,6 +7,7 @@ permalink: digging-patent-us-data
 comments: true
 ---
 # Tools
+---
   + Programing Language: Python, Rscript, Javascript
   + Data Object: Patent
   + [Neo4j][neo4j] as backend database.
@@ -16,12 +17,13 @@ comments: true
   + [RStudio][rstudio] for statistics.
   + [Py2neo][py2neo] as handy wrap-around library to initiate connection with Neo4j
 
-# Analytical Objective
+# Analytical Objectives
+---
   1. How is the citation network of patents ?
   2. Which country has the most inventors participating in patern industry of US ?
   
-# 1. Extracting Data 
-
+# Extracting Data 
+---
 This experiment based on [USPTO][uspto] patent data. Firstly, we might need to parse the xml file to obtain desired results. Since ..., xml files retrieved from the site are  no longer a list of xml files but a combination of multiple xml instances, I wrote `parse_patent` to extract information, an option `-s` to specify the number of xml instances should be retrieved. 
 
 ~~~~~~~
@@ -31,7 +33,7 @@ This experiment based on [USPTO][uspto] patent data. Firstly, we might need to p
 Starting [.........] Done! Total  100  patents
 ~~~~~~~
 
-# 2. Populating Data
+# Populating Data
 Upon completion, `parse_patent` would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It's time to call `generate_csv` to produce some texts, I chose `csv` as it's common and easy to manipulate and visualize.
 
 ~~~~~~~
@@ -44,13 +46,13 @@ Successfully populated inventors and patents to nodes_network.csv
 Successfully populated links between nodes_network.csv to links_network.csv
 ~~~~~~~
 
-# 3. Visualization
+# Visualizing
+---
 Finally, we have `nodes_network.csv` and `links_network.csv`, place it inside Gephi to produce citation networks.
 ![title](/../figs/2014-12-09-experimental-citation-analyst/citation-500.png)
 
 Group data by country using `RStudio`, we can visualize countries with inventors:
 
----
  <!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 <!-- Tue Dec  9 12:21:16 2014 -->
 
@@ -259,17 +261,14 @@ callbacks.shift()();
   style="width: 556; height: 347;">
 </div>
 
-
+# Future Works
 ---
-
-# 4. Future Works
 + `generate_csv.py` is currently communicated with `Neo4j` through restful API and creates `csv`. It would be more convenient to implement an independent program that works with multiple databases and produce wide ranges of output types such as `json`, `geojson`.
 
 + As data increases, handling enormous datasets with Graph Database(E.g `Neo4j`) proved insufficient and significant downgrade in performance . Apparently, `parse_patent.py` can parse up to 500 xml instances, however alternative choices will be taken into consideration such as `MongoDB`
 
-~ Have fun digging data ! ~
 
----
+~ Have fun digging data ! ~
 
 
 [jekyll]:      http://jekyllrb.com

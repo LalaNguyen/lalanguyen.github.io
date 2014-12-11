@@ -105,7 +105,7 @@
   width: 110px;
   height: 110px;
   float:left;
-  margin-left:45px;
+  margin-left:55px;
   
   -webkit-border-radius: 50%; /* Can also be 55px */
   -moz-border-radius: 50%;
@@ -222,9 +222,19 @@
 .post-header {
     margin-bottom: $spacing-unit;
 }
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+}
 
 .post-title {
-    font-size: 42px;
+    font-size: 40px;
+	font: Helvetica;
     letter-spacing: -1px;
     line-height: 1;
 
@@ -235,12 +245,22 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
-
+	font-size:18px;
+	line-height:2.5;
+    h1 {
+        font-size: 25px;
+		font-family:"georgia";
+	    font-style: bold;
+		padding-top:10px;
+        @include media-query($on-laptop) {
+            font-size: 20px;
+        }
+    }
     h2 {
-        font-size: 32px;
+        font-size: 25px;
 
         @include media-query($on-laptop) {
-            font-size: 28px;
+            font-size: 20px;
         }
     }
 

@@ -1,12 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-
   <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +12,13 @@
   <link rel="canonical" href="http://lalanguyen.github.io/digging-patent-us-data">
   <link rel="alternate" type="application/atom+xml" title="Data.talk" href="http://lalanguyen.github.io/feed.xml" />
 </head>
+
+  <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,12 +73,13 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Digging Patent US Data</h1>
+    <p class="post-title">Digging Patent US Data</p>
     <p class="post-meta">Dec 9, 2014</p>
   </header>
 
   <article class="post-content">
     <h1 id="tools">Tools</h1>
+<hr />
 <ul>
   <li>Programing Language: Python, Rscript, Javascript</li>
   <li>Data Object: Patent</li>
@@ -90,14 +91,15 @@
   <li><a href="http://py2neo.org/2.0/">Py2neo</a> as handy wrap-around library to initiate connection with Neo4j</li>
 </ul>
 
-<h1 id="analytical-objective">Analytical Objective</h1>
+<h1 id="analytical-objectives">Analytical Objectives</h1>
+<hr />
 <ol>
   <li>How is the citation network of patents ?</li>
   <li>Which country has the most inventors participating in patern industry of US ?</li>
 </ol>
 
-<h1 id="extracting-data">1. Extracting Data</h1>
-
+<h1 id="extracting-data">Extracting Data</h1>
+<hr />
 <p>This experiment based on <a href="http://storage.googleapis.com/patents/grant_full_text/2014/ipg141007.zip">USPTO</a> patent data. Firstly, we might need to parse the xml file to obtain desired results. Since …, xml files retrieved from the site are  no longer a list of xml files but a combination of multiple xml instances, I wrote <code>parse_patent</code> to extract information, an option <code>-s</code> to specify the number of xml instances should be retrieved. </p>
 
 <pre><code>(env)MACs-MacBook-Pro:citation_network mac$ ./parse_patent.py 
@@ -106,7 +108,7 @@
 Starting [.........] Done! Total  100  patents
 </code></pre>
 
-<h1 id="populating-data">2. Populating Data</h1>
+<h1 id="populating-data">Populating Data</h1>
 <p>Upon completion, <code>parse_patent</code> would insert directly to Neo4j server through restful api via bulk update. Now, we have the database with populated data. It’s time to call <code>generate_csv</code> to produce some texts, I chose <code>csv</code> as it’s common and easy to manipulate and visualize.</p>
 
 <pre><code>(env)MACs-MacBook-Pro:citation_network mac$ ./generate_csv.py 
@@ -118,13 +120,13 @@ Successfully populated inventors and patents to nodes_network.csv
 Successfully populated links between nodes_network.csv to links_network.csv
 </code></pre>
 
-<h1 id="visualization">3. Visualization</h1>
+<h1 id="visualizing">Visualizing</h1>
+<hr />
 <p>Finally, we have <code>nodes_network.csv</code> and <code>links_network.csv</code>, place it inside Gephi to produce citation networks.
 <img src="/../figs/2014-12-09-experimental-citation-analyst/citation-500.png" alt="title" /></p>
 
 <p>Group data by country using <code>RStudio</code>, we can visualize countries with inventors:</p>
 
-<hr />
 <p><!-- GeoChart generated in R 3.1.1 by googleVis 0.5.6 package -->
 <!-- Tue Dec  9 12:21:16 2014 --></p>
 
@@ -331,9 +333,8 @@ callbacks.shift()();
 <div id="GeoChartID1b004a31bf5e" style="width: 556; height: 347;">
 </div>
 
+<h1 id="future-works">Future Works</h1>
 <hr />
-
-<h1 id="future-works">4. Future Works</h1>
 <ul>
   <li>
     <p><code>generate_csv.py</code> is currently communicated with <code>Neo4j</code> through restful API and creates <code>csv</code>. It would be more convenient to implement an independent program that works with multiple databases and produce wide ranges of output types such as <code>json</code>, <code>geojson</code>.</p>
@@ -344,8 +345,6 @@ callbacks.shift()();
 </ul>
 
 <p>~ Have fun digging data ! ~</p>
-
-<hr />
 
 <hr />
 
