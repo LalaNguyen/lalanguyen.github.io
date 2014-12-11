@@ -51,8 +51,8 @@ d1$print('chart8', cdn = TRUE)
 ```
 
 
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script type='text/javascript' src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script> 
+<script src="/../js/d3.v3.4.8.min.js" charset="utf-8"></script>
+<script type='text/javascript' src="/../js/dimple.v2.1.1.min.js"></script> 
  <style>
   .rChart {
     display: block;
@@ -521,10 +521,10 @@ n1$chart(stacked = TRUE)
 n1$print("final",cdn=TRUE)
 n1$show("pyramic",cdn=TRUE)
 ```
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.css"/>
+<script src="/../js/jquery-2.1.1.min.js"></script>
+
+<script src="/../js/nv.d3.min.js"></script>
+<link rel="stylesheet" href="/../css/nv.d3.min.css"/>
 <div id = 'final' class = 'rChart nvd3'></div>
 <script type='text/javascript'>
  $(document).ready(function(){
