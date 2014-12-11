@@ -38,7 +38,7 @@ cdata$Area=as.numeric(gsub(',','',as.character(cdata$Area)))
 # Visualizing 
 ---
 Largest demand is notably comming from Bericap(`Germany`), with highest 5200sqm required area is recorded. This area is nearly two time bigger than required areas by many companies which come from `Japan`. 
-```{r barchart2, results='asis',fig.align='center',warning=FALSE,message=FALSE}
+```{r barchart2, results='hide',fig.align='center',warning=FALSE,message=FALSE}
 require(methods)
 require(rCharts)
 require(knitr)
@@ -47,18 +47,424 @@ d1<-dPlot(y="Company", x="Area",data=cdata, groups="Country",type="bar")
 d1$yAxis(type="addCategoryAxis", orderRule="Area")
 d1$xAxis(type="addMeasureAxis")
 d1$set(width = 700)
-d1$show("iframesrc",cdn=TRUE)
+d1$print('chart8', cdn = TRUE)
 ```
 
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type='text/javascript' src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script> 
+ <style>
+  .rChart {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    width: 700px;
+    height: 400px;
+  }  
+  </style>
+<div id = 'chart8' class = 'rChart dimple'></div>
+<script type="text/javascript">
+  var opts = {
+ "dom": "chart8",
+"width":    700,
+"height":    400,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false 
+},
+"yAxis": {
+ "type": "addCategoryAxis",
+"showPercent": false,
+"orderRule": "Area" 
+},
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": [],
+"x": "Area",
+"y": "Company",
+"groups": "Country",
+"type": "bar",
+"id": "chart8" 
+},
+    data = [{"Company":"Kyoei-Seisakusho Manufacturing Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Noegel","Country":"DE","Area":1500},{"Company":"Na Jin","Country":"KR","Area":4000},{"Company":"Tamasu Co.,Ltd","Country":"JP","Area":2000},{"Company":"Digital Age Dental Laboratories ","Country":"US","Area":2000},{"Company":"Pretty Woman ","Country":"US","Area":2000},{"Company":"Tohin Industry Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Cystone","Country":"DE","Area":2000},{"Company":"Japan Plus Vietnam Co. Ltd.","Country":"JP","Area":1040},{"Company":"Checkpoint Systems","Country":"US","Area":1043},{"Company":"Sanshin Chemical Industry Vietnam","Country":"JP","Area":3123},{"Company":"IWK VIET NAM","Country":"JP","Area":1040},{"Company":"Pilosio","Country":"EU","Area":3123},{"Company":"Dian International Trading Ltd  (Ban San Se Garment's partner)","Country":"CN","Area":1043},{"Company":"Asia Industry Co., Ltd","Country":"JP","Area":1500},{"Company":"Intermarine Supply","Country":"SG","Area":2003},{"Company":"Kawamura Sangyo Co.,Ltd.","Country":"JP","Area":1040},{"Company":"Sunleaf","Country":"JP","Area":1040},{"Company":"J-TEC Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Bericap","Country":"DE","Area":5206},{"Company":"Tellbe","Country":"SE","Area":1000},{"Company":"Marusan Kigata Seisakusho","Country":"JP","Area":1000},{"Company":"Tada Plastics Moldco","Country":"JP","Area":2000},{"Company":"Kaneko Sangyo Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Suzuki Denso Co., Ltd","Country":"JP","Area":1000},{"Company":"Daito Special Wire","Country":"JP","Area":2000},{"Company":"Relats","Country":"ES","Area":1000},{"Company":"Gondola Kogyo","Country":"JP","Area":1000},{"Company":"DFG","Country":"IT","Area":1040}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
+
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length > 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == "function") {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n<20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis("x", layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis("y", layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === 'undefined')) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === 'undefined')) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === 'undefined')) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i<2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length > 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length > 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
+
+</script>
 Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than `Korea` and `Germany` individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.
 
 ```{r barchart3, results='asis',fig.align='center',message=FALSE}
 d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
 d2$yAxis(type="addCategoryAxis", orderRule="Area")
 d2$xAxis(type="addMeasureAxis")
-d2$show("iframesrc",cdn=TRUE)
 ```
+<div id = 'chart9' class = 'rChart dimple'></div>
+<script type="text/javascript">
+  var opts = {
+ "dom": "chart9",
+"width":    800,
+"height":    400,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false 
+},
+"yAxis": {
+ "type": "addCategoryAxis",
+"showPercent": false,
+"orderRule": "Area" 
+},
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": [],
+"x": "Area",
+"y": "Country",
+"groups": "Company",
+"type": "bar",
+"id": "chart9" 
+},
+    data = [{"Company":"Kyoei-Seisakusho Manufacturing Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Noegel","Country":"DE","Area":1500},{"Company":"Na Jin","Country":"KR","Area":4000},{"Company":"Tamasu Co.,Ltd","Country":"JP","Area":2000},{"Company":"Digital Age Dental Laboratories ","Country":"US","Area":2000},{"Company":"Pretty Woman ","Country":"US","Area":2000},{"Company":"Tohin Industry Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Cystone","Country":"DE","Area":2000},{"Company":"Japan Plus Vietnam Co. Ltd.","Country":"JP","Area":1040},{"Company":"Checkpoint Systems","Country":"US","Area":1043},{"Company":"Sanshin Chemical Industry Vietnam","Country":"JP","Area":3123},{"Company":"IWK VIET NAM","Country":"JP","Area":1040},{"Company":"Pilosio","Country":"EU","Area":3123},{"Company":"Dian International Trading Ltd  (Ban San Se Garment's partner)","Country":"CN","Area":1043},{"Company":"Asia Industry Co., Ltd","Country":"JP","Area":1500},{"Company":"Intermarine Supply","Country":"SG","Area":2003},{"Company":"Kawamura Sangyo Co.,Ltd.","Country":"JP","Area":1040},{"Company":"Sunleaf","Country":"JP","Area":1040},{"Company":"J-TEC Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Bericap","Country":"DE","Area":5206},{"Company":"Tellbe","Country":"SE","Area":1000},{"Company":"Marusan Kigata Seisakusho","Country":"JP","Area":1000},{"Company":"Tada Plastics Moldco","Country":"JP","Area":2000},{"Company":"Kaneko Sangyo Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Suzuki Denso Co., Ltd","Country":"JP","Area":1000},{"Company":"Daito Special Wire","Country":"JP","Area":2000},{"Company":"Relats","Country":"ES","Area":1000},{"Company":"Gondola Kogyo","Country":"JP","Area":1000},{"Company":"DFG","Country":"IT","Area":1040}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
 
+  var myChart = new dimple.chart(svg, data);
+  if (opts.bounds) {
+    myChart.setBounds(opts.bounds.x, opts.bounds.y, opts.bounds.width, opts.bounds.height);//myChart.setBounds(80, 30, 480, 330);
+  }
+  //dimple allows use of custom CSS with noFormats
+  if(opts.noFormats) { myChart.noFormats = opts.noFormats; };
+  //for markimekko and addAxis also have third parameter measure
+  //so need to evaluate if measure provided
+  
+  //function to build axes
+  function buildAxis(position,layer){
+    var axis;
+    var axisopts;
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
+    
+    if(axisopts.measure) {
+      axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
+    } else {
+      axis = myChart[axisopts.type](position, layer[position]);
+    };
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
+    if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
+    if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
+    if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
+    if (axisopts.overrideMax) axis.overrideMax = axisopts.overrideMax;
+    if (axisopts.inputFormat) axis.dateParseFormat = axisopts.inputFormat;
+    if (axisopts.outputFormat) axis.tickFormat = axisopts.outputFormat;    
+    return axis;
+  };
+  
+  var c = null;
+  if(d3.keys(opts.colorAxis).length > 0) {
+    c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
+  }
+  
+  //allow manipulation of default colors to use with dimple
+  if(opts.defaultColors.length) {
+    opts.defaultColors = opts.defaultColors[0];
+    if (typeof(opts.defaultColors) == "function") {
+      //assume this is a d3 scale
+      //for now loop through first 20 but need a better way to handle
+      defaultColorsArray = [];
+      for (var n=0;n<20;n++) {
+        defaultColorsArray.push(opts.defaultColors(n));
+      };
+      opts.defaultColors = defaultColorsArray;
+    }
+    opts.defaultColors.forEach(function(d,i) {
+      opts.defaultColors[i] = new dimple.color(d);
+    })
+    myChart.defaultColors = opts.defaultColors;
+  }  
+  
+  //do series
+  //set up a function since same for each
+  //as of now we have x,y,groups,data,type in opts for primary layer
+  //and other layers reside in opts.layers
+  function buildSeries(layer, hidden){
+    //inherit from primary layer if not intentionally changed or xAxis, yAxis, zAxis null
+    if (!layer.xAxis) layer.xAxis = opts.xAxis;    
+    if (!layer.yAxis) layer.yAxis = opts.yAxis;
+    if (!layer.zAxis) layer.zAxis = opts.zAxis;
+    
+    var x = buildAxis("x", layer);
+    x.hidden = hidden;
+    
+    var y = buildAxis("y", layer);
+    y.hidden = hidden;
+    
+    //z for bubbles
+    var z = null;
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
+    };
+    
+    //here think I need to evaluate group and if missing do null
+    //as the group argument
+    //if provided need to use groups from layer
+    var s = new dimple.series(myChart, null, x, y, z, c, null, dimple.plot[layer.type], dimple.aggregateMethod.avg, dimple.plot[layer.type].stacked);
+    
+    //as of v1.1.4 dimple can use different dataset for each series
+    if(layer.data){
+      //convert to an array of objects
+      //avoid lodash for now
+      datakeys = d3.keys(layer.data)
+      layer.dataarray = layer.data[datakeys[1]].map(function(d,i){
+        var tempobj = {}
+        datakeys.forEach(function(key){
+          tempobj[key] = layer.data[key][i]
+        })
+        return tempobj
+      })
+      s.data = layer.dataarray;
+    }
+    
+    //for measure axis dimple sorts at the series level not at axis level
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
+        }
+      }
+    })
+    
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
+      //series offers an aggregate method that we will also need to check if available
+      //options available are avg, count, max, min, sum
+    }
+    if (!(typeof(layer.aggregate) === 'undefined')) {
+      s.aggregate = eval(layer.aggregate);
+    }
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
+      s.lineWeight = layer.lineWeight;
+    }
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
+      s.lineMarkers = layer.lineMarkers;
+    }
+    if (!(typeof(layer.barGap) === 'undefined')) {
+      s.barGap = layer.barGap;
+    }    
+    if (!(typeof(layer.interpolation) === 'undefined')) {
+      s.interpolation = layer.interpolation;
+    } 
+    
+    myChart.series.push(s);
+    
+    /*placeholder fix domain of primary scale for new series data
+    //not working right now but something like this
+    //for now just use overrideMin and overrideMax from rCharts
+    for( var i = 0; i<2; i++) {
+      if (!myChart.axes[i].overrideMin) {
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
+      }
+      if (!myChart.axes[i].overrideMax) {  
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
+      }
+      myChart.axes[i]._update();
+    }
+    */
+      
+    
+    return s;
+  };
+  
+  buildSeries(opts, false);
+  if (opts.layers.length > 0) {
+    opts.layers.forEach(function(layer){
+      buildSeries(layer, true);
+    })
+  }
+  //unsure if this is best but if legend is provided (not empty) then evaluate
+  if(d3.keys(opts.legend).length > 0) {
+    var l =myChart.addLegend();
+    d3.keys(opts.legend).forEach(function(d){
+      l[d] = opts.legend[d];
+    });
+  }
+  //quick way to get this going but need to make this cleaner
+  if(opts.storyboard) {
+    myChart.setStoryboard(opts.storyboard);
+  };
+  myChart.draw();
+
+</script>
 
 Let's move to Inactive sheet.
 ```{r barchart4, results='hide',echo=FALSE,warning=FALSE}
@@ -78,7 +484,7 @@ cdata[116,4]=1000
 d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
 d2$yAxis(type="addCategoryAxis", orderRule="Area")
 d2$xAxis(type="addMeasureAxis")
-d2$show("iframesrc",cdn=TRUE)
+d2$print("barchart",cdn=TRUE)
 ```
 
 
@@ -103,17 +509,381 @@ n1$yAxis(axisLabel = "Area",
           tickFormat = "#! function(d) {
                            return d3.format(',.0f')(Math.abs(d) / 1000) + 'K'
                            } !#") 
+
 ```
+
 To compare Inactive vs Active by Country, I find it useful to convey idea using pyramid chart from [Walkerke's Blog][walker]. Then, we plot the chart. It's clearly can be seen that not many demands are actually passed the negotiation state at the moment this report was produced. However, the outstanding inactive deals might signal the potential of profitable revenues for company in the future.
 
-```{r multibar, results='asis',fig.align='center'}
+```{r multibar, results='hide',fig.align='center'}
 
 n1$chart(color = c('silver','red'))
 n1$chart(stacked = TRUE)
-n1$show("iframesrc",cdn=TRUE)
+n1$print("final",cdn=TRUE)
+n1$show("pyramic",cdn=TRUE)
 ```
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.css"/>
+<div id = 'final' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
+ $(document).ready(function(){
+      drawfinal()
+    });
+    function drawfinal(){  
+      var opts = {
+ "dom": "final",
+"width":    800,
+"height":    400,
+"x": "Country",
+"y": "Area",
+"group": "Activity",
+"type": "multiBarHorizontalChart",
+"id": "final" 
+},
+        data = [
+ {
+ "Country": "AU",
+"Activity": "Inactive",
+"Area":         -11000 
+},
+{
+ "Country": "CA",
+"Activity": "Inactive",
+"Area":          -5000 
+},
+{
+ "Country": "CH",
+"Activity": "Inactive",
+"Area":          -3000 
+},
+{
+ "Country": "CN",
+"Activity": "Inactive",
+"Area":         -38000 
+},
+{
+ "Country": "DE",
+"Activity": "Inactive",
+"Area":          -8000 
+},
+{
+ "Country": "DK",
+"Activity": "Inactive",
+"Area":          -2000 
+},
+{
+ "Country": "FI",
+"Activity": "Inactive",
+"Area":          -5000 
+},
+{
+ "Country": "FR",
+"Activity": "Inactive",
+"Area":          -1500 
+},
+{
+ "Country": "GE",
+"Activity": "Inactive",
+"Area":          -2000 
+},
+{
+ "Country": "HK",
+"Activity": "Inactive",
+"Area":         -14300 
+},
+{
+ "Country": "ID",
+"Activity": "Inactive",
+"Area":          -4000 
+},
+{
+ "Country": "IN",
+"Activity": "Inactive",
+"Area":         -14000 
+},
+{
+ "Country": "IT",
+"Activity": "Inactive",
+"Area":          -3000 
+},
+{
+ "Country": "JP",
+"Activity": "Inactive",
+"Area":         -99303 
+},
+{
+ "Country": "KR",
+"Activity": "Inactive",
+"Area":         -30000 
+},
+{
+ "Country": "LU",
+"Activity": "Inactive",
+"Area":          -1000 
+},
+{
+ "Country": "MY",
+"Activity": "Inactive",
+"Area":          -4000 
+},
+{
+ "Country": "NL",
+"Activity": "Inactive",
+"Area":          -1000 
+},
+{
+ "Country": "PA",
+"Activity": "Inactive",
+"Area":          -6000 
+},
+{
+ "Country": "SG",
+"Activity": "Inactive",
+"Area":         -21000 
+},
+{
+ "Country": "TH",
+"Activity": "Inactive",
+"Area":          -3000 
+},
+{
+ "Country": "TW",
+"Activity": "Inactive",
+"Area":          -4040 
+},
+{
+ "Country": "UK",
+"Activity": "Inactive",
+"Area":          -7000 
+},
+{
+ "Country": "US",
+"Activity": "Inactive",
+"Area":         -72902 
+},
+{
+ "Country": "VN",
+"Activity": "Inactive",
+"Area":         -33700 
+},
+{
+ "Country": "SE",
+"Activity": "Inactive",
+"Area":             -0 
+},
+{
+ "Country": "EU",
+"Activity": "Inactive",
+"Area":             -0 
+},
+{
+ "Country": "ES",
+"Activity": "Inactive",
+"Area":             -0 
+},
+{
+ "Country": "AU",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "CA",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "CH",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "CN",
+"Activity": "Active",
+"Area":           1043 
+},
+{
+ "Country": "DE",
+"Activity": "Active",
+"Area":           8706 
+},
+{
+ "Country": "DK",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "FI",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "FR",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "GE",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "HK",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "ID",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "IN",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "IT",
+"Activity": "Active",
+"Area":           1040 
+},
+{
+ "Country": "JP",
+"Activity": "Active",
+"Area":          23783 
+},
+{
+ "Country": "KR",
+"Activity": "Active",
+"Area":           4000 
+},
+{
+ "Country": "LU",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "MY",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "NL",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "PA",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "SG",
+"Activity": "Active",
+"Area":           2003 
+},
+{
+ "Country": "TH",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "TW",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "UK",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "US",
+"Activity": "Active",
+"Area":           5043 
+},
+{
+ "Country": "VN",
+"Activity": "Active",
+"Area":              0 
+},
+{
+ "Country": "SE",
+"Activity": "Active",
+"Area":           1000 
+},
+{
+ "Country": "EU",
+"Activity": "Active",
+"Area":           3123 
+},
+{
+ "Country": "ES",
+"Activity": "Active",
+"Area":           1000 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .tooltipContent( function(key, x, y, e){
+var format = d3.format('0,000');
+return '<h3>' + key + ', country ' + x + '</h3>' +
+'<p>' + 'Area: ' + y + '</p>'
+} )
+  .color([ "silver", "red" ])
+  .stacked(true)
+          
+        
 
-Cheers, Have fun digging up the data
+        
+        
+        chart.yAxis
+  .axisLabel("Area")
+  .tickFormat( function(d) {
+return d3.format(',.0f')(Math.abs(d) / 1000) + 'K'
+} )
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+
+Cheers, Have fun digging up the data ~
 
 ```{r session}
 sessionInfo()

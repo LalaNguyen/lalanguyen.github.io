@@ -49,58 +49,49 @@ d1<-dPlot(y="Company", x="Area",data=cdata, groups="Country",type="bar")
 d1$yAxis(type="addCategoryAxis", orderRule="Area")
 d1$xAxis(type="addMeasureAxis")
 d1$set(width = 700)
-d1$show("iframesrc",cdn=TRUE)
+d1$print('chart8', cdn = TRUE)
 {% endhighlight %}
 
-<iframe srcdoc=' &lt;!doctype HTML&gt;
-&lt;meta charset = &#039;utf-8&#039;&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    
-    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 700px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = &#039;chartdd26efccd24&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
-    &lt;script type=&quot;text/javascript&quot;&gt;
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type='text/javascript' src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script> 
+ <style>
+  .rChart {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    width: 700px;
+    height: 400px;
+  }  
+  </style>
+<div id = 'chart8' class = 'rChart dimple'></div>
+<script type="text/javascript">
   var opts = {
- &quot;dom&quot;: &quot;chartdd26efccd24&quot;,
-&quot;width&quot;:    700,
-&quot;height&quot;:    400,
-&quot;xAxis&quot;: {
- &quot;type&quot;: &quot;addMeasureAxis&quot;,
-&quot;showPercent&quot;: false 
+ "dom": "chart8",
+"width":    700,
+"height":    400,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false 
 },
-&quot;yAxis&quot;: {
- &quot;type&quot;: &quot;addCategoryAxis&quot;,
-&quot;showPercent&quot;: false,
-&quot;orderRule&quot;: &quot;Area&quot; 
+"yAxis": {
+ "type": "addCategoryAxis",
+"showPercent": false,
+"orderRule": "Area" 
 },
-&quot;zAxis&quot;: [],
-&quot;colorAxis&quot;: [],
-&quot;defaultColors&quot;: [],
-&quot;layers&quot;: [],
-&quot;legend&quot;: [],
-&quot;x&quot;: &quot;Area&quot;,
-&quot;y&quot;: &quot;Company&quot;,
-&quot;groups&quot;: &quot;Country&quot;,
-&quot;type&quot;: &quot;bar&quot;,
-&quot;id&quot;: &quot;chartdd26efccd24&quot; 
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": [],
+"x": "Area",
+"y": "Company",
+"groups": "Country",
+"type": "bar",
+"id": "chart8" 
 },
-    data = [{&quot;Company&quot;:&quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Noegel&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Na Jin&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Company&quot;:&quot;Tamasu Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Digital Age Dental Laboratories &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Pretty Woman &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Tohin Industry Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Cystone&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Japan Plus Vietnam Co. Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Checkpoint Systems&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Sanshin Chemical Industry Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;IWK VIET NAM&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Pilosio&quot;,&quot;Country&quot;:&quot;EU&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;Dian International Trading Ltd  (Ban San Se Garment&#039;s partner)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Asia Industry Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Intermarine Supply&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2003},{&quot;Company&quot;:&quot;Kawamura Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Sunleaf&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;J-TEC Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Bericap&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:5206},{&quot;Company&quot;:&quot;Tellbe&quot;,&quot;Country&quot;:&quot;SE&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Marusan Kigata Seisakusho&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Tada Plastics Moldco&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Kaneko Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Suzuki Denso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Daito Special Wire&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Relats&quot;,&quot;Country&quot;:&quot;ES&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Gondola Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;DFG&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:1040}];
-  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
+    data = [{"Company":"Kyoei-Seisakusho Manufacturing Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Noegel","Country":"DE","Area":1500},{"Company":"Na Jin","Country":"KR","Area":4000},{"Company":"Tamasu Co.,Ltd","Country":"JP","Area":2000},{"Company":"Digital Age Dental Laboratories ","Country":"US","Area":2000},{"Company":"Pretty Woman ","Country":"US","Area":2000},{"Company":"Tohin Industry Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Cystone","Country":"DE","Area":2000},{"Company":"Japan Plus Vietnam Co. Ltd.","Country":"JP","Area":1040},{"Company":"Checkpoint Systems","Country":"US","Area":1043},{"Company":"Sanshin Chemical Industry Vietnam","Country":"JP","Area":3123},{"Company":"IWK VIET NAM","Country":"JP","Area":1040},{"Company":"Pilosio","Country":"EU","Area":3123},{"Company":"Dian International Trading Ltd  (Ban San Se Garment's partner)","Country":"CN","Area":1043},{"Company":"Asia Industry Co., Ltd","Country":"JP","Area":1500},{"Company":"Intermarine Supply","Country":"SG","Area":2003},{"Company":"Kawamura Sangyo Co.,Ltd.","Country":"JP","Area":1040},{"Company":"Sunleaf","Country":"JP","Area":1040},{"Company":"J-TEC Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Bericap","Country":"DE","Area":5206},{"Company":"Tellbe","Country":"SE","Area":1000},{"Company":"Marusan Kigata Seisakusho","Country":"JP","Area":1000},{"Company":"Tada Plastics Moldco","Country":"JP","Area":2000},{"Company":"Kaneko Sangyo Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Suzuki Denso Co., Ltd","Country":"JP","Area":1000},{"Company":"Daito Special Wire","Country":"JP","Area":2000},{"Company":"Relats","Country":"ES","Area":1000},{"Company":"Gondola Kogyo","Country":"JP","Area":1000},{"Company":"DFG","Country":"IT","Area":1040}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
 
   var myChart = new dimple.chart(svg, data);
   if (opts.bounds) {
@@ -115,16 +106,16 @@ d1$show("iframesrc",cdn=TRUE)
   function buildAxis(position,layer){
     var axis;
     var axisopts;
-    if (!layer[position+&quot;Axis&quot;]){
-      axisopts = opts[position+&quot;Axis&quot;];
-    } else axisopts = layer[position+&quot;Axis&quot;];
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
     
     if(axisopts.measure) {
       axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
     } else {
       axis = myChart[axisopts.type](position, layer[position]);
     };
-    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
     if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
     if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
     if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
@@ -135,18 +126,18 @@ d1$show("iframesrc",cdn=TRUE)
   };
   
   var c = null;
-  if(d3.keys(opts.colorAxis).length &gt; 0) {
+  if(d3.keys(opts.colorAxis).length > 0) {
     c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
   }
   
   //allow manipulation of default colors to use with dimple
   if(opts.defaultColors.length) {
     opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+    if (typeof(opts.defaultColors) == "function") {
       //assume this is a d3 scale
       //for now loop through first 20 but need a better way to handle
       defaultColorsArray = [];
-      for (var n=0;n&lt;20;n++) {
+      for (var n=0;n<20;n++) {
         defaultColorsArray.push(opts.defaultColors(n));
       };
       opts.defaultColors = defaultColorsArray;
@@ -167,16 +158,16 @@ d1$show("iframesrc",cdn=TRUE)
     if (!layer.yAxis) layer.yAxis = opts.yAxis;
     if (!layer.zAxis) layer.zAxis = opts.zAxis;
     
-    var x = buildAxis(&quot;x&quot;, layer);
+    var x = buildAxis("x", layer);
     x.hidden = hidden;
     
-    var y = buildAxis(&quot;y&quot;, layer);
+    var y = buildAxis("y", layer);
     y.hidden = hidden;
     
     //z for bubbles
     var z = null;
-    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
-      z = buildAxis(&quot;z&quot;, layer);
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
     };
     
     //here think I need to evaluate group and if missing do null
@@ -200,34 +191,34 @@ d1$show("iframesrc",cdn=TRUE)
     }
     
     //for measure axis dimple sorts at the series level not at axis level
-    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
-      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
-        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
-          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
-        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
-          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
         }
       }
     })
     
-    if(layer.hasOwnProperty(&quot;groups&quot;)) {
-      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
       //series offers an aggregate method that we will also need to check if available
       //options available are avg, count, max, min, sum
     }
-    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.aggregate) === 'undefined')) {
       s.aggregate = eval(layer.aggregate);
     }
-    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
       s.lineWeight = layer.lineWeight;
     }
-    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
       s.lineMarkers = layer.lineMarkers;
     }
-    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.barGap) === 'undefined')) {
       s.barGap = layer.barGap;
     }    
-    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.interpolation) === 'undefined')) {
       s.interpolation = layer.interpolation;
     } 
     
@@ -236,12 +227,12 @@ d1$show("iframesrc",cdn=TRUE)
     /*placeholder fix domain of primary scale for new series data
     //not working right now but something like this
     //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&lt;2; i++) {
+    for( var i = 0; i<2; i++) {
       if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
       }
       if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
       }
       myChart.axes[i]._update();
     }
@@ -252,13 +243,13 @@ d1$show("iframesrc",cdn=TRUE)
   };
   
   buildSeries(opts, false);
-  if (opts.layers.length &gt; 0) {
+  if (opts.layers.length > 0) {
     opts.layers.forEach(function(layer){
       buildSeries(layer, true);
     })
   }
   //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &gt; 0) {
+  if(d3.keys(opts.legend).length > 0) {
     var l =myChart.addLegend();
     d3.keys(opts.legend).forEach(function(d){
       l[d] = opts.legend[d];
@@ -270,13 +261,7 @@ d1$show("iframesrc",cdn=TRUE)
   };
   myChart.draw();
 
-&lt;/script&gt;
-    
-    &lt;script&gt;&lt;/script&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  dimple  ' id='iframe-chartdd26efccd24'> </iframe>
- <style>iframe.rChart{ width: 100%; height: 400px;}</style>
-
+</script>
 Ah, talking about Japan, we can look at by light blue bar representing JP companies from the above chart. Despite having less demands in size of area than `Korea` and `Germany` individually, JP still is promising client as they are completely outstanding in term of total area demanded. Aggregating all companies by country would produce clearer observation in the following graph.
 
 
@@ -284,58 +269,35 @@ Ah, talking about Japan, we can look at by light blue bar representing JP compan
 d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
 d2$yAxis(type="addCategoryAxis", orderRule="Area")
 d2$xAxis(type="addMeasureAxis")
-d2$show("iframesrc",cdn=TRUE)
 {% endhighlight %}
-
-<iframe srcdoc=' &lt;!doctype HTML&gt;
-&lt;meta charset = &#039;utf-8&#039;&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    
-    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = &#039;chartdd2d28a24b&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
-    &lt;script type=&quot;text/javascript&quot;&gt;
+<div id = 'chart9' class = 'rChart dimple'></div>
+<script type="text/javascript">
   var opts = {
- &quot;dom&quot;: &quot;chartdd2d28a24b&quot;,
-&quot;width&quot;:    800,
-&quot;height&quot;:    400,
-&quot;xAxis&quot;: {
- &quot;type&quot;: &quot;addMeasureAxis&quot;,
-&quot;showPercent&quot;: false 
+ "dom": "chart9",
+"width":    800,
+"height":    400,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false 
 },
-&quot;yAxis&quot;: {
- &quot;type&quot;: &quot;addCategoryAxis&quot;,
-&quot;showPercent&quot;: false,
-&quot;orderRule&quot;: &quot;Area&quot; 
+"yAxis": {
+ "type": "addCategoryAxis",
+"showPercent": false,
+"orderRule": "Area" 
 },
-&quot;zAxis&quot;: [],
-&quot;colorAxis&quot;: [],
-&quot;defaultColors&quot;: [],
-&quot;layers&quot;: [],
-&quot;legend&quot;: [],
-&quot;x&quot;: &quot;Area&quot;,
-&quot;y&quot;: &quot;Country&quot;,
-&quot;groups&quot;: &quot;Company&quot;,
-&quot;type&quot;: &quot;bar&quot;,
-&quot;id&quot;: &quot;chartdd2d28a24b&quot; 
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": [],
+"x": "Area",
+"y": "Country",
+"groups": "Company",
+"type": "bar",
+"id": "chart9" 
 },
-    data = [{&quot;Company&quot;:&quot;Kyoei-Seisakusho Manufacturing Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Noegel&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Na Jin&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Company&quot;:&quot;Tamasu Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Digital Age Dental Laboratories &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Pretty Woman &quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Tohin Industry Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Cystone&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Japan Plus Vietnam Co. Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Checkpoint Systems&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Sanshin Chemical Industry Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;IWK VIET NAM&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Pilosio&quot;,&quot;Country&quot;:&quot;EU&quot;,&quot;Area&quot;:3123},{&quot;Company&quot;:&quot;Dian International Trading Ltd  (Ban San Se Garment&#039;s partner)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1043},{&quot;Company&quot;:&quot;Asia Industry Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Company&quot;:&quot;Intermarine Supply&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2003},{&quot;Company&quot;:&quot;Kawamura Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;Sunleaf&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1040},{&quot;Company&quot;:&quot;J-TEC Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Bericap&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:5206},{&quot;Company&quot;:&quot;Tellbe&quot;,&quot;Country&quot;:&quot;SE&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Marusan Kigata Seisakusho&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Tada Plastics Moldco&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Kaneko Sangyo Co.,Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Suzuki Denso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Daito Special Wire&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Company&quot;:&quot;Relats&quot;,&quot;Country&quot;:&quot;ES&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;Gondola Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Company&quot;:&quot;DFG&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:1040}];
-  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
+    data = [{"Company":"Kyoei-Seisakusho Manufacturing Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Noegel","Country":"DE","Area":1500},{"Company":"Na Jin","Country":"KR","Area":4000},{"Company":"Tamasu Co.,Ltd","Country":"JP","Area":2000},{"Company":"Digital Age Dental Laboratories ","Country":"US","Area":2000},{"Company":"Pretty Woman ","Country":"US","Area":2000},{"Company":"Tohin Industry Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Cystone","Country":"DE","Area":2000},{"Company":"Japan Plus Vietnam Co. Ltd.","Country":"JP","Area":1040},{"Company":"Checkpoint Systems","Country":"US","Area":1043},{"Company":"Sanshin Chemical Industry Vietnam","Country":"JP","Area":3123},{"Company":"IWK VIET NAM","Country":"JP","Area":1040},{"Company":"Pilosio","Country":"EU","Area":3123},{"Company":"Dian International Trading Ltd  (Ban San Se Garment's partner)","Country":"CN","Area":1043},{"Company":"Asia Industry Co., Ltd","Country":"JP","Area":1500},{"Company":"Intermarine Supply","Country":"SG","Area":2003},{"Company":"Kawamura Sangyo Co.,Ltd.","Country":"JP","Area":1040},{"Company":"Sunleaf","Country":"JP","Area":1040},{"Company":"J-TEC Co.,Ltd.","Country":"JP","Area":1000},{"Company":"Bericap","Country":"DE","Area":5206},{"Company":"Tellbe","Country":"SE","Area":1000},{"Company":"Marusan Kigata Seisakusho","Country":"JP","Area":1000},{"Company":"Tada Plastics Moldco","Country":"JP","Area":2000},{"Company":"Kaneko Sangyo Co.,Ltd.","Country":"JP","Area":2000},{"Company":"Suzuki Denso Co., Ltd","Country":"JP","Area":1000},{"Company":"Daito Special Wire","Country":"JP","Area":2000},{"Company":"Relats","Country":"ES","Area":1000},{"Company":"Gondola Kogyo","Country":"JP","Area":1000},{"Company":"DFG","Country":"IT","Area":1040}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
 
   var myChart = new dimple.chart(svg, data);
   if (opts.bounds) {
@@ -350,16 +312,16 @@ d2$show("iframesrc",cdn=TRUE)
   function buildAxis(position,layer){
     var axis;
     var axisopts;
-    if (!layer[position+&quot;Axis&quot;]){
-      axisopts = opts[position+&quot;Axis&quot;];
-    } else axisopts = layer[position+&quot;Axis&quot;];
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
     
     if(axisopts.measure) {
       axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
     } else {
       axis = myChart[axisopts.type](position, layer[position]);
     };
-    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
     if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
     if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
     if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
@@ -370,18 +332,18 @@ d2$show("iframesrc",cdn=TRUE)
   };
   
   var c = null;
-  if(d3.keys(opts.colorAxis).length &gt; 0) {
+  if(d3.keys(opts.colorAxis).length > 0) {
     c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
   }
   
   //allow manipulation of default colors to use with dimple
   if(opts.defaultColors.length) {
     opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+    if (typeof(opts.defaultColors) == "function") {
       //assume this is a d3 scale
       //for now loop through first 20 but need a better way to handle
       defaultColorsArray = [];
-      for (var n=0;n&lt;20;n++) {
+      for (var n=0;n<20;n++) {
         defaultColorsArray.push(opts.defaultColors(n));
       };
       opts.defaultColors = defaultColorsArray;
@@ -402,16 +364,16 @@ d2$show("iframesrc",cdn=TRUE)
     if (!layer.yAxis) layer.yAxis = opts.yAxis;
     if (!layer.zAxis) layer.zAxis = opts.zAxis;
     
-    var x = buildAxis(&quot;x&quot;, layer);
+    var x = buildAxis("x", layer);
     x.hidden = hidden;
     
-    var y = buildAxis(&quot;y&quot;, layer);
+    var y = buildAxis("y", layer);
     y.hidden = hidden;
     
     //z for bubbles
     var z = null;
-    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
-      z = buildAxis(&quot;z&quot;, layer);
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
     };
     
     //here think I need to evaluate group and if missing do null
@@ -435,34 +397,34 @@ d2$show("iframesrc",cdn=TRUE)
     }
     
     //for measure axis dimple sorts at the series level not at axis level
-    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
-      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
-        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
-          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
-        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
-          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
         }
       }
     })
     
-    if(layer.hasOwnProperty(&quot;groups&quot;)) {
-      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
       //series offers an aggregate method that we will also need to check if available
       //options available are avg, count, max, min, sum
     }
-    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.aggregate) === 'undefined')) {
       s.aggregate = eval(layer.aggregate);
     }
-    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
       s.lineWeight = layer.lineWeight;
     }
-    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
       s.lineMarkers = layer.lineMarkers;
     }
-    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.barGap) === 'undefined')) {
       s.barGap = layer.barGap;
     }    
-    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.interpolation) === 'undefined')) {
       s.interpolation = layer.interpolation;
     } 
     
@@ -471,12 +433,12 @@ d2$show("iframesrc",cdn=TRUE)
     /*placeholder fix domain of primary scale for new series data
     //not working right now but something like this
     //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&lt;2; i++) {
+    for( var i = 0; i<2; i++) {
       if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
       }
       if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
       }
       myChart.axes[i]._update();
     }
@@ -487,13 +449,13 @@ d2$show("iframesrc",cdn=TRUE)
   };
   
   buildSeries(opts, false);
-  if (opts.layers.length &gt; 0) {
+  if (opts.layers.length > 0) {
     opts.layers.forEach(function(layer){
       buildSeries(layer, true);
     })
   }
   //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &gt; 0) {
+  if(d3.keys(opts.legend).length > 0) {
     var l =myChart.addLegend();
     d3.keys(opts.legend).forEach(function(d){
       l[d] = opts.legend[d];
@@ -505,13 +467,7 @@ d2$show("iframesrc",cdn=TRUE)
   };
   myChart.draw();
 
-&lt;/script&gt;
-    
-    &lt;script&gt;&lt;/script&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  dimple  ' id='iframe-chartdd2d28a24b'> </iframe>
- <style>iframe.rChart{ width: 100%; height: 400px;}</style>
-
+</script>
 
 Let's move to Inactive sheet.
 
@@ -521,58 +477,38 @@ Let's move to Inactive sheet.
 d2=dPlot(y="Country", x="Area",data=cdata, groups="Company",type="bar")
 d2$yAxis(type="addCategoryAxis", orderRule="Area")
 d2$xAxis(type="addMeasureAxis")
-d2$show("iframesrc",cdn=TRUE)
+d2$print("barchart",cdn=TRUE)
 {% endhighlight %}
 
-<iframe srcdoc=' &lt;!doctype HTML&gt;
-&lt;meta charset = &#039;utf-8&#039;&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    
-    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//dimplejs.org/dist/dimple.v2.1.0.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = &#039;chartdd27472e0e2&#039; class = &#039;rChart dimple&#039;&gt;&lt;/div&gt;    
-    &lt;script type=&quot;text/javascript&quot;&gt;
+
+<div id = 'barchart' class = 'rChart dimple'></div>
+<script type="text/javascript">
   var opts = {
- &quot;dom&quot;: &quot;chartdd27472e0e2&quot;,
-&quot;width&quot;:    800,
-&quot;height&quot;:    400,
-&quot;xAxis&quot;: {
- &quot;type&quot;: &quot;addMeasureAxis&quot;,
-&quot;showPercent&quot;: false 
+ "dom": "barchart",
+"width":    800,
+"height":    400,
+"xAxis": {
+ "type": "addMeasureAxis",
+"showPercent": false 
 },
-&quot;yAxis&quot;: {
- &quot;type&quot;: &quot;addCategoryAxis&quot;,
-&quot;showPercent&quot;: false,
-&quot;orderRule&quot;: &quot;Area&quot; 
+"yAxis": {
+ "type": "addCategoryAxis",
+"showPercent": false,
+"orderRule": "Area" 
 },
-&quot;zAxis&quot;: [],
-&quot;colorAxis&quot;: [],
-&quot;defaultColors&quot;: [],
-&quot;layers&quot;: [],
-&quot;legend&quot;: [],
-&quot;x&quot;: &quot;Area&quot;,
-&quot;y&quot;: &quot;Country&quot;,
-&quot;groups&quot;: &quot;Company&quot;,
-&quot;type&quot;: &quot;bar&quot;,
-&quot;id&quot;: &quot;chartdd27472e0e2&quot; 
+"zAxis": [],
+"colorAxis": [],
+"defaultColors": [],
+"layers": [],
+"legend": [],
+"x": "Area",
+"y": "Country",
+"groups": "Company",
+"type": "bar",
+"id": "barchart" 
 },
-    data = [{&quot;Enquiry_Date&quot;:&quot;17-Nov-14&quot;,&quot;Company&quot;:&quot;Kim Hoa Ltd&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;5-May-14&quot;,&quot;Company&quot;:&quot;Sangyo Supply&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;22-Oct-14&quot;,&quot;Company&quot;:&quot;Mr. Mochizuki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;10-May-12&quot;,&quot;Company&quot;:&quot;Inoac Polymer Vietnam Co. , Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2003},{&quot;Enquiry_Date&quot;:&quot;3-Sep-14&quot;,&quot;Company&quot;:&quot;Erai Vietnam&quot;,&quot;Country&quot;:&quot;FR&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;20-Aug-14&quot;,&quot;Company&quot;:&quot;Bridge Corporation&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-14&quot;,&quot;Company&quot;:&quot;Toda Group&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Jul-14&quot;,&quot;Company&quot;:&quot;NE WHE CO., LTD&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;17-Jul-14&quot;,&quot;Company&quot;:&quot;Fico Trading &quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;15-Jul-14&quot;,&quot;Company&quot;:&quot;CSP Enterprise Ltd&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;7-Jul-14&quot;,&quot;Company&quot;:&quot;World Tech Vina&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;30-Jun-14&quot;,&quot;Company&quot;:&quot;Dynaplast&quot;,&quot;Country&quot;:&quot;ID&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;26-Jun-14&quot;,&quot;Company&quot;:&quot;DRS&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Jun-14&quot;,&quot;Company&quot;:&quot;SNL&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Yergat Foods&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Swisstec Sourcing&quot;,&quot;Country&quot;:&quot;CH&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Jun-14&quot;,&quot;Company&quot;:&quot;Zephyr&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;3-Jun-14&quot;,&quot;Company&quot;:&quot;OKENSEIKO VIETNAM CO., LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-May-14&quot;,&quot;Company&quot;:&quot;Sin Hwa Dee Foodstuff Industries Pte Ltd&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Royal Spirit&quot;,&quot;Country&quot;:&quot;TW&quot;,&quot;Area&quot;:1040},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Asean&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Saydo&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;14-May-14&quot;,&quot;Company&quot;:&quot;Thinh Phat &quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;May-14&quot;,&quot;Company&quot;:&quot;Premco&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;2-May-14&quot;,&quot;Company&quot;:&quot;Base Group&quot;,&quot;Country&quot;:&quot;UK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Apr-14&quot;,&quot;Company&quot;:&quot;Likelion&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;18-Apr-14&quot;,&quot;Company&quot;:&quot;Sketch-Interior Design &quot;,&quot;Country&quot;:&quot;DK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Apr-14&quot;,&quot;Company&quot;:&quot;Texchem-Pack&quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Apr-14&quot;,&quot;Company&quot;:&quot;Raw Technologies&quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;2-Apr-14&quot;,&quot;Company&quot;:&quot;Moda Design&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Mar-14&quot;,&quot;Company&quot;:&quot;Wanek Furniture&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;21-Mar-14&quot;,&quot;Company&quot;:&quot;Yumark &quot;,&quot;Country&quot;:&quot;TW&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;7-Mar-14&quot;,&quot;Company&quot;:&quot;Dong A&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Mar-14&quot;,&quot;Company&quot;:&quot;Dat Vinh M&amp;E Company Limited&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Mar-14&quot;,&quot;Company&quot;:&quot;Morstar Electric&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Seikow Chemical Engineering &amp; Machinery, Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Fukuoka Tape&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Phuc Hung Co.&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Mar-14&quot;,&quot;Company&quot;:&quot;Infratrol&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;1-Mar-14&quot;,&quot;Company&quot;:&quot;Toyotsu Vehitecs Vietnam&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;24-Feb-14&quot;,&quot;Company&quot;:&quot;DAEHACABLE&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;21-Feb-14&quot;,&quot;Company&quot;:&quot;Shimabun Engineering Co.,Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;21-Feb-14&quot;,&quot;Company&quot;:&quot;Koryo &quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;17-Feb-14&quot;,&quot;Company&quot;:&quot;Yoshino&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;13-Feb-14&quot;,&quot;Company&quot;:&quot;Itokoki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;12-Feb-14&quot;,&quot;Company&quot;:&quot;Sanix&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;28-Dec-13&quot;,&quot;Company&quot;:&quot;Meditec Japan&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;27-Dec-13&quot;,&quot;Company&quot;:&quot;Tokyo Paint&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;19-Dec-13&quot;,&quot;Company&quot;:&quot;Unicity&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Dec-13&quot;,&quot;Company&quot;:&quot;Fischer Asia&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;06-Dec-13&quot;,&quot;Company&quot;:&quot;Hiteso Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;3-Dec-13&quot;,&quot;Company&quot;:&quot;New World Fashion&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;30-Nov-13&quot;,&quot;Company&quot;:&quot;Sin\u00a0Huat Le\u00a0Sdn. Bhd&quot;,&quot;Country&quot;:&quot;MY&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;29-Nov-13&quot;,&quot;Company&quot;:&quot;One prospect from India&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;29-Nov-13&quot;,&quot;Company&quot;:&quot;H.B.C International&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Nov-13&quot;,&quot;Company&quot;:&quot;Hung Minh Co&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;20-Nov-13&quot;,&quot;Company&quot;:&quot;Tokyo Light Co&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;19-Nov-13&quot;,&quot;Company&quot;:&quot;Yamazaki Corporation&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;11-Nov-13&quot;,&quot;Company&quot;:&quot;Thinh Phat Co., Ltd. &quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;1-Nov-13&quot;,&quot;Company&quot;:&quot;Furniweb (their Italian customer)&quot;,&quot;Country&quot;:&quot;IT&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;31-Oct-13&quot;,&quot;Company&quot;:&quot;WB Coatings&quot;,&quot;Country&quot;:&quot;GE&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;24-Oct-13&quot;,&quot;Company&quot;:&quot;SMK Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Solimac Group&quot;,&quot;Country&quot;:&quot;TH&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Nihonhanda&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Emuge Franken&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-13&quot;,&quot;Company&quot;:&quot;Thermotech Engineering (PUNE) - India&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;8-Oct-13&quot;,&quot;Company&quot;:&quot;I-tak&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Sep-13&quot;,&quot;Company&quot;:&quot;CNA (Korea)&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Sep-13&quot;,&quot;Company&quot;:&quot;REDRANGER&quot;,&quot;Country&quot;:&quot;AU&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;26-Aug-13&quot;,&quot;Company&quot;:&quot;Changse&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;23-Aug-13&quot;,&quot;Company&quot;:&quot;Daiwa Kouki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;19-Aug-13&quot;,&quot;Company&quot;:&quot;NSG&quot;,&quot;Country&quot;:&quot;UK&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;13-Aug-13&quot;,&quot;Company&quot;:&quot;Aironware Fasteners (China)&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;9-Aug-13&quot;,&quot;Company&quot;:&quot;One prospect from Chao &quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;7-Aug-13&quot;,&quot;Company&quot;:&quot;One JP prospect &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;4-Aug-13&quot;,&quot;Company&quot;:&quot;KIM ANN ENGINEERING PTE LTD&quot;,&quot;Country&quot;:&quot;TH&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-13&quot;,&quot;Company&quot;:&quot;Kitani Denki&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;22-Jul-13&quot;,&quot;Company&quot;:&quot;CJ Corp&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;22-Jul-13&quot;,&quot;Company&quot;:&quot;Hanil U.S.G Vina&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;10-Jul-13&quot;,&quot;Company&quot;:&quot;Shining Labels \u2013 Hong Kong&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;05-Jul-13&quot;,&quot;Company&quot;:&quot;Microtest AG&quot;,&quot;Country&quot;:&quot;CH&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;02-Jul-13&quot;,&quot;Company&quot;:&quot;Xiamen Unique Bridal&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:20000},{&quot;Enquiry_Date&quot;:&quot;01-Jul-13&quot;,&quot;Company&quot;:&quot;OTS&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Jun-13&quot;,&quot;Company&quot;:&quot;KUWAHARA VN&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1800},{&quot;Enquiry_Date&quot;:&quot;Jun-13&quot;,&quot;Company&quot;:&quot;Gelan Textile&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-13&quot;,&quot;Company&quot;:&quot;Salcomp&quot;,&quot;Country&quot;:&quot;FI&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;Jun-13&quot;,&quot;Company&quot;:&quot;Astee Horie&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;May-13&quot;,&quot;Company&quot;:&quot;STC Hongkong&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:800},{&quot;Enquiry_Date&quot;:&quot;23-Apr-13&quot;,&quot;Company&quot;:&quot;NIKKO&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;Federal Mogul&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;Naneu Bags&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:2500},{&quot;Enquiry_Date&quot;:&quot;Apr-13&quot;,&quot;Company&quot;:&quot;D&amp;A Industries&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;1-Apr-13&quot;,&quot;Company&quot;:&quot;Kleen-pak&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;Mar-13&quot;,&quot;Company&quot;:&quot;Chugai-technos&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;Mar-13&quot;,&quot;Company&quot;:&quot;Regus&quot;,&quot;Country&quot;:&quot;LU&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Feb-13&quot;,&quot;Company&quot;:&quot;PPG Coatings&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Feb-13&quot;,&quot;Company&quot;:&quot;Bierens&quot;,&quot;Country&quot;:&quot;NL&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;18-Jan-13&quot;,&quot;Company&quot;:&quot;United Packaging&quot;,&quot;Country&quot;:&quot;PA&quot;,&quot;Area&quot;:6000},{&quot;Enquiry_Date&quot;:&quot;14-Dec-12&quot;,&quot;Company&quot;:&quot;SST Castings&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;Nov-12&quot;,&quot;Company&quot;:&quot;One premium wine company&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:500},{&quot;Enquiry_Date&quot;:&quot;27-Oct-12&quot;,&quot;Company&quot;:&quot;SHIRAKAWA SEISAKUSHO&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Sep-12&quot;,&quot;Company&quot;:&quot;Phu Thai CAT&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;Sep-12&quot;,&quot;Company&quot;:&quot;Okatsune&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;28-Aug-12&quot;,&quot;Company&quot;:&quot;SSLG Industrial&quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;20-Aug-12&quot;,&quot;Company&quot;:&quot;Uchihashi Vietnam Co., Ltd.&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;9-Aug-12&quot;,&quot;Company&quot;:&quot;Isuzu Dengyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;06-Aug-12&quot;,&quot;Company&quot;:&quot;Anh Thi Co., Ltd&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:3000},{&quot;Enquiry_Date&quot;:&quot;31-Jul-12&quot;,&quot;Company&quot;:&quot;KODEN&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:6000},{&quot;Enquiry_Date&quot;:&quot;10-Jul-12&quot;,&quot;Company&quot;:&quot;Jyohoku Spring &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;6-Jul-12&quot;,&quot;Company&quot;:&quot;Plasticolor&quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-12&quot;,&quot;Company&quot;:&quot;Nagae Co., Ltd&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;12-Jun-12&quot;,&quot;Company&quot;:&quot;Fuji Chemical &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;12-Jun-12&quot;,&quot;Company&quot;:&quot;Fuji Bakelite&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;07-Jun-12&quot;,&quot;Company&quot;:&quot;Zalora / Lazada&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;06-Jun-12&quot;,&quot;Company&quot;:&quot;(Tecasin Mr. Andy Lee)&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1200},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Toho Koki Co., LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Amore Pacific&quot;,&quot;Country&quot;:&quot;KR&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;Jun-12&quot;,&quot;Company&quot;:&quot;Aggreko (Singapore) Pte Ltd&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;30-May-12&quot;,&quot;Company&quot;:&quot;DP Consulting&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;10-May-12&quot;,&quot;Company&quot;:&quot;Inoac&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;May-12&quot;,&quot;Company&quot;:&quot;Naniwa Gosei CO.,LTD&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;May-12&quot;,&quot;Company&quot;:&quot;Perennial Design &amp; Build Pte Ltd (Singapore)&quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;26-Mar-12&quot;,&quot;Company&quot;:&quot;Shanghai Lirong Nickel Screen&quot;,&quot;Country&quot;:&quot;CN&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;31-Jan-12&quot;,&quot;Company&quot;:&quot;Aica Kogyo&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;20-Jan-12&quot;,&quot;Company&quot;:&quot;Pharmascience &quot;,&quot;Country&quot;:&quot;CA&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;18-Jan-12&quot;,&quot;Company&quot;:&quot;Vietnam Mobile Telecom Services Co. (VMS)&quot;,&quot;Country&quot;:&quot;VN&quot;,&quot;Area&quot;:1500},{&quot;Enquiry_Date&quot;:&quot;30-Nov-11&quot;,&quot;Company&quot;:&quot;Kahoku Lighting Solutions&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;25-Oct-11&quot;,&quot;Company&quot;:&quot;Avery Dennison&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;25-Oct-11&quot;,&quot;Company&quot;:&quot;Avery Dennison&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;24-Oct-11&quot;,&quot;Company&quot;:&quot;Harada&quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;14-Oct-11&quot;,&quot;Company&quot;:&quot;Kyouwa Corporation &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:2000},{&quot;Enquiry_Date&quot;:&quot;11-Oct-11&quot;,&quot;Company&quot;:&quot;Tontec International &quot;,&quot;Country&quot;:&quot;HK&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;30-Sep-11&quot;,&quot;Company&quot;:&quot;Primus International&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:10000},{&quot;Enquiry_Date&quot;:&quot;22-Sep-11&quot;,&quot;Company&quot;:&quot;Chemtech&quot;,&quot;Country&quot;:&quot;IN&quot;,&quot;Area&quot;:5000},{&quot;Enquiry_Date&quot;:&quot;7-Jul-11&quot;,&quot;Company&quot;:&quot;Advance Tech Automation &quot;,&quot;Country&quot;:&quot;SG&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;28-Jun-11&quot;,&quot;Company&quot;:&quot;Rheem Australia&quot;,&quot;Country&quot;:&quot;AU&quot;,&quot;Area&quot;:7000},{&quot;Enquiry_Date&quot;:&quot;14-Jun-11&quot;,&quot;Company&quot;:&quot;RF Micro Devices&quot;,&quot;Country&quot;:&quot;US&quot;,&quot;Area&quot;:32402},{&quot;Enquiry_Date&quot;:&quot;8-Jun-11&quot;,&quot;Company&quot;:&quot;Saveri&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:4000},{&quot;Enquiry_Date&quot;:&quot;7-Apr-11&quot;,&quot;Company&quot;:&quot;Siegwerk&quot;,&quot;Country&quot;:&quot;DE&quot;,&quot;Area&quot;:1000},{&quot;Enquiry_Date&quot;:&quot;14-Mar-11&quot;,&quot;Company&quot;:&quot;BTS Wonderful Saigon Electric &quot;,&quot;Country&quot;:&quot;JP&quot;,&quot;Area&quot;:20000}];
-  var svg = dimple.newSvg(&quot;#&quot; + opts.id, opts.width, opts.height);
+    data = [{"Enquiry_Date":"17-Nov-14","Company":"Kim Hoa Ltd","Country":"KR","Area":1000},{"Enquiry_Date":"5-May-14","Company":"Sangyo Supply","Country":"JP","Area":500},{"Enquiry_Date":"22-Oct-14","Company":"Mr. Mochizuki","Country":"JP","Area":500},{"Enquiry_Date":"10-May-12","Company":"Inoac Polymer Vietnam Co. , Ltd.","Country":"JP","Area":2003},{"Enquiry_Date":"3-Sep-14","Company":"Erai Vietnam","Country":"FR","Area":1500},{"Enquiry_Date":"20-Aug-14","Company":"Bridge Corporation","Country":"KR","Area":2000},{"Enquiry_Date":"31-Jul-14","Company":"Toda Group","Country":"JP","Area":2000},{"Enquiry_Date":"28-Jul-14","Company":"NE WHE CO., LTD","Country":"KR","Area":2500},{"Enquiry_Date":"17-Jul-14","Company":"Fico Trading ","Country":"VN","Area":2000},{"Enquiry_Date":"15-Jul-14","Company":"CSP Enterprise Ltd","Country":"KR","Area":5000},{"Enquiry_Date":"7-Jul-14","Company":"World Tech Vina","Country":"KR","Area":2000},{"Enquiry_Date":"30-Jun-14","Company":"Dynaplast","Country":"ID","Area":4000},{"Enquiry_Date":"26-Jun-14","Company":"DRS","Country":"KR","Area":2000},{"Enquiry_Date":"23-Jun-14","Company":"SNL","Country":"HK","Area":1000},{"Enquiry_Date":"11-Jun-14","Company":"Yergat Foods","Country":"US","Area":2000},{"Enquiry_Date":"11-Jun-14","Company":"Swisstec Sourcing","Country":"CH","Area":2000},{"Enquiry_Date":"11-Jun-14","Company":"Zephyr","Country":"SG","Area":2000},{"Enquiry_Date":"3-Jun-14","Company":"OKENSEIKO VIETNAM CO., LTD","Country":"JP","Area":2000},{"Enquiry_Date":"23-May-14","Company":"Sin Hwa Dee Foodstuff Industries Pte Ltd","Country":"SG","Area":2000},{"Enquiry_Date":"14-May-14","Company":"Royal Spirit","Country":"TW","Area":1040},{"Enquiry_Date":"14-May-14","Company":"Asean","Country":"VN","Area":2000},{"Enquiry_Date":"14-May-14","Company":"Saydo","Country":"VN","Area":10000},{"Enquiry_Date":"14-May-14","Company":"Thinh Phat ","Country":"MY","Area":2000},{"Enquiry_Date":"May-14","Company":"Premco","Country":"IN","Area":7000},{"Enquiry_Date":"2-May-14","Company":"Base Group","Country":"UK","Area":2000},{"Enquiry_Date":"28-Apr-14","Company":"Likelion","Country":"KR","Area":3000},{"Enquiry_Date":"18-Apr-14","Company":"Sketch-Interior Design ","Country":"DK","Area":2000},{"Enquiry_Date":"14-Apr-14","Company":"Texchem-Pack","Country":"MY","Area":1000},{"Enquiry_Date":"11-Apr-14","Company":"Raw Technologies","Country":"CA","Area":2000},{"Enquiry_Date":"2-Apr-14","Company":"Moda Design","Country":"SG","Area":1000},{"Enquiry_Date":"25-Mar-14","Company":"Wanek Furniture","Country":"US","Area":4000},{"Enquiry_Date":"21-Mar-14","Company":"Yumark ","Country":"TW","Area":3000},{"Enquiry_Date":"7-Mar-14","Company":"Dong A","Country":"VN","Area":1000},{"Enquiry_Date":"6-Mar-14","Company":"Dat Vinh M&E Company Limited","Country":"VN","Area":1000},{"Enquiry_Date":"6-Mar-14","Company":"Morstar Electric","Country":"HK","Area":2000},{"Enquiry_Date":"4-Mar-14","Company":"Seikow Chemical Engineering & Machinery, Ltd.","Country":"JP","Area":1000},{"Enquiry_Date":"4-Mar-14","Company":"Fukuoka Tape","Country":"JP","Area":1000},{"Enquiry_Date":"4-Mar-14","Company":"Phuc Hung Co.","Country":"VN","Area":1000},{"Enquiry_Date":"4-Mar-14","Company":"Infratrol","Country":"US","Area":1000},{"Enquiry_Date":"1-Mar-14","Company":"Toyotsu Vehitecs Vietnam","Country":"JP","Area":2000},{"Enquiry_Date":"24-Feb-14","Company":"DAEHACABLE","Country":"KR","Area":4000},{"Enquiry_Date":"21-Feb-14","Company":"Shimabun Engineering Co.,Ltd","Country":"JP","Area":1000},{"Enquiry_Date":"21-Feb-14","Company":"Koryo ","Country":"KR","Area":4000},{"Enquiry_Date":"17-Feb-14","Company":"Yoshino","Country":"JP","Area":1000},{"Enquiry_Date":"13-Feb-14","Company":"Itokoki","Country":"JP","Area":2000},{"Enquiry_Date":"12-Feb-14","Company":"Sanix","Country":"JP","Area":2000},{"Enquiry_Date":"28-Dec-13","Company":"Meditec Japan","Country":"JP","Area":2000},{"Enquiry_Date":"27-Dec-13","Company":"Tokyo Paint","Country":"JP","Area":2000},{"Enquiry_Date":"19-Dec-13","Company":"Unicity","Country":"US","Area":1000},{"Enquiry_Date":"6-Dec-13","Company":"Fischer Asia","Country":"DE","Area":2000},{"Enquiry_Date":"06-Dec-13","Company":"Hiteso Co., Ltd","Country":"JP","Area":2000},{"Enquiry_Date":"3-Dec-13","Company":"New World Fashion","Country":"CN","Area":5000},{"Enquiry_Date":"30-Nov-13","Company":"Sin\u00a0Huat Le\u00a0Sdn. Bhd","Country":"MY","Area":1000},{"Enquiry_Date":"29-Nov-13","Company":"One prospect from India","Country":"IN","Area":1000},{"Enquiry_Date":"29-Nov-13","Company":"H.B.C International","Country":"US","Area":1000},{"Enquiry_Date":"26-Nov-13","Company":"Hung Minh Co","Country":"CN","Area":1000},{"Enquiry_Date":"20-Nov-13","Company":"Tokyo Light Co","Country":"JP","Area":10000},{"Enquiry_Date":"19-Nov-13","Company":"Yamazaki Corporation","Country":"JP","Area":4000},{"Enquiry_Date":"11-Nov-13","Company":"Thinh Phat Co., Ltd. ","Country":"VN","Area":2000},{"Enquiry_Date":"1-Nov-13","Company":"Furniweb (their Italian customer)","Country":"IT","Area":3000},{"Enquiry_Date":"31-Oct-13","Company":"WB Coatings","Country":"GE","Area":2000},{"Enquiry_Date":"24-Oct-13","Company":"SMK Co., Ltd","Country":"JP","Area":3000},{"Enquiry_Date":"11-Oct-13","Company":"Solimac Group","Country":"TH","Area":1000},{"Enquiry_Date":"11-Oct-13","Company":"Nihonhanda","Country":"JP","Area":1000},{"Enquiry_Date":"11-Oct-13","Company":"Emuge Franken","Country":"DE","Area":1000},{"Enquiry_Date":"11-Oct-13","Company":"Thermotech Engineering (PUNE) - India","Country":"IN","Area":1000},{"Enquiry_Date":"8-Oct-13","Company":"I-tak","Country":"JP","Area":2000},{"Enquiry_Date":"23-Sep-13","Company":"CNA (Korea)","Country":"KR","Area":1000},{"Enquiry_Date":"4-Sep-13","Company":"REDRANGER","Country":"AU","Area":4000},{"Enquiry_Date":"26-Aug-13","Company":"Changse","Country":"CN","Area":2000},{"Enquiry_Date":"23-Aug-13","Company":"Daiwa Kouki","Country":"JP","Area":3000},{"Enquiry_Date":"19-Aug-13","Company":"NSG","Country":"UK","Area":5000},{"Enquiry_Date":"13-Aug-13","Company":"Aironware Fasteners (China)","Country":"CN","Area":3000},{"Enquiry_Date":"9-Aug-13","Company":"One prospect from Chao ","Country":"CN","Area":1000},{"Enquiry_Date":"7-Aug-13","Company":"One JP prospect ","Country":"JP","Area":1000},{"Enquiry_Date":"4-Aug-13","Company":"KIM ANN ENGINEERING PTE LTD","Country":"TH","Area":2000},{"Enquiry_Date":"31-Jul-13","Company":"Kitani Denki","Country":"JP","Area":2000},{"Enquiry_Date":"22-Jul-13","Company":"CJ Corp","Country":"KR","Area":1500},{"Enquiry_Date":"22-Jul-13","Company":"Hanil U.S.G Vina","Country":"KR","Area":1000},{"Enquiry_Date":"10-Jul-13","Company":"Shining Labels \u2013 Hong Kong","Country":"HK","Area":2500},{"Enquiry_Date":"05-Jul-13","Company":"Microtest AG","Country":"CH","Area":1000},{"Enquiry_Date":"02-Jul-13","Company":"Xiamen Unique Bridal","Country":"CN","Area":20000},{"Enquiry_Date":"01-Jul-13","Company":"OTS","Country":"US","Area":1000},{"Enquiry_Date":"26-Jun-13","Company":"KUWAHARA VN","Country":"JP","Area":1800},{"Enquiry_Date":"Jun-13","Company":"Gelan Textile","Country":"CN","Area":2000},{"Enquiry_Date":"14-Jun-13","Company":"Salcomp","Country":"FI","Area":5000},{"Enquiry_Date":"Jun-13","Company":"Astee Horie","Country":"JP","Area":500},{"Enquiry_Date":"May-13","Company":"STC Hongkong","Country":"HK","Area":800},{"Enquiry_Date":"23-Apr-13","Company":"NIKKO","Country":"JP","Area":2000},{"Enquiry_Date":"Apr-13","Company":"Federal Mogul","Country":"US","Area":2500},{"Enquiry_Date":"Apr-13","Company":"Naneu Bags","Country":"US","Area":2500},{"Enquiry_Date":"Apr-13","Company":"D&A Industries","Country":"VN","Area":2000},{"Enquiry_Date":"1-Apr-13","Company":"Kleen-pak","Country":"SG","Area":4000},{"Enquiry_Date":"Mar-13","Company":"Chugai-technos","Country":"JP","Area":500},{"Enquiry_Date":"Mar-13","Company":"Regus","Country":"LU","Area":1000},{"Enquiry_Date":"Feb-13","Company":"PPG Coatings","Country":"US","Area":1000},{"Enquiry_Date":"Feb-13","Company":"Bierens","Country":"NL","Area":1000},{"Enquiry_Date":"18-Jan-13","Company":"United Packaging","Country":"PA","Area":6000},{"Enquiry_Date":"14-Dec-12","Company":"SST Castings","Country":"US","Area":5000},{"Enquiry_Date":"Nov-12","Company":"One premium wine company","Country":"US","Area":500},{"Enquiry_Date":"27-Oct-12","Company":"SHIRAKAWA SEISAKUSHO","Country":"JP","Area":1000},{"Enquiry_Date":"25-Sep-12","Company":"Phu Thai CAT","Country":"VN","Area":4000},{"Enquiry_Date":"Sep-12","Company":"Okatsune","Country":"JP","Area":1000},{"Enquiry_Date":"28-Aug-12","Company":"SSLG Industrial","Country":"HK","Area":7000},{"Enquiry_Date":"20-Aug-12","Company":"Uchihashi Vietnam Co., Ltd.","Country":"JP","Area":2000},{"Enquiry_Date":"9-Aug-12","Company":"Isuzu Dengyo","Country":"JP","Area":1000},{"Enquiry_Date":"06-Aug-12","Company":"Anh Thi Co., Ltd","Country":"VN","Area":3000},{"Enquiry_Date":"31-Jul-12","Company":"KODEN","Country":"JP","Area":6000},{"Enquiry_Date":"10-Jul-12","Company":"Jyohoku Spring ","Country":"JP","Area":1000},{"Enquiry_Date":"6-Jul-12","Company":"Plasticolor","Country":"CA","Area":2000},{"Enquiry_Date":"14-Jun-12","Company":"Nagae Co., Ltd","Country":"JP","Area":1000},{"Enquiry_Date":"12-Jun-12","Company":"Fuji Chemical ","Country":"JP","Area":1000},{"Enquiry_Date":"12-Jun-12","Company":"Fuji Bakelite","Country":"JP","Area":2000},{"Enquiry_Date":"07-Jun-12","Company":"Zalora / Lazada","Country":"VN","Area":1000},{"Enquiry_Date":"06-Jun-12","Company":"(Tecasin Mr. Andy Lee)","Country":"VN","Area":1200},{"Enquiry_Date":"Jun-12","Company":"Toho Koki Co., LTD","Country":"JP","Area":1000},{"Enquiry_Date":"Jun-12","Company":"Amore Pacific","Country":"KR","Area":1000},{"Enquiry_Date":"Jun-12","Company":"Aggreko (Singapore) Pte Ltd","Country":"SG","Area":10000},{"Enquiry_Date":"30-May-12","Company":"DP Consulting","Country":"VN","Area":2000},{"Enquiry_Date":"10-May-12","Company":"Inoac","Country":"JP","Area":1500},{"Enquiry_Date":"May-12","Company":"Naniwa Gosei CO.,LTD","Country":"JP","Area":1000},{"Enquiry_Date":"May-12","Company":"Perennial Design & Build Pte Ltd (Singapore)","Country":"SG","Area":1000},{"Enquiry_Date":"26-Mar-12","Company":"Shanghai Lirong Nickel Screen","Country":"CN","Area":4000},{"Enquiry_Date":"31-Jan-12","Company":"Aica Kogyo","Country":"JP","Area":2000},{"Enquiry_Date":"20-Jan-12","Company":"Pharmascience ","Country":"CA","Area":1000},{"Enquiry_Date":"18-Jan-12","Company":"Vietnam Mobile Telecom Services Co. (VMS)","Country":"VN","Area":1500},{"Enquiry_Date":"30-Nov-11","Company":"Kahoku Lighting Solutions","Country":"JP","Area":1000},{"Enquiry_Date":"25-Oct-11","Company":"Avery Dennison","Country":"US","Area":5000},{"Enquiry_Date":"25-Oct-11","Company":"Avery Dennison","Country":"US","Area":4000},{"Enquiry_Date":"24-Oct-11","Company":"Harada","Country":"JP","Area":1000},{"Enquiry_Date":"14-Oct-11","Company":"Kyouwa Corporation ","Country":"JP","Area":2000},{"Enquiry_Date":"11-Oct-11","Company":"Tontec International ","Country":"HK","Area":1000},{"Enquiry_Date":"30-Sep-11","Company":"Primus International","Country":"US","Area":10000},{"Enquiry_Date":"22-Sep-11","Company":"Chemtech","Country":"IN","Area":5000},{"Enquiry_Date":"7-Jul-11","Company":"Advance Tech Automation ","Country":"SG","Area":1000},{"Enquiry_Date":"28-Jun-11","Company":"Rheem Australia","Country":"AU","Area":7000},{"Enquiry_Date":"14-Jun-11","Company":"RF Micro Devices","Country":"US","Area":32402},{"Enquiry_Date":"8-Jun-11","Company":"Saveri","Country":"DE","Area":4000},{"Enquiry_Date":"7-Apr-11","Company":"Siegwerk","Country":"DE","Area":1000},{"Enquiry_Date":"14-Mar-11","Company":"BTS Wonderful Saigon Electric ","Country":"JP","Area":20000}];
+  var svg = dimple.newSvg("#" + opts.id, opts.width, opts.height);
 
   var myChart = new dimple.chart(svg, data);
   if (opts.bounds) {
@@ -587,16 +523,16 @@ d2$show("iframesrc",cdn=TRUE)
   function buildAxis(position,layer){
     var axis;
     var axisopts;
-    if (!layer[position+&quot;Axis&quot;]){
-      axisopts = opts[position+&quot;Axis&quot;];
-    } else axisopts = layer[position+&quot;Axis&quot;];
+    if (!layer[position+"Axis"]){
+      axisopts = opts[position+"Axis"];
+    } else axisopts = layer[position+"Axis"];
     
     if(axisopts.measure) {
       axis = myChart[axisopts.type](position,layer[position],axisopts.measure);
     } else {
       axis = myChart[axisopts.type](position, layer[position]);
     };
-    if(!(axisopts.type === &quot;addPctAxis&quot;)) axis.showPercent = axisopts.showPercent;
+    if(!(axisopts.type === "addPctAxis")) axis.showPercent = axisopts.showPercent;
     if (axisopts.orderRule) axis.addOrderRule(axisopts.orderRule);
     if (axisopts.grouporderRule) axis.addGroupOrderRule(axisopts.grouporderRule);  
     if (axisopts.overrideMin) axis.overrideMin = axisopts.overrideMin;
@@ -607,18 +543,18 @@ d2$show("iframesrc",cdn=TRUE)
   };
   
   var c = null;
-  if(d3.keys(opts.colorAxis).length &gt; 0) {
+  if(d3.keys(opts.colorAxis).length > 0) {
     c = myChart[opts.colorAxis.type](opts.colorAxis.colorSeries,opts.colorAxis.palette) ;
   }
   
   //allow manipulation of default colors to use with dimple
   if(opts.defaultColors.length) {
     opts.defaultColors = opts.defaultColors[0];
-    if (typeof(opts.defaultColors) == &quot;function&quot;) {
+    if (typeof(opts.defaultColors) == "function") {
       //assume this is a d3 scale
       //for now loop through first 20 but need a better way to handle
       defaultColorsArray = [];
-      for (var n=0;n&lt;20;n++) {
+      for (var n=0;n<20;n++) {
         defaultColorsArray.push(opts.defaultColors(n));
       };
       opts.defaultColors = defaultColorsArray;
@@ -639,16 +575,16 @@ d2$show("iframesrc",cdn=TRUE)
     if (!layer.yAxis) layer.yAxis = opts.yAxis;
     if (!layer.zAxis) layer.zAxis = opts.zAxis;
     
-    var x = buildAxis(&quot;x&quot;, layer);
+    var x = buildAxis("x", layer);
     x.hidden = hidden;
     
-    var y = buildAxis(&quot;y&quot;, layer);
+    var y = buildAxis("y", layer);
     y.hidden = hidden;
     
     //z for bubbles
     var z = null;
-    if (!(typeof(layer.zAxis) === &#039;undefined&#039;) &amp;&amp; layer.zAxis.type){
-      z = buildAxis(&quot;z&quot;, layer);
+    if (!(typeof(layer.zAxis) === 'undefined') && layer.zAxis.type){
+      z = buildAxis("z", layer);
     };
     
     //here think I need to evaluate group and if missing do null
@@ -672,34 +608,34 @@ d2$show("iframesrc",cdn=TRUE)
     }
     
     //for measure axis dimple sorts at the series level not at axis level
-    [&#039;x&#039;,&#039;y&#039;].map(function(ax){
-      if( layer[ax + &#039;Axis&#039;].type==&quot;addMeasureAxis&quot; &amp;&amp; layer[ax + &#039;Axis&#039;].orderRule ){
-        if( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;string&quot; ){
-          s.addOrderRule( layer[ax + &#039;Axis&#039;].orderRule );
-        } else if ( typeof layer[ax + &#039;Axis&#039;].orderRule == &quot;object&quot; ) {
-          s._orderRules = layer[ax + &#039;Axis&#039;].orderRule;
+    ['x','y'].map(function(ax){
+      if( layer[ax + 'Axis'].type=="addMeasureAxis" && layer[ax + 'Axis'].orderRule ){
+        if( typeof layer[ax + 'Axis'].orderRule == "string" ){
+          s.addOrderRule( layer[ax + 'Axis'].orderRule );
+        } else if ( typeof layer[ax + 'Axis'].orderRule == "object" ) {
+          s._orderRules = layer[ax + 'Axis'].orderRule;
         }
       }
     })
     
-    if(layer.hasOwnProperty(&quot;groups&quot;)) {
-      s.categoryFields = (typeof layer.groups === &quot;object&quot;) ? layer.groups : [layer.groups];
+    if(layer.hasOwnProperty("groups")) {
+      s.categoryFields = (typeof layer.groups === "object") ? layer.groups : [layer.groups];
       //series offers an aggregate method that we will also need to check if available
       //options available are avg, count, max, min, sum
     }
-    if (!(typeof(layer.aggregate) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.aggregate) === 'undefined')) {
       s.aggregate = eval(layer.aggregate);
     }
-    if (!(typeof(layer.lineWeight) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineWeight) === 'undefined')) {
       s.lineWeight = layer.lineWeight;
     }
-    if (!(typeof(layer.lineMarkers) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.lineMarkers) === 'undefined')) {
       s.lineMarkers = layer.lineMarkers;
     }
-    if (!(typeof(layer.barGap) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.barGap) === 'undefined')) {
       s.barGap = layer.barGap;
     }    
-    if (!(typeof(layer.interpolation) === &#039;undefined&#039;)) {
+    if (!(typeof(layer.interpolation) === 'undefined')) {
       s.interpolation = layer.interpolation;
     } 
     
@@ -708,12 +644,12 @@ d2$show("iframesrc",cdn=TRUE)
     /*placeholder fix domain of primary scale for new series data
     //not working right now but something like this
     //for now just use overrideMin and overrideMax from rCharts
-    for( var i = 0; i&lt;2; i++) {
+    for( var i = 0; i<2; i++) {
       if (!myChart.axes[i].overrideMin) {
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min &lt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).min;
+        myChart.series[0]._axisBounds(i==0?"x":"y").min = myChart.series[0]._axisBounds(i==0?"x":"y").min < s._axisBounds(i==0?"x":"y").min ? myChart.series[0]._axisBounds(i==0?"x":"y").min : s._axisBounds(i==0?"x":"y").min;
       }
       if (!myChart.axes[i].overrideMax) {  
-        myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;)._max = myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max &gt; s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max ? myChart.series[0]._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max : s._axisBounds(i==0?&quot;x&quot;:&quot;y&quot;).max;
+        myChart.series[0]._axisBounds(i==0?"x":"y")._max = myChart.series[0]._axisBounds(i==0?"x":"y").max > s._axisBounds(i==0?"x":"y").max ? myChart.series[0]._axisBounds(i==0?"x":"y").max : s._axisBounds(i==0?"x":"y").max;
       }
       myChart.axes[i]._update();
     }
@@ -724,13 +660,13 @@ d2$show("iframesrc",cdn=TRUE)
   };
   
   buildSeries(opts, false);
-  if (opts.layers.length &gt; 0) {
+  if (opts.layers.length > 0) {
     opts.layers.forEach(function(layer){
       buildSeries(layer, true);
     })
   }
   //unsure if this is best but if legend is provided (not empty) then evaluate
-  if(d3.keys(opts.legend).length &gt; 0) {
+  if(d3.keys(opts.legend).length > 0) {
     var l =myChart.addLegend();
     d3.keys(opts.legend).forEach(function(d){
       l[d] = opts.legend[d];
@@ -742,12 +678,8 @@ d2$show("iframesrc",cdn=TRUE)
   };
   myChart.draw();
 
-&lt;/script&gt;
-    
-    &lt;script&gt;&lt;/script&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  dimple  ' id='iframe-chartdd27472e0e2'> </iframe>
- <style>iframe.rChart{ width: 100%; height: 400px;}</style>
+</script>
+
 
 
 
@@ -757,336 +689,316 @@ To compare Inactive vs Active by Country, I find it useful to convey idea using 
 {% highlight r %}
 n1$chart(color = c('silver','red'))
 n1$chart(stacked = TRUE)
-n1$show("iframesrc",cdn=TRUE)
+n1$print("final",cdn=TRUE)
+n1$show("pyramic",cdn=TRUE)
 {% endhighlight %}
-
-<iframe srcdoc=' &lt;!doctype HTML&gt;
-&lt;meta charset = &#039;utf-8&#039;&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;link rel=&#039;stylesheet&#039; href=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.css&#039;&gt;
-    
-    &lt;script src=&#039;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//d3js.org/d3.v3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    &lt;script src=&#039;//nvd3.org/assets/lib/fisheye.js&#039; type=&#039;text/javascript&#039;&gt;&lt;/script&gt;
-    
-    &lt;style&gt;
-    .rChart {
-      display: block;
-      margin-left: auto; 
-      margin-right: auto;
-      width: 800px;
-      height: 400px;
-    }  
-    &lt;/style&gt;
-    
-  &lt;/head&gt;
-  &lt;body &gt;
-    
-    &lt;div id = &#039;chartdd253562a8d&#039; class = &#039;rChart nvd3&#039;&gt;&lt;/div&gt;    
-    &lt;script type=&#039;text/javascript&#039;&gt;
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/nvd3/1.1.15-beta/nv.d3.css"/>
+<div id = 'final' class = 'rChart nvd3'></div>
+<script type='text/javascript'>
  $(document).ready(function(){
-      drawchartdd253562a8d()
+      drawfinal()
     });
-    function drawchartdd253562a8d(){  
+    function drawfinal(){  
       var opts = {
- &quot;dom&quot;: &quot;chartdd253562a8d&quot;,
-&quot;width&quot;:    800,
-&quot;height&quot;:    400,
-&quot;x&quot;: &quot;Country&quot;,
-&quot;y&quot;: &quot;Area&quot;,
-&quot;group&quot;: &quot;Activity&quot;,
-&quot;type&quot;: &quot;multiBarHorizontalChart&quot;,
-&quot;id&quot;: &quot;chartdd253562a8d&quot; 
+ "dom": "final",
+"width":    800,
+"height":    400,
+"x": "Country",
+"y": "Area",
+"group": "Activity",
+"type": "multiBarHorizontalChart",
+"id": "final" 
 },
         data = [
  {
- &quot;Country&quot;: &quot;AU&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -11000 
+ "Country": "AU",
+"Activity": "Inactive",
+"Area":         -11000 
 },
 {
- &quot;Country&quot;: &quot;CA&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -5000 
+ "Country": "CA",
+"Activity": "Inactive",
+"Area":          -5000 
 },
 {
- &quot;Country&quot;: &quot;CH&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -3000 
+ "Country": "CH",
+"Activity": "Inactive",
+"Area":          -3000 
 },
 {
- &quot;Country&quot;: &quot;CN&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -38000 
+ "Country": "CN",
+"Activity": "Inactive",
+"Area":         -38000 
 },
 {
- &quot;Country&quot;: &quot;DE&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -8000 
+ "Country": "DE",
+"Activity": "Inactive",
+"Area":          -8000 
 },
 {
- &quot;Country&quot;: &quot;DK&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -2000 
+ "Country": "DK",
+"Activity": "Inactive",
+"Area":          -2000 
 },
 {
- &quot;Country&quot;: &quot;FI&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -5000 
+ "Country": "FI",
+"Activity": "Inactive",
+"Area":          -5000 
 },
 {
- &quot;Country&quot;: &quot;FR&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -1500 
+ "Country": "FR",
+"Activity": "Inactive",
+"Area":          -1500 
 },
 {
- &quot;Country&quot;: &quot;GE&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -2000 
+ "Country": "GE",
+"Activity": "Inactive",
+"Area":          -2000 
 },
 {
- &quot;Country&quot;: &quot;HK&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -14300 
+ "Country": "HK",
+"Activity": "Inactive",
+"Area":         -14300 
 },
 {
- &quot;Country&quot;: &quot;ID&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -4000 
+ "Country": "ID",
+"Activity": "Inactive",
+"Area":          -4000 
 },
 {
- &quot;Country&quot;: &quot;IN&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -14000 
+ "Country": "IN",
+"Activity": "Inactive",
+"Area":         -14000 
 },
 {
- &quot;Country&quot;: &quot;IT&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -3000 
+ "Country": "IT",
+"Activity": "Inactive",
+"Area":          -3000 
 },
 {
- &quot;Country&quot;: &quot;JP&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -99303 
+ "Country": "JP",
+"Activity": "Inactive",
+"Area":         -99303 
 },
 {
- &quot;Country&quot;: &quot;KR&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -30000 
+ "Country": "KR",
+"Activity": "Inactive",
+"Area":         -30000 
 },
 {
- &quot;Country&quot;: &quot;LU&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -1000 
+ "Country": "LU",
+"Activity": "Inactive",
+"Area":          -1000 
 },
 {
- &quot;Country&quot;: &quot;MY&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -4000 
+ "Country": "MY",
+"Activity": "Inactive",
+"Area":          -4000 
 },
 {
- &quot;Country&quot;: &quot;NL&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -1000 
+ "Country": "NL",
+"Activity": "Inactive",
+"Area":          -1000 
 },
 {
- &quot;Country&quot;: &quot;PA&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -6000 
+ "Country": "PA",
+"Activity": "Inactive",
+"Area":          -6000 
 },
 {
- &quot;Country&quot;: &quot;SG&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -21000 
+ "Country": "SG",
+"Activity": "Inactive",
+"Area":         -21000 
 },
 {
- &quot;Country&quot;: &quot;TH&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -3000 
+ "Country": "TH",
+"Activity": "Inactive",
+"Area":          -3000 
 },
 {
- &quot;Country&quot;: &quot;TW&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -4040 
+ "Country": "TW",
+"Activity": "Inactive",
+"Area":          -4040 
 },
 {
- &quot;Country&quot;: &quot;UK&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:          -7000 
+ "Country": "UK",
+"Activity": "Inactive",
+"Area":          -7000 
 },
 {
- &quot;Country&quot;: &quot;US&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -72902 
+ "Country": "US",
+"Activity": "Inactive",
+"Area":         -72902 
 },
 {
- &quot;Country&quot;: &quot;VN&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:         -33700 
+ "Country": "VN",
+"Activity": "Inactive",
+"Area":         -33700 
 },
 {
- &quot;Country&quot;: &quot;SE&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:             -0 
+ "Country": "SE",
+"Activity": "Inactive",
+"Area":             -0 
 },
 {
- &quot;Country&quot;: &quot;EU&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:             -0 
+ "Country": "EU",
+"Activity": "Inactive",
+"Area":             -0 
 },
 {
- &quot;Country&quot;: &quot;ES&quot;,
-&quot;Activity&quot;: &quot;Inactive&quot;,
-&quot;Area&quot;:             -0 
+ "Country": "ES",
+"Activity": "Inactive",
+"Area":             -0 
 },
 {
- &quot;Country&quot;: &quot;AU&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "AU",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;CA&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "CA",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;CH&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "CH",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;CN&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           1043 
+ "Country": "CN",
+"Activity": "Active",
+"Area":           1043 
 },
 {
- &quot;Country&quot;: &quot;DE&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           8706 
+ "Country": "DE",
+"Activity": "Active",
+"Area":           8706 
 },
 {
- &quot;Country&quot;: &quot;DK&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "DK",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;FI&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "FI",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;FR&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "FR",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;GE&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "GE",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;HK&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "HK",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;ID&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "ID",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;IN&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "IN",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;IT&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           1040 
+ "Country": "IT",
+"Activity": "Active",
+"Area":           1040 
 },
 {
- &quot;Country&quot;: &quot;JP&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:          23783 
+ "Country": "JP",
+"Activity": "Active",
+"Area":          23783 
 },
 {
- &quot;Country&quot;: &quot;KR&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           4000 
+ "Country": "KR",
+"Activity": "Active",
+"Area":           4000 
 },
 {
- &quot;Country&quot;: &quot;LU&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "LU",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;MY&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "MY",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;NL&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "NL",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;PA&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "PA",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;SG&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           2003 
+ "Country": "SG",
+"Activity": "Active",
+"Area":           2003 
 },
 {
- &quot;Country&quot;: &quot;TH&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "TH",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;TW&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "TW",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;UK&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "UK",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;US&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           5043 
+ "Country": "US",
+"Activity": "Active",
+"Area":           5043 
 },
 {
- &quot;Country&quot;: &quot;VN&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:              0 
+ "Country": "VN",
+"Activity": "Active",
+"Area":              0 
 },
 {
- &quot;Country&quot;: &quot;SE&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           1000 
+ "Country": "SE",
+"Activity": "Active",
+"Area":           1000 
 },
 {
- &quot;Country&quot;: &quot;EU&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           3123 
+ "Country": "EU",
+"Activity": "Active",
+"Area":           3123 
 },
 {
- &quot;Country&quot;: &quot;ES&quot;,
-&quot;Activity&quot;: &quot;Active&quot;,
-&quot;Area&quot;:           1000 
+ "Country": "ES",
+"Activity": "Active",
+"Area":           1000 
 } 
 ]
   
-      if(!(opts.type===&quot;pieChart&quot; || opts.type===&quot;sparklinePlus&quot; || opts.type===&quot;bulletChart&quot;)) {
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
         var data = d3.nest()
           .key(function(d){
-            //return opts.group === undefined ? &#039;main&#039; : d[opts.group]
+            //return opts.group === undefined ? 'main' : d[opts.group]
             //instead of main would think a better default is opts.x
             return opts.group === undefined ? opts.y : d[opts.group];
           })
@@ -1104,7 +1016,7 @@ n1$show("iframesrc",cdn=TRUE)
           .width(opts.width)
           .height(opts.height)
           
-        if (opts.type != &quot;bulletChart&quot;){
+        if (opts.type != "bulletChart"){
           chart
             .x(function(d) { return d[opts.x] })
             .y(function(d) { return d[opts.y] })
@@ -1113,11 +1025,11 @@ n1$show("iframesrc",cdn=TRUE)
          
         chart
   .tooltipContent( function(key, x, y, e){
-         var format = d3.format(&#039;0,000&#039;);
-         return &#039;&lt;h3&gt;&#039; + key + &#039;, country &#039; + x + &#039;&lt;/h3&gt;&#039; + 
-         &#039;&lt;p&gt;&#039; + &#039;Area: &#039; + y + &#039;&lt;/p&gt;&#039;
-         } )
-  .color([ &quot;silver&quot;, &quot;red&quot; ])
+var format = d3.format('0,000');
+return '<h3>' + key + ', country ' + x + '</h3>' +
+'<p>' + 'Area: ' + y + '</p>'
+} )
+  .color([ "silver", "red" ])
   .stacked(true)
           
         
@@ -1125,13 +1037,13 @@ n1$show("iframesrc",cdn=TRUE)
         
         
         chart.yAxis
-  .axisLabel(&quot;Area&quot;)
+  .axisLabel("Area")
   .tickFormat( function(d) {
-                           return d3.format(&#039;,.0f&#039;)(Math.abs(d) / 1000) + &#039;K&#039;
-                           } )
+return d3.format(',.0f')(Math.abs(d) / 1000) + 'K'
+} )
       
-       d3.select(&quot;#&quot; + opts.id)
-        .append(&#039;svg&#039;)
+       d3.select("#" + opts.id)
+        .append('svg')
         .datum(data)
         .transition().duration(500)
         .call(chart);
@@ -1140,14 +1052,9 @@ n1$show("iframesrc",cdn=TRUE)
        return chart;
       });
     };
-&lt;/script&gt;
-    
-    &lt;script&gt;&lt;/script&gt;    
-  &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  nvd3  ' id='iframe-chartdd253562a8d'> </iframe>
- <style>iframe.rChart{ width: 100%; height: 400px;}</style>
+</script>
 
-Cheers, Have fun digging up the data
+Cheers, Have fun digging up the data ~
 
 
 {% highlight r %}
