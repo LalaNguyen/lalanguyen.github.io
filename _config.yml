@@ -1,5 +1,5 @@
 exclude:['vendor']
-
+	
 # Site settings
 title: Data.talk 
 email: minh.ng0611@gmail.com
