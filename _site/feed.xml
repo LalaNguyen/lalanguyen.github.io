@@ -5,8 +5,8 @@
     <description>Data Mining Data Visualization Cooking books &lt;3</description>
     <link>http://lalanguyen.github.io/</link>
     <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Dec 2014 09:38:43 +0700</pubDate>
-    <lastBuildDate>Sat, 13 Dec 2014 09:38:43 +0700</lastBuildDate>
+    <pubDate>Sat, 13 Dec 2014 09:45:46 +0700</pubDate>
+    <lastBuildDate>Sat, 13 Dec 2014 09:45:46 +0700</lastBuildDate>
     <generator>Jekyll v2.5.0</generator>
     
       <item>
@@ -705,8 +705,8 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
     function drawfinal(){  
       var opts = {
  &quot;dom&quot;: &quot;final&quot;,
-&quot;width&quot;:    500,
-&quot;height&quot;:    800,
+&quot;width&quot;:    700,
+&quot;height&quot;:    400,
 &quot;x&quot;: &quot;Country&quot;,
 &quot;y&quot;: &quot;Area&quot;,
 &quot;group&quot;: &quot;Activity&quot;,
@@ -1045,6 +1045,8 @@ return d3.format(&#39;,.0f&#39;)(Math.abs(d) / 1000) + &#39;K&#39;
       
        d3.select(&quot;#&quot; + opts.id)
         .append(&#39;svg&#39;)
+		.attr(&quot;width&quot;,1000)
+		.attr(&quot;height&quot;,500)
         .datum(data)
         .transition().duration(500)
         .call(chart);

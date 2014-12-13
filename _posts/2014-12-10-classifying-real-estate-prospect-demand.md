@@ -706,8 +706,8 @@ n1$show("pyramic",cdn=TRUE)
     function drawfinal(){  
       var opts = {
  "dom": "final",
-"width":    500,
-"height":    800,
+"width":    700,
+"height":    400,
 "x": "Country",
 "y": "Area",
 "group": "Activity",
@@ -1046,6 +1046,8 @@ return d3.format(',.0f')(Math.abs(d) / 1000) + 'K'
       
        d3.select("#" + opts.id)
         .append('svg')
+		.attr("width",1000)
+		.attr("height",500)
         .datum(data)
         .transition().duration(500)
         .call(chart);
