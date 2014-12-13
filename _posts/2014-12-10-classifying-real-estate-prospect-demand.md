@@ -707,7 +707,7 @@ n1$show("pyramic",cdn=TRUE)
       var opts = {
  "dom": "final",
 "width":    500,
-"height":    400,
+"height":    800,
 "x": "Country",
 "y": "Area",
 "group": "Activity",

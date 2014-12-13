@@ -5,8 +5,8 @@
     <description>Data Mining Data Visualization Cooking books &lt;3</description>
     <link>http://lalanguyen.github.io/</link>
     <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 13 Dec 2014 09:33:49 +0700</pubDate>
-    <lastBuildDate>Sat, 13 Dec 2014 09:33:49 +0700</lastBuildDate>
+    <pubDate>Sat, 13 Dec 2014 09:38:43 +0700</pubDate>
+    <lastBuildDate>Sat, 13 Dec 2014 09:38:43 +0700</lastBuildDate>
     <generator>Jekyll v2.5.0</generator>
     
       <item>
@@ -706,7 +706,7 @@ n1&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;show&lt;span class=&quot;p&quot;
       var opts = {
  &quot;dom&quot;: &quot;final&quot;,
 &quot;width&quot;:    500,
-&quot;height&quot;:    400,
+&quot;height&quot;:    800,
 &quot;x&quot;: &quot;Country&quot;,
 &quot;y&quot;: &quot;Area&quot;,
 &quot;group&quot;: &quot;Activity&quot;,
