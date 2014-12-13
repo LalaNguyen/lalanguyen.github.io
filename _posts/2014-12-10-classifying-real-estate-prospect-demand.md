@@ -4,6 +4,7 @@ title:  "Classifying Demand Real-Estate Market"
 date:   2014-12-10
 categories: jekyll update
 permalink: classifying-demand-real-estate-market
+tags: realestate analysis visualization vietnam market
 ---
 #Tools
 ***

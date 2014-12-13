@@ -5,8 +5,8 @@
     <description>Data Mining Data Visualization Cooking books &lt;3</description>
     <link>http://lalanguyen.github.io/</link>
     <atom:link href="http://lalanguyen.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 11 Dec 2014 21:15:29 +0700</pubDate>
-    <lastBuildDate>Thu, 11 Dec 2014 21:15:29 +0700</lastBuildDate>
+    <pubDate>Sat, 13 Dec 2014 08:53:07 +0700</pubDate>
+    <lastBuildDate>Sat, 13 Dec 2014 08:53:07 +0700</lastBuildDate>
     <generator>Jekyll v2.5.0</generator>
     
       <item>
@@ -1081,6 +1081,16 @@ return d3.format(&#39;,.0f&#39;)(Math.abs(d) / 1000) + &#39;K&#39;
         <link>http://lalanguyen.github.io/classifying-demand-real-estate-market</link>
         <guid isPermaLink="true">http://lalanguyen.github.io/classifying-demand-real-estate-market</guid>
         
+        <category>realestate</category>
+        
+        <category>analysis</category>
+        
+        <category>visualization</category>
+        
+        <category>vietnam</category>
+        
+        <category>market</category>
+        
         
         <category>jekyll</category>
         
@@ -1381,6 +1391,12 @@ callbacks.shift()();
         <pubDate>Tue, 09 Dec 2014 00:00:00 +0700</pubDate>
         <link>http://lalanguyen.github.io/digging-patent-us-data</link>
         <guid isPermaLink="true">http://lalanguyen.github.io/digging-patent-us-data</guid>
+        
+        <category>patent</category>
+        
+        <category>analysis</category>
+        
+        <category>visualization</category>
         
         
         <category>jekyll</category>

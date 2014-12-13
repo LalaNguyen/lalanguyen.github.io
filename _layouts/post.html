@@ -2,12 +2,10 @@
 layout: default
 ---
 <div class="post">
-
   <header class="post-header">
     <p class="post-title">{{ page.title }}</p>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+	<div class="meta_wrapper"><time datetime="{{page.date | date: "%Y-%m-%d"}}">{{page.date | date: "%B %e, %Y"}}</time><ul class="tag_list_in_post">{% for tag in page.tags %}<li class="inline tag_list_item" ><a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>{% endfor %}</ul></div>
   </header>
-
   <article class="post-content">
     {{ content }}
   </article>

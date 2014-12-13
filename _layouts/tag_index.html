@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<h3 class="post_title"> Archive of posts with {{ page.type }} '{{page.title}}'</h3>
+
+<table class="table table-condensed">
+	<tr>
+		<th>Date</th>
+		<th>Title</th>
+	</tr>
+  	{% for post in page.posts %}
+	<tr>
+	
+      <td><span >{{ post.date | date: "%b %-d, %Y" }}</span></td>
+      <td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td>
+   	</tr>
+  
+  {% endfor %}
+</table>
