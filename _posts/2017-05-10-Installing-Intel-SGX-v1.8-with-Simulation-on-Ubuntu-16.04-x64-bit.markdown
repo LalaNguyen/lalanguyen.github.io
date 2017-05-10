@@ -30,7 +30,7 @@ sudo apt-get install build-essential ocaml automake autoconf libtool wget python
 git clone https://github.com/01org/linux-sgx.git
 ```
 3. Examine the folder with `ls -l` command:
-<img src="{{site.url}}/images/ls.png)>
+![My helpful screenshot]({{site.url}}/images/ls.png)
 4. Navigate to the new folder `linux-sgx` and execute the following command:
 ```bash
 sudo make sdk_install_pkg USE_OPT_LIBS=0 DEBUG=1
