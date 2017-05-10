@@ -20,8 +20,8 @@ An enclave is born when the system software issues the ECREATE instruction, whic
 
 ### SECS & PAGEINFO
 According to [[4]][program-reference], the SECS is a data structure with 4K-Bytes alignment:
-![My helpful screenshot](/images/SECS1.png)
-![My helpful screenshot](/images/SECS2.png)
+![My helpful screenshot]({{site.url}}/images/SECS1.png)
+![My helpful screenshot]({{site.url}}/images/SECS2.png)
 
 The SECS has the following properties:
 >There is one SECS for each enclave. The SECS contains meta-data which is used by the hardware to protect the enclave. Included in the SECS is a field which stores the enclave build measurement value. This field, MRENCLAVE, is initialized by the ECREATE instruction and updated by every EADD and EEXTEND. It is locked by EINIT. The SECS cannot be accessed by software.
