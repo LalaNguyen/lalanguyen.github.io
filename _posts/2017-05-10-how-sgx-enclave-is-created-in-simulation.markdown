@@ -13,14 +13,15 @@ The objective is to understand how an sgx enclave is created in theory and in pr
 3. [Intel SGX SDK Functions for Enclave Creation] [github-link]
 4. [Intel Programming Reference][program-reference]
 5. [Linux's mmap][mmap]
+
 ## Theory
 
 An enclave is born when the system software issues the ECREATE instruction, which turns a free EPC page into the SECS for the new enclave. To understand ECREATE, we need to understand SECS, PAGEINFO, and EPCPAGE structure.
 
 ### SECS & PAGEINFO
 According to [[4]][program-reference], the SECS is a data structure with 4K-Bytes alignment:
-![My helpful screenshot]({{site.url}}/images/SECS1.png)
-![My helpful screenshot]({{site.url}}/images/SECS2.png)
+![My helpful screenshot](/images/SECS1.png)
+![My helpful screenshot](/images/SECS2.png)
 
 The SECS has the following properties:
 >There is one SECS for each enclave. The SECS contains meta-data which is used by the hardware to protect the enclave. Included in the SECS is a field which stores the enclave build measurement value. This field, MRENCLAVE, is initialized by the ECREATE instruction and updated by every EADD and EEXTEND. It is locked by EINIT. The SECS cannot be accessed by software.
