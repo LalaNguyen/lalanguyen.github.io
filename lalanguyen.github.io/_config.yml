@@ -32,6 +32,3 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-
-# Add this line so jekyll will not delete this folder when we edit somethings
-keep_files: ["images"]
