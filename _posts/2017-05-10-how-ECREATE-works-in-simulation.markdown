@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How SGX Enclave is Created in Simulation"
+title:  "How ECREATE works in Simulation"
 date:   2017-05-10 11:40:55 +0800
 categories: research sgx
 ---

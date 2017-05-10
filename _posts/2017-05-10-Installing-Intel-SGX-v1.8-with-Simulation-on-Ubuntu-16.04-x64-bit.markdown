@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Installing Intel SGX v1.8 with Simulation on Ubuntu 16.04 x64 bit"
+title:  "Installing Intel SGX v1.8 with Simulation on Ubuntu 16.04 x64"
 date:   2017-05-10 11:40:55 +0800
 categories: research sgx
 ---
 ### Objective
-The objective is to successfully install Intel SGX version 1.8 with Simulation library on Ubuntu 16.04 x64 bit without SGX-enabled CPU.
+The objective is to successfully install Intel SGX version 1.8 with Simulation library on Ubuntu 16.04 x64 without SGX-enabled CPU.
 
 ### Documentation
 1. [Intel SGX Linux Github Homepage] [linux-sgx]
