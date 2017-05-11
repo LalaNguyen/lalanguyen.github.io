@@ -405,6 +405,7 @@ uintptr_t _ECREATE(page_info_t* pi)
     // Assign the base address in SECS to the beginning of protected region
     ce->get_secs()->base = addr;
 
+    // Initialize Enclave Manager and add the Simulated Enclave to it
     CEnclaveMngr::get_instance()->add(ce);
     return reinterpret_cast<uintptr_t>(ce);
 }
@@ -454,7 +455,8 @@ Releases, decommits, or releases and decommits a region of pages within the virt
 Upon succesful, mmap [[5]][mmap] returns a pointer to mapped area. The file descriptor `fd =-1` indicates that we do not map to file, but map directly to system's memory.
 
 In summary, we can observe:
-* OS prepares the `secs` structure, fills in the `PAGEINFO` with SRCPGE to unprotected SECS and set the `SECINFO` to `PT_SECS`
+* Enclaves are managed by Enclave Manager
+* OS prepares the `SECS` structure, fills in the `PAGEINFO` with SRCPGE to unprotected SECS and set the `SECINFO` to `PT_SECS`
 * The `PAGEINFO` is fed to the simulated `ECREATE`
 * The `ECREATE` checks for if the Enclave size must be at least 2 pages and a power of 2
 * The `ECREATE` copies page from unprotected SECS to protected SECS only accessible by the class `CEnclaveSim`
