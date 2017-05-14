@@ -1,5 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-11T16:56:02+08:00</updated><id>http://localhost:4000/</id><title type="html">My Research Corner</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">How EADD works in simulation</title><link href="http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation.html" rel="alternate" type="text/html" title="How EADD works in simulation" /><published>2017-05-11T11:40:55+08:00</published><updated>2017-05-11T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-14T16:00:36+08:00</updated><id>http://localhost:4000/</id><title type="html">My Research Corner</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">On the performance of Intel SGX in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html" rel="alternate" type="text/html" title="On the performance of Intel SGX in Simulation Mode" /><published>2017-05-12T19:56:55+08:00</published><updated>2017-05-12T19:56:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;The objective is to benchmark Intel SGX performance in term of memory access. I wrote a small program &lt;a href=&quot;http://localhost:4000/codes/BenchmarkEnclave.tar.gz&quot;&gt;[3]&lt;/a&gt; to compare between the native environment (without SGX) and SGX-protected environment.&lt;/p&gt;
+
+&lt;h2 id=&quot;systems-info&quot;&gt;Systems Info&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/system-info.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;experiment-descriptions&quot;&gt;Experiment Descriptions&lt;/h2&gt;
+&lt;p&gt;The test program aims to test 4 cases on memory access on both SGX and non-SGX version (i.e., native environment):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sequential read&lt;/li&gt;
+  &lt;li&gt;Sequential write&lt;/li&gt;
+  &lt;li&gt;Random read&lt;/li&gt;
+  &lt;li&gt;Random write&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are two experiments: one for SGX and one for non-SGX version. For each experiment, I run test on 4 types of memory access on an array.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;For each type of memory access, I run it &lt;code class=&quot;highlighter-rouge&quot;&gt;1,000&lt;/code&gt; times on a fixed-size &lt;code class=&quot;highlighter-rouge&quot;&gt;int array[MAX_SIZE]&lt;/code&gt; whose &lt;code class=&quot;highlighter-rouge&quot;&gt;MAX_SIZE&lt;/code&gt; is varied from &lt;code class=&quot;highlighter-rouge&quot;&gt;10&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;1,000,000&lt;/code&gt;. Then I calculate the average time the program executes. Time is measured in microsecond.s&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;implementation-details&quot;&gt;Implementation Details&lt;/h2&gt;
+
+&lt;p&gt;The program structure is listed as follows:
+&lt;img src=&quot;http://localhost:4000/images/native-benchmark.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;where as:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;App.h&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;App.cpp&lt;/code&gt; includes our main procedure and clock-timing.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;benchmark.h&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;benchmark.cpp&lt;/code&gt; includes our codes for testing native environment. Four functions are declared as follows:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;benchmark&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#ifndef BENCHMARK_H    // To make sure you don't declare the function more than once by including the header multiple times.
+#define BENCHMARK_H
+&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#define MAX_ELEMENT 1000000 // No.Elements in array
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_sequential_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_sequential_write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_random_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_random_write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;#endif
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.cpp&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.edl&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.h&lt;/code&gt; contains our codes for testing SGX performance via four ECALL enclave’s functions as follows:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Enclave&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;edl&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;trusted&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecall_test_sequential_write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecall_test_sequential_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecall_test_random_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ecall_test_random_write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.lds&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.config.xml&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave_private.pem&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; are configuration files copied from Intel SGX &lt;code class=&quot;highlighter-rouge&quot;&gt;SampleEnclave&lt;/code&gt; directory. Since some tests requires large array with more than &lt;code class=&quot;highlighter-rouge&quot;&gt;100,000&lt;/code&gt; elements (i.e., &amp;gt; 400KB), I need to extends the size of stack so I need to modify &lt;code class=&quot;highlighter-rouge&quot;&gt;Enclave.config.xml&lt;/code&gt;. Also, I add &lt;code class=&quot;highlighter-rouge&quot;&gt;benchmark.cpp&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Here is the visualization of execution flows of the test program:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/benchmark-execution-flow.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is important to note that &lt;code class=&quot;highlighter-rouge&quot;&gt;rand()&lt;/code&gt; is unavailable inside enclave so Intel suggests us to use &lt;code class=&quot;highlighter-rouge&quot;&gt;sgx_read_rand()&lt;/code&gt; instead to generate a random sequence.&lt;/p&gt;
+
+&lt;h2 id=&quot;discussion&quot;&gt;Discussion&lt;/h2&gt;
+
+&lt;p&gt;The below results reveal that SGX in simulation mode suffers around 7.5% overhead performance in comparison to native run. [IN] represents codes executed in enclave and [OUT] represents codes executed in native environment. I looked up the Intel forum and found out that this conclusion is similar to that described in &lt;a href=&quot;https://software.intel.com/en-us/forums/intel-software-guard-extensions-intel-sgx/topic/721026&quot;&gt;[1]&lt;/a&gt;. Following up the response from Intel, the reason was deemed to be linking on different libraries that hold the random number generator function. It is advised to compare between simulation mode and hardware mode. In my computer, L3 cache can hold up to 6MB, which is far greater than 400 KB. As Intel SGX memory encryption engine supports performance by caching data, the  cache miss cannot be a real problem.&lt;/p&gt;
+
+&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;https://plot.ly/~LalaNguyen/1.embed&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://software.intel.com/en-us/forums/intel-software-guard-extensions-intel-sgx/topic/721026&quot;&gt;SGX random memory access overheads by Muhammad Bilal
+&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://software.intel.com/en-us/node/709094&quot;&gt;sgx_read_rand description&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://localhost:4000/codes/BenchmarkEnclave.tar.gz&quot;&gt;This tutorial benchmark code&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Objective The objective is to benchmark Intel SGX performance in term of memory access. I wrote a small program [3] to compare between the native environment (without SGX) and SGX-protected environment.</summary></entry><entry><title type="html">How EADD works in simulation</title><link href="http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation.html" rel="alternate" type="text/html" title="How EADD works in simulation" /><published>2017-05-11T11:40:55+08:00</published><updated>2017-05-11T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/11/how-EADD-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;The objective is to understand how a free EPC page is selected by a system software, and how &lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; loads code and data into an enclave. Similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;ECREATE&lt;/code&gt;, we review theory and observe the code in practice (i.e., simulation mode).&lt;/p&gt;
 
 &lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
@@ -29,7 +114,7 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;SECINFO&lt;/code&gt; further
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; copies 4KB of data from unprotected memory outside of EPC to the allocated EPC selected by system software&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; updates &lt;code class=&quot;highlighter-rouge&quot;&gt;Page Table Entry&lt;/code&gt; for the new mapping inside EPC&lt;/li&gt;
   &lt;li&gt;The system software (OS/Hypervisor) is responsible for selecting (1)  free EPC page, (2) type of page to be added, (3) attribute of the page, (4) content of the page, and (5) the SECS to which the page is added to. So the &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; is determined by the untrusted system software.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; asks the processor to associate the page to the &lt;code class=&quot;highlighter-rouge&quot;&gt;protected SECS&lt;/code&gt; provided as input. During the association, protected &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS.MRENCLAVE&lt;/code&gt; is updated by &lt;code class=&quot;highlighter-rouge&quot;&gt;EEXTEND&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; asks the processor to associate the page to the &lt;code class=&quot;highlighter-rouge&quot;&gt;protected SECS&lt;/code&gt; provided as input. This association happens in &lt;code class=&quot;highlighter-rouge&quot;&gt;EPCM&lt;/code&gt;. During the association, protected &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS.MRENCLAVE&lt;/code&gt; is updated by &lt;code class=&quot;highlighter-rouge&quot;&gt;EEXTEND&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; records &lt;code class=&quot;highlighter-rouge&quot;&gt;EPCM&lt;/code&gt; information in a cryptographic log stored in &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; asks the processor to initialize the EPCM entry to add the type of page (e.g., PT_REG or PT_TCS), the  linear address used by enclave to access the page, and the enclave RWX permission on the page&lt;/li&gt;
 &lt;/ul&gt;
@@ -39,7 +124,9 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;SECINFO&lt;/code&gt; further
 &lt;p&gt;This &lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; instruction requires ring-0 privileges and receives address of PAGEINFO struct and address of destination EPC page
 &lt;img src=&quot;http://localhost:4000/images/EADD.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;As for &lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; instruction, &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt; structure is prepared by the system software &lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;[1]&lt;/a&gt; with the &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; of owner enclave &lt;a href=&quot;https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf&quot;&gt;[4]&lt;/a&gt;. It is important to note that the &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; is determined by the system software. The &lt;code class=&quot;highlighter-rouge&quot;&gt;SRCPGE&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt; contains the effective address of the source/outside/unprotected SECS. The RCX register is the effective address of the destination SECS. It is an address of an empty slot in the EPC.&lt;/p&gt;
+&lt;p&gt;As for &lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; instruction, &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt; structure is prepared by the system software &lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;[1]&lt;/a&gt; with the &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; of owner enclave &lt;a href=&quot;https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf&quot;&gt;[4]&lt;/a&gt;. It is important to note that the &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; is determined by the system software. The &lt;code class=&quot;highlighter-rouge&quot;&gt;SRCPGE&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt; contains the effective address of the source page. The RCX register is the effective address of the destination EPC. It is an address of an empty slot in the EPC. The figure belows &lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;[1]&lt;/a&gt; illustrates the role of &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/eadd-epcm.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;practice&quot;&gt;Practice&lt;/h2&gt;
 
@@ -225,7 +312,7 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;SECINFO&lt;/code&gt; further
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;c1&quot;&gt;// Check for page alignment
 &lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;GP_ON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IS_PAGE_ALIGNED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;epc_lin_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// Check for proper security flags
+    &lt;span class=&quot;c1&quot;&gt;// Check for if the SGX_FLAGS_INITTED is on since it cannot add more page when the attribute is set to initialized
 &lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;GP_ON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ce&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_secs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;flags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SGX_FLAGS_INITTED&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 
     &lt;span class=&quot;c1&quot;&gt;// Make the page writable before doing memcpy()
@@ -243,7 +330,14 @@ The &lt;code class=&quot;highlighter-rouge&quot;&gt;SECINFO&lt;/code&gt; further
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Up to this point, it is not clear how OS selects a free EPC page, and a newly created EPC is assigned to SECS page. Since the EPC pages are allocated during &lt;code class=&quot;highlighter-rouge&quot;&gt;ECREATE&lt;/code&gt;, I assume that they only deal with virtual memory address of EPC.&lt;/p&gt;</content><author><name></name></author><summary type="html">Objective The objective is to understand how a free EPC page is selected by a system software, and how EADD loads code and data into an enclave. Similar to ECREATE, we review theory and observe the code in practice (i.e., simulation mode).</summary></entry><entry><title type="html">How ECREATE works in simulation</title><link href="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html" rel="alternate" type="text/html" title="How ECREATE works in simulation" /><published>2017-05-10T11:40:55+08:00</published><updated>2017-05-10T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Up to this point, it is clear that OS fills in &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;EADD&lt;/code&gt; cannot proceed if &lt;code class=&quot;highlighter-rouge&quot;&gt;SGX_FLAGS_INITTED&lt;/code&gt; is set. However, it is not clear how OS selects a free EPC page, and a newly created EPC is assigned to SECS page. Since the EPC pages are allocated during &lt;code class=&quot;highlighter-rouge&quot;&gt;ECREATE&lt;/code&gt;, I assume that they only deal with virtual memory address of EPC. It is expected that:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The processor updates &lt;code class=&quot;highlighter-rouge&quot;&gt;EPCM&lt;/code&gt;’s&lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;SECS&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;PAGEINFO&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;The processor updates &lt;code class=&quot;highlighter-rouge&quot;&gt;EPCM&lt;/code&gt;’s&lt;code class=&quot;highlighter-rouge&quot;&gt;LINADDR&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;epc_lin_addr&lt;/code&gt; of newly created EPC.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since &lt;code class=&quot;highlighter-rouge&quot;&gt;EPCM&lt;/code&gt; is not available in the simulation scheme, I guess this is what they meant by &lt;code class=&quot;highlighter-rouge&quot;&gt;no hardware protection&lt;/code&gt;. While loading an enclave, the system software will also use the &lt;code class=&quot;highlighter-rouge&quot;&gt;EEXTEND&lt;/code&gt; instruction, which updates the
+enclave’s measurement used in the software attestation process. Nonetheless, there is no simulation code for &lt;code class=&quot;highlighter-rouge&quot;&gt;EEXTEND&lt;/code&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Objective The objective is to understand how a free EPC page is selected by a system software, and how EADD loads code and data into an enclave. Similar to ECREATE, we review theory and observe the code in practice (i.e., simulation mode).</summary></entry><entry><title type="html">How ECREATE works in simulation</title><link href="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html" rel="alternate" type="text/html" title="How ECREATE works in simulation" /><published>2017-05-10T11:40:55+08:00</published><updated>2017-05-10T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;The objective is to understand how an sgx enclave is created in theory and in practice (i.e., simulation mode).&lt;/p&gt;
 
 &lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;

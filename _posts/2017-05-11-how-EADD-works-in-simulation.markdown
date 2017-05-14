@@ -31,7 +31,7 @@ The `SECINFO` further describe the page type and the state of the page
 * `EADD` copies 4KB of data from unprotected memory outside of EPC to the allocated EPC selected by system software
 * `EADD` updates `Page Table Entry` for the new mapping inside EPC
 * The system software (OS/Hypervisor) is responsible for selecting (1)  free EPC page, (2) type of page to be added, (3) attribute of the page, (4) content of the page, and (5) the SECS to which the page is added to. So the `SECS` is determined by the untrusted system software.
-* `EADD` asks the processor to associate the page to the `protected SECS` provided as input. During the association, protected `SECS.MRENCLAVE` is updated by `EEXTEND`
+* `EADD` asks the processor to associate the page to the `protected SECS` provided as input. This association happens in `EPCM`. During the association, protected `SECS.MRENCLAVE` is updated by `EEXTEND`
 * `EADD` records `EPCM` information in a cryptographic log stored in `SECS`.
 * `EADD` asks the processor to initialize the EPCM entry to add the type of page (e.g., PT_REG or PT_TCS), the  linear address used by enclave to access the page, and the enclave RWX permission on the page
 
@@ -40,7 +40,10 @@ After a page has been added to an enclave, software can measure a 256 byte regio
 This `EADD` instruction requires ring-0 privileges and receives address of PAGEINFO struct and address of destination EPC page
 ![My helpful screenshot]({{site.url}}/images/EADD.png)
 
-As for `EADD` instruction, `PAGEINFO` structure is prepared by the system software [[1]][sgx-explain] with the `SECS` of owner enclave [[4]][program-reference]. It is important to note that the `SECS` is determined by the system software. The `SRCPGE` of `PAGEINFO` contains the effective address of the source/outside/unprotected SECS. The RCX register is the effective address of the destination SECS. It is an address of an empty slot in the EPC.
+As for `EADD` instruction, `PAGEINFO` structure is prepared by the system software [[1]][sgx-explain] with the `SECS` of owner enclave [[4]][program-reference]. It is important to note that the `SECS` is determined by the system software. The `SRCPGE` of `PAGEINFO` contains the effective address of the source page. The RCX register is the effective address of the destination EPC. It is an address of an empty slot in the EPC. The figure belows [[1]][sgx-explain] illustrates the role of `PAGEINFO`.
+
+![My helpful screenshot]({{site.url}}/images/eadd-epcm.png)
+
 
 ## Practice
 
@@ -227,7 +230,7 @@ uintptr_t _EADD(page_info_t* pi, void *epc_lin_addr)
     }
     // Check for page alignment
     GP_ON(!IS_PAGE_ALIGNED(epc_lin_addr));
-    // Check for proper security flags
+    // Check for if the SGX_FLAGS_INITTED is on since it cannot add more page when the attribute is set to initialized
     GP_ON((ce->get_secs()->attributes.flags & SGX_FLAGS_INITTED) != 0);
 
     // Make the page writable before doing memcpy()
@@ -244,7 +247,12 @@ uintptr_t _EADD(page_info_t* pi, void *epc_lin_addr)
 }
 ```
 
-Up to this point, it is not clear how OS selects a free EPC page, and a newly created EPC is assigned to SECS page. Since the EPC pages are allocated during `ECREATE`, I assume that they only deal with virtual memory address of EPC.
+Up to this point, it is clear that OS fills in `PAGEINFO` and `EADD` cannot proceed if `SGX_FLAGS_INITTED` is set. However, it is not clear how OS selects a free EPC page, and a newly created EPC is assigned to SECS page. Since the EPC pages are allocated during `ECREATE`, I assume that they only deal with virtual memory address of EPC. It is expected that:
+* The processor updates `EPCM`'s`SECS` with `SECS` from `PAGEINFO`
+* The processor updates `EPCM`'s`LINADDR` with `epc_lin_addr` of newly created EPC.
+
+Since `EPCM` is not available in the simulation scheme, I guess this is what they meant by `no hardware protection`. While loading an enclave, the system software will also use the `EEXTEND` instruction, which updates the
+enclave’s measurement used in the software attestation process. Nonetheless, there is no simulation code for `EEXTEND`.
 
 [sgx-explain]:https://eprint.iacr.org/2016/086.pdf
 [sgx-developer]:https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf
