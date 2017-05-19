@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-14T16:00:36+08:00</updated><id>http://localhost:4000/</id><title type="html">My Research Corner</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-</subtitle><entry><title type="html">On the performance of Intel SGX in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html" rel="alternate" type="text/html" title="On the performance of Intel SGX in Simulation Mode" /><published>2017-05-12T19:56:55+08:00</published><updated>2017-05-12T19:56:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-05-19T10:24:38+08:00</updated><id>http://localhost:4000/</id><title type="html">My Research Corner</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</subtitle><entry><title type="html">How EINIT works in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode.html" rel="alternate" type="text/html" title="How EINIT works in Simulation Mode" /><published>2017-05-19T10:00:00+08:00</published><updated>2017-05-19T10:00:00+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;The objective is to understand how an enclave is initialized and launched by an architectural enclave - the Launch Enclave (LE). I review this instruction in both theory and practice (i.e., Simulation Mode).&lt;/p&gt;
+
+&lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;Intel SGX Explained - Page 64&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf&quot;&gt;Intel SGX SDK Developer Reference for Linux 1.8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf&quot;&gt;Intel Programming Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;theory&quot;&gt;Theory&lt;/h2&gt;
+
+&lt;p&gt;After enclave’s code and data are loaded, &lt;code class=&quot;highlighter-rouge&quot;&gt;EINIT&lt;/code&gt; is invoked to complete the enclave creation process. &lt;code class=&quot;highlighter-rouge&quot;&gt;EINIT&lt;/code&gt; finalizes the enclave measurement to establish the (1) enclave entity and (2) sealing entity used by &lt;code class=&quot;highlighter-rouge&quot;&gt;EGETKEY&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;EREPORT&lt;/code&gt; during &lt;code class=&quot;highlighter-rouge&quot;&gt;software attestation&lt;/code&gt;. Until an &lt;code class=&quot;highlighter-rouge&quot;&gt;EINIT&lt;/code&gt; is executed, the enclave is not permitted to execute any enclave code(i.e., entering enclave by executing EENTER).&lt;/p&gt;
+
+&lt;p&gt;A correct construction results in the cryptographic log &lt;code class=&quot;highlighter-rouge&quot;&gt;EINITTOKEN&lt;/code&gt; matching the one built by enclave owner in &lt;code class=&quot;highlighter-rouge&quot;&gt;SIGSTRUCT&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;sigstruct--einittoken&quot;&gt;SIGSTRUCT &amp;amp; EINITTOKEN&lt;/h3&gt;
+
+&lt;p&gt;According to&lt;/p&gt;</content><author><name></name></author><summary type="html">Objective The objective is to understand how an enclave is initialized and launched by an architectural enclave - the Launch Enclave (LE). I review this instruction in both theory and practice (i.e., Simulation Mode).</summary></entry><entry><title type="html">On the performance of Intel SGX in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html" rel="alternate" type="text/html" title="On the performance of Intel SGX in Simulation Mode" /><published>2017-05-12T19:56:55+08:00</published><updated>2017-05-12T19:56:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/12/On-the-performance-of-Intel-SGX.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;The objective is to benchmark Intel SGX performance in term of memory access. I wrote a small program &lt;a href=&quot;http://localhost:4000/codes/BenchmarkEnclave.tar.gz&quot;&gt;[3]&lt;/a&gt; to compare between the native environment (without SGX) and SGX-protected environment.&lt;/p&gt;
 
 &lt;h2 id=&quot;systems-info&quot;&gt;Systems Info&lt;/h2&gt;
@@ -90,7 +108,7 @@
 &lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;Intel SGX Explained - Page 64&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf&quot;&gt;Intel SGX SDK Developer Reference for Linux 1.8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Developer_Reference_Linux_1.8_Open_Source.pdf&quot;&gt;Intel SGX SDK Developer Reference for Linux 1.8&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://insujang.github.io/2017-04-14/intel-sgx-sdk-functions-for-enclave-creation/&quot;&gt;Intel SGX SDK Functions for Enclave Creation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf&quot;&gt;Intel Programming Reference&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://man7.org/linux/man-pages/man2/mmap.2.html&quot;&gt;Linux’s mmap&lt;/a&gt;&lt;/li&gt;
@@ -343,7 +361,7 @@ enclave’s measurement used in the software attestation process. Nonetheless, t
 &lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
 &lt;ol&gt;
   &lt;li&gt;&lt;a href=&quot;https://eprint.iacr.org/2016/086.pdf&quot;&gt;Intel SGX Explained - Page 63&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf&quot;&gt;Intel SGX SDK Developer Reference for Linux 1.8&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Developer_Reference_Linux_1.8_Open_Source.pdf&quot;&gt;Intel SGX SDK Developer Reference for Linux 1.8&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://insujang.github.io/2017-04-14/intel-sgx-sdk-functions-for-enclave-creation/&quot;&gt;Intel SGX SDK Functions for Enclave Creation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf&quot;&gt;Intel Programming Reference&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://man7.org/linux/man-pages/man2/mmap.2.html&quot;&gt;Linux’s mmap&lt;/a&gt;&lt;/li&gt;

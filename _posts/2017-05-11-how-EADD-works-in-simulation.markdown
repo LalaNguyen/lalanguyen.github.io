@@ -255,7 +255,7 @@ Since `EPCM` is not available in the simulation scheme, I guess this is what the
 enclave’s measurement used in the software attestation process. Nonetheless, there is no simulation code for `EEXTEND`.
 
 [sgx-explain]:https://eprint.iacr.org/2016/086.pdf
-[sgx-developer]:https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Installation_Guide_Linux_1.8_Open_Source.pdf
+[sgx-developer]:https://download.01.org/intel-sgx/linux-1.8/docs/Intel_SGX_SDK_Developer_Reference_Linux_1.8_Open_Source.pdf
 [github-link]:https://insujang.github.io/2017-04-14/intel-sgx-sdk-functions-for-enclave-creation/
 [program-reference]:https://software.intel.com/sites/default/files/managed/48/88/329298-002.pdf
 [mmap]:http://man7.org/linux/man-pages/man2/mmap.2.html
