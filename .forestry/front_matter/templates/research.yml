@@ -4,6 +4,11 @@ hide_body: false
 is_partial: false
 fields:
 - type: text
+  label: Layout
+  name: layout
+  default: post
+  config:
+    required: true
 - type: datetime
   config:
     display_utc: true
