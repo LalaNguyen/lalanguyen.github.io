@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "How EADD works in simulation"
-date:   2017-05-11 11:40:55 +0800
+title: How EADD works in Simulation Mode
+date: 2017-05-11 03:40:55 +0000
 categories: research sgx
+
 ---
 ## Objective
 The objective is to understand how a free EPC page is selected by a system software, and how `EADD` loads code and data into an enclave. Similar to `ECREATE`, we review theory and observe the code in practice (i.e., simulation mode).
