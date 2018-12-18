@@ -13,5 +13,8 @@ fields:
   config:
     display_utc: true
     required: true
+- type: tag_list
+  name: categories
+  label: Categories
 pages:
 - _posts/how-ecall-ocall-works-in-sgx.md
