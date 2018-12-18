@@ -16,5 +16,10 @@ fields:
 - type: tag_list
   name: categories
   label: Categories
+- type: text
+  name: title
+  label: Title
+  config:
+    required: true
 pages:
 - _posts/how-ecall-ocall-works-in-sgx.md
