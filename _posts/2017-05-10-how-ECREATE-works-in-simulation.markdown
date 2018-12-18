@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "How ECREATE works in simulation"
-date:   2017-05-10 11:40:55 +0800
+title: How ECREATE works in Simulation Mode
+date: 2017-05-10 03:40:55 +0000
 categories: research sgx
+
 ---
 ## Objective
 The objective is to understand how an sgx enclave is created in theory and in practice (i.e., simulation mode).
