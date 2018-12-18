@@ -31,7 +31,7 @@ There are two experiments: one for SGX and one for non-SGX version. For each exp
 The program structure is listed as follows:
 ![My helpful screenshot]({{site.url}}/images/native-benchmark.png)
 
-where as:
+where as: 
 
 * `App.h` and `App.cpp` includes our main procedure and clock-timing.
 * `benchmark.h` and `benchmark.cpp` includes our codes for testing native environment. Four functions are declared as follows:
