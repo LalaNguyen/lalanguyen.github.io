@@ -33,7 +33,6 @@ exclude:
   - Gemfile
   - Gemfile.lock
 
-comments: true
 google_analytics: UA-98946537-1
 # Add this line so jekyll will not delete this folder when we edit somethings
 keep_files: ["images"]

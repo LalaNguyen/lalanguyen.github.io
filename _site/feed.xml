@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-12T11:13:31+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Research Corner</title><subtitle>Write a description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-12T13:46:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">My Research Corner</title><subtitle>Write a description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </subtitle><entry><title type="html">How EINIT works in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode.html" rel="alternate" type="text/html" title="How EINIT works in Simulation Mode" /><published>2017-05-19T10:00:00+08:00</published><updated>2017-05-19T10:00:00+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/19/how-EINIT-works-in-Simulation-Mode.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;The objective is to understand how an enclave is initialized and launched by an architectural enclave - the Launch Enclave (LE). I review this instruction in both theory and practice (i.e., Simulation Mode).&lt;/p&gt;
 
@@ -743,7 +743,29 @@ sudo ./linux/installer/bin/sgx_linux_x64_sdk_1.8.100.37739.bin
 &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /opt/intel/sgxsdk/SampleCode/SampleEnclave/
 sudo make &lt;span class=&quot;nv&quot;&gt;SGX_MODE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;SIM
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Objective The objective is to successfully install Intel SGX version 1.8 with Simulation library on Ubuntu 16.04 x64 without SGX-enabled CPU.</summary></entry><entry><title type="html">How ECREATE works in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html" rel="alternate" type="text/html" title="How ECREATE works in Simulation Mode" /><published>2017-05-10T11:40:55+08:00</published><updated>2017-05-10T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+this.page.url = &quot;https://lalanguyen.github.io/research/sgx/2017/05/10/Installing-Intel-SGX-v1.8-with-Simulation-on-Ubuntu-16.04-x64-bit.html&quot;;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = ; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://sgx-install.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+&lt;/script&gt;
+
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</content><author><name></name></author><summary type="html">Objective The objective is to successfully install Intel SGX version 1.8 with Simulation library on Ubuntu 16.04 x64 without SGX-enabled CPU.</summary></entry><entry><title type="html">How ECREATE works in Simulation Mode</title><link href="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html" rel="alternate" type="text/html" title="How ECREATE works in Simulation Mode" /><published>2017-05-10T11:40:55+08:00</published><updated>2017-05-10T11:40:55+08:00</updated><id>http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation</id><content type="html" xml:base="http://localhost:4000/research/sgx/2017/05/10/how-ECREATE-works-in-simulation.html">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;The objective is to understand how an sgx enclave is created in theory and in practice (i.e., simulation mode).&lt;/p&gt;
 
 &lt;h2 id=&quot;documentation&quot;&gt;Documentation&lt;/h2&gt;
