@@ -25,6 +25,7 @@ twitter_username: jekyllrb
 github_username:  lalanguyen
 
 # Build settings
+future: true
 markdown: kramdown
 theme: minima
 gems:

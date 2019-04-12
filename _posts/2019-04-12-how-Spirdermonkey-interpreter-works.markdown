@@ -1,8 +1,8 @@
 ---
 layout: post
 title: How Spidermonkey's interpreter works
-date: 2019-04-12 12:11:51 +0000
-categories: research spidermonkey
+date: 2019-04-12 15:11:51 +0000
+categories: [research,spidermonkey]
 
 ---
 
